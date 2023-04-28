@@ -31,12 +31,12 @@ Prioridad.o:
 	g++ -c Prioridad.cc $(OPCIONS)
 
 open:
-	kate *.cc [^B]*.hh
+	kate *.cc [^B]*.hh Makefile ./entrega_intermedia/s* &
 
-test_program: program.exe
+testprogram: program.exe
 	./program.exe < ./entrega_intermedia/sample_intermedia.inp > test.txt
 
-test_test: program.o Cluster.o Procesador.o Proceso.o Area_Espera.o Prioridad.o
+test: Cluster.o Procesador.o Proceso.o Area_Espera.o Prioridad.o
 	g++ -c test.cc $(OPCIONS)
 	g++ -o test.exe test.o Cluster.o Procesador.o Proceso.o Area_Espera.o Prioridad.o
 	./test.exe
@@ -46,7 +46,7 @@ save: clean
 	git commit
 doxygen:
 	doxygen
-	google-chrome ./DOC/html/index.html
+	google-chrome ./DOC/html/index.html &
 
 clean:
 	rm -f *.o

@@ -87,15 +87,13 @@ void Cluster::escribir_procesadores() const {
 }
 
 void Cluster::escribir_estructura_aux(const BinTree<string>& e) {
-    cout << '(' << e.value();
-    if (e.empty()) {
-        cout << "  ";
-    }
-    else {
+    if (not e.empty()) {
+        cout << '(' << e.value();
         escribir_estructura_aux(e.left());
         escribir_estructura_aux(e.right());
+        cout << ')';
     }
-    cout << ')';
+    else cout << ' ';
 }
 
 void Cluster::escribir_estructura() const {

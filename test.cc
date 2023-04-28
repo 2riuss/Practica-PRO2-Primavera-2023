@@ -12,5 +12,11 @@
 using namespace std;
 
 int main() {
-    Procesador p;
+    map<int, Proceso> procesos;
+    vector<map<int, Proceso>::iterator> a(10, procesos.end());
+    cout << true << ' ' << false << endl;
+    for (int i = 0; i < a.size(); ++i) {
+        if(a[i] != procesos.end()) cout << 1;
+        else cout << 0;
+    }
 }

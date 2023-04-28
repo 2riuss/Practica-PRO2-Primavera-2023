@@ -43,7 +43,6 @@ private:
      * \post <em>e</em> contiene la estructura del cluster del canal estandar de entrada y sus procesadores se han añadido a <em>proc</em>
      */
     static void leer_cluster_aux(map<string, Procesador>& proc, BinTree<string>& e);
-// pre: e no buit
     static void escribir_estructura_aux(const BinTree<string>& e);
 
 // pre: procesador id pertenece a e
