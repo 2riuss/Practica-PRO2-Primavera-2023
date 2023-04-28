@@ -27,8 +27,7 @@ using namespace std;
  */
 class Procesador {
 private:
-    map<int, Proceso> procesos;
-    vector<map<int, Proceso>::iterator> mem;
+    vector<Proceso> mem;
 
     /* Invariante de la representacion
      *

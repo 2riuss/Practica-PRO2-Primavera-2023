@@ -33,11 +33,11 @@ int main() {
     string cmd;
     cin >> cmd;
     while (cmd != "fin") {
-        cout << '#' << cmd << endl;
 
         if (cmd == "cc" or cmd == "configurar_cluster") {
             c.clear();
             c.leer_cluster();
+            cout << '#' << cmd << endl;
         }
 /*
         else if (cmd == "mc" or cmd == "modificar_cluster") {
@@ -45,6 +45,7 @@ int main() {
             cin >> p;
             Cluster aux;
             aux.leer_cluster();
+            cout << '#' << cmd << ' ' << p << endl;
 
             if (not c.existe_procesador(p)) {
                 cout << "error: no existe procesador" << endl;
@@ -62,6 +63,7 @@ int main() {
         else if (cmd == "ap" or cmd == "alta_prioridad") {
             string id;
             cin >> id;
+            cout << '#' << cmd << ' ' << id << endl;
 
             if (ae.existe_prioridad(id)) {
                 cout << "error: ya existe prioridad" << endl;
@@ -73,9 +75,10 @@ int main() {
         else if (cmd == "bp" or cmd == "baja_prioridad") {
             string id;
             cin >> id;
+            cout << '#' << cmd << ' ' << id << endl;
 
             if (not ae.existe_prioridad(id)) {
-                cout << "error: no existe prioridad " << endl;
+                cout << "error: no existe prioridad" << endl;
             }
             else if (not ae.prioridad_vacia(id)) {
                 cout << "error: prioridad con procesos" << endl;
@@ -89,9 +92,10 @@ int main() {
             cin >> id;
             Proceso job;
             job.leer_proceso();
+            cout << '#' << cmd << ' ' << id << ' ' << job.consultar_id() << endl;
 
             if (not ae.existe_prioridad(id)) {
-                cout << "error: no existe prioridad " << endl;
+                cout << "error: no existe prioridad" << endl;
             }
             else if (ae.existe_proceso(id, job.consultar_id())) {
                 cout << "error: ya existe proceso" << endl;
@@ -105,6 +109,7 @@ int main() {
             cin >> p;
             Proceso job;
             job.leer_proceso();
+            cout << '#' << cmd << ' ' << p << ' ' << job.consultar_id() << endl;
 
             if (not c.existe_procesador(p)) {
                 cout << "error: no existe procesador" << endl;
@@ -112,7 +117,7 @@ int main() {
             else if (c.existe_proceso(p, job.consultar_id())) {
                 cout << "error: ya existe proceso" << endl;
             }
-            else if (c.cabe_proceso(p, job)) {
+            else if (not c.cabe_proceso(p, job)) {
                 cout << "error: no cabe proceso" << endl;
             }
 
@@ -123,6 +128,7 @@ int main() {
             string p;
             int n;
             cin >> p >> n;
+            cout << '#' << cmd << ' ' << p << ' ' << n << endl;
 
             if (not c.existe_procesador(p)) {
                 cout << "error: no existe procesador" << endl;
@@ -137,6 +143,7 @@ int main() {
         else if (cmd == "epc" or cmd == "enviar_procesos_cluster") {
             int n;
             cin >> n;
+            cout << '#' << cmd << ' ' << n << endl;
 
             ae.enviar_procesos_cluster(c, n);
         }
@@ -144,6 +151,7 @@ int main() {
         else if (cmd == "at" or cmd == "avanzar_tiempo") {
             int t;
             cin >> t;
+            cout << '#' << cmd << ' ' << t << endl;
 
             c.avanzar_tiempo(t);
         }
@@ -151,6 +159,7 @@ int main() {
         else if (cmd == "ipri" or cmd == "imprimir_prioridad") {
             string id;
             cin >> id;
+            cout << '#' << cmd << ' ' << id << endl;
 
             if (not ae.existe_prioridad(id)) {
                 cout << "error: no existe prioridad" << endl;
@@ -160,12 +169,15 @@ int main() {
         }
 
         else if (cmd == "iae" or cmd == "imprimir_area_espera") {
+            cout << '#' << cmd << endl;
+
             ae.escribir_area_espera();
         }
 
         else if (cmd == "ipro" or cmd == "imprimir_procesador") {
             string p;
             cin >> p;
+            cout << '#' << cmd << ' ' << p << endl;
 
             if (not c.existe_procesador(p)) {
                 cout << "error: no existe procesador" << endl;
@@ -175,16 +187,21 @@ int main() {
         }
 
         else if (cmd == "ipc" or cmd == "imprimir_procesadores_cluster") {
+            cout << '#' << cmd << endl;
+
             c.escribir_procesadores();
         }
 
         else if (cmd == "iec" or cmd == "imprimir_estructura_cluster") {
+            cout << '#' << cmd << endl;
+
             c.escribir_estructura();
         }
 /*
         else if (cmd == "cmp" or cmd == "compactar_memoria_procesador") {
             string p;
             cin >> p;
+            cout << '#' << cmd << ' ' << p << endl;
 
             if (not c.existe_procesador(p)) {
                 cout << "error: no existe procesador" << endl;
@@ -194,6 +211,8 @@ int main() {
         }
 
         else if (cmd == "cmc" or cmd == "compactar_memoria_cluster") {
+            cout << '#' << cmd << endl;
+
             c.compactar_memoria();
         }
 */

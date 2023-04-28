@@ -35,6 +35,8 @@ open:
 
 testprogram: program.exe
 	./program.exe < ./entrega_intermedia/sample_intermedia.inp > test.txt
+	kate test.txt
+	kompare test.txt ./entrega_intermedia/sample_intermedia.cor &
 
 test: Cluster.o Procesador.o Proceso.o Area_Espera.o Prioridad.o
 	g++ -c test.cc $(OPCIONS)

@@ -30,7 +30,7 @@ void Cluster::clear() {
 }
 
 bool Cluster::existe_procesador(const string& id) const {
-    return procesadores.find(id) == procesadores.end();
+    return procesadores.find(id) != procesadores.end();
 }
 
 bool Cluster::existe_proceso(const string& id, int n) const {
