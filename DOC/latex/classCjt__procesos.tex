@@ -1,0 +1,158 @@
+\hypertarget{classCjt__procesos}{}\doxysection{Referencia de la Clase Cjt\+\_\+procesos}
+\label{classCjt__procesos}\index{Cjt\_procesos@{Cjt\_procesos}}
+
+
+Representa un conjunto de procesos ordenados.  
+
+
+
+
+{\ttfamily \#include $<$Cjt\+\_\+procesos.\+hh$>$}
+
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCjt__procesos_aad797081bc97ff69600c47a98e56b8a2}{Cjt\+\_\+procesos}} ()
+\begin{DoxyCompactList}\small\item\em Constructora por defecto. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCjt__procesos_a4acbe5015edb0a970ba50feb8eabcd0d}{agregar\+\_\+proceso}} (const \mbox{\hyperlink{classProceso}{Proceso}} \&job)
+\begin{DoxyCompactList}\small\item\em Añade un proceso al conjunto de procesos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCjt__procesos_a9f2ebcc293b601973d92dbee7e58a961}{eliminar\+\_\+proceso}} (int n)
+\begin{DoxyCompactList}\small\item\em Elimina un proceso del conjunto de procesos. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCjt__procesos_a32efff235187c9870fb5103d89ffcced}{existe\+\_\+proceso}} (int n) const
+\begin{DoxyCompactList}\small\item\em Indica si el conjunto de procesos contiene el proceso. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCjt__procesos_aa2745f3932bee4b8ef66fed7b3fce691}{vacio}} (const string \&id) const
+\begin{DoxyCompactList}\small\item\em Indica si el conjunto de procesos contiene procesos pendientes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classProceso}{Proceso}} \mbox{\hyperlink{classCjt__procesos_a36634c7fd425cba02251a36b184f0a1d}{proceso}} () const
+\begin{DoxyCompactList}\small\item\em Consultora del proceso mas antiguo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCjt__procesos_a51519f7dfb655da366b2140e379f0344}{escribir\+\_\+\+Cjt\+\_\+procesos}} (const string \&id) const
+\begin{DoxyCompactList}\small\item\em Escribe una prioridad. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Representa un conjunto de procesos ordenados. 
+
+Representa un conjunto de procesos ordenados por antiguedad.
+
+El conjunto de procesos puede añadir y eliminar procesos 
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classCjt__procesos_aad797081bc97ff69600c47a98e56b8a2}\label{classCjt__procesos_aad797081bc97ff69600c47a98e56b8a2}} 
+\index{Cjt\_procesos@{Cjt\_procesos}!Cjt\_procesos@{Cjt\_procesos}}
+\index{Cjt\_procesos@{Cjt\_procesos}!Cjt\_procesos@{Cjt\_procesos}}
+\doxysubsubsection{\texorpdfstring{Cjt\_procesos()}{Cjt\_procesos()}}
+{\footnotesize\ttfamily Cjt\+\_\+procesos\+::\+Cjt\+\_\+procesos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructora por defecto. 
+
+Se ejecuta por defecto al declarar un conjunto de procesos \begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es un conjunto de procesos vacio 
+\end{DoxyPostcond}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classCjt__procesos_a4acbe5015edb0a970ba50feb8eabcd0d}\label{classCjt__procesos_a4acbe5015edb0a970ba50feb8eabcd0d}} 
+\index{Cjt\_procesos@{Cjt\_procesos}!agregar\_proceso@{agregar\_proceso}}
+\index{agregar\_proceso@{agregar\_proceso}!Cjt\_procesos@{Cjt\_procesos}}
+\doxysubsubsection{\texorpdfstring{agregar\_proceso()}{agregar\_proceso()}}
+{\footnotesize\ttfamily void Cjt\+\_\+procesos\+::agregar\+\_\+proceso (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classProceso}{Proceso}} \&}]{job }\end{DoxyParamCaption})}
+
+
+
+Añade un proceso al conjunto de procesos. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se ha añadido el proceso {\itshape job} al P.\+I. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classCjt__procesos_a9f2ebcc293b601973d92dbee7e58a961}\label{classCjt__procesos_a9f2ebcc293b601973d92dbee7e58a961}} 
+\index{Cjt\_procesos@{Cjt\_procesos}!eliminar\_proceso@{eliminar\_proceso}}
+\index{eliminar\_proceso@{eliminar\_proceso}!Cjt\_procesos@{Cjt\_procesos}}
+\doxysubsubsection{\texorpdfstring{eliminar\_proceso()}{eliminar\_proceso()}}
+{\footnotesize\ttfamily void Cjt\+\_\+procesos\+::eliminar\+\_\+proceso (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Elimina un proceso del conjunto de procesos. 
+
+\begin{DoxyPrecond}{Precondición}
+El P.\+I. contine algun proceso 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se ha eliminado el proceso mas antiguo del P.\+I. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classCjt__procesos_a51519f7dfb655da366b2140e379f0344}\label{classCjt__procesos_a51519f7dfb655da366b2140e379f0344}} 
+\index{Cjt\_procesos@{Cjt\_procesos}!escribir\_Cjt\_procesos@{escribir\_Cjt\_procesos}}
+\index{escribir\_Cjt\_procesos@{escribir\_Cjt\_procesos}!Cjt\_procesos@{Cjt\_procesos}}
+\doxysubsubsection{\texorpdfstring{escribir\_Cjt\_procesos()}{escribir\_Cjt\_procesos()}}
+{\footnotesize\ttfamily void Cjt\+\_\+procesos\+::escribir\+\_\+\+Cjt\+\_\+procesos (\begin{DoxyParamCaption}\item[{const string \&}]{id }\end{DoxyParamCaption}) const}
+
+
+
+Escribe una prioridad. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se ha escrito en el canal estandar de salida los procesos del P.\+I. en orden decreciente de antigüedad 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classCjt__procesos_a32efff235187c9870fb5103d89ffcced}\label{classCjt__procesos_a32efff235187c9870fb5103d89ffcced}} 
+\index{Cjt\_procesos@{Cjt\_procesos}!existe\_proceso@{existe\_proceso}}
+\index{existe\_proceso@{existe\_proceso}!Cjt\_procesos@{Cjt\_procesos}}
+\doxysubsubsection{\texorpdfstring{existe\_proceso()}{existe\_proceso()}}
+{\footnotesize\ttfamily bool Cjt\+\_\+procesos\+::existe\+\_\+proceso (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption}) const}
+
+
+
+Indica si el conjunto de procesos contiene el proceso. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado indica si el P.\+I. contiene algun proceso con identificacion {\itshape n} 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classCjt__procesos_a36634c7fd425cba02251a36b184f0a1d}\label{classCjt__procesos_a36634c7fd425cba02251a36b184f0a1d}} 
+\index{Cjt\_procesos@{Cjt\_procesos}!proceso@{proceso}}
+\index{proceso@{proceso}!Cjt\_procesos@{Cjt\_procesos}}
+\doxysubsubsection{\texorpdfstring{proceso()}{proceso()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classProceso}{Proceso}} Cjt\+\_\+procesos\+::proceso (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Consultora del proceso mas antiguo. 
+
+\begin{DoxyPrecond}{Precondición}
+El P.\+I. contine algun proceso 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es el proceso mas antiguo del P.\+I. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classCjt__procesos_aa2745f3932bee4b8ef66fed7b3fce691}\label{classCjt__procesos_aa2745f3932bee4b8ef66fed7b3fce691}} 
+\index{Cjt\_procesos@{Cjt\_procesos}!vacio@{vacio}}
+\index{vacio@{vacio}!Cjt\_procesos@{Cjt\_procesos}}
+\doxysubsubsection{\texorpdfstring{vacio()}{vacio()}}
+{\footnotesize\ttfamily bool Cjt\+\_\+procesos\+::vacio (\begin{DoxyParamCaption}\item[{const string \&}]{id }\end{DoxyParamCaption}) const}
+
+
+
+Indica si el conjunto de procesos contiene procesos pendientes. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado indica si el P.\+I. contiene procesos 
+\end{DoxyPostcond}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Cjt__procesos_8hh}{Cjt\+\_\+procesos.\+hh}}\end{DoxyCompactItemize}

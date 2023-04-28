@@ -1,0 +1,164 @@
+\hypertarget{classProceso}{}\doxysection{Referencia de la Clase Proceso}
+\label{classProceso}\index{Proceso@{Proceso}}
+
+
+Representa un proceso.  
+
+
+
+
+{\ttfamily \#include $<$Proceso.\+hh$>$}
+
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classProceso_a632f57d6ec48e76c80fbeb7734c1148c}{Proceso}} ()
+\begin{DoxyCompactList}\small\item\em Constructora por defecto. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProceso_aacfa317b627623ffde171bd0e1419ac8}{avanzar\+\_\+tiempo}} (int t)
+\begin{DoxyCompactList}\small\item\em Simula el avance del tiempo en el proceso. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProceso_a33b52579d6ee93986d33341bacc86521}{consultar\+\_\+id}} () const
+\begin{DoxyCompactList}\small\item\em Consultora de la identificacion. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProceso_aca35184be476f234a1e96c9732ef7a82}{consultar\+\_\+t}} () const
+\begin{DoxyCompactList}\small\item\em Consultora del tiempo estimado. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProceso_aac2757dbcfaec1be1d004389273e209f}{consultar\+\_\+mem}} () const
+\begin{DoxyCompactList}\small\item\em Consultora de la memoria estimada. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classProceso_a6e22d1fcaf883e3dde127e6e57ebf908}{inizializado}} () const
+\item 
+void \mbox{\hyperlink{classProceso_acfc1b59d4fa0dd7bba4d02c6c6880ea9}{leer\+\_\+proceso}} ()
+\begin{DoxyCompactList}\small\item\em Lee un proceso. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProceso_a5e2a9c28d74a9398ee095d5f04d59836}{escribir\+\_\+proceso}} () const
+\begin{DoxyCompactList}\small\item\em Escribe un proceso. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Representa un proceso. 
+
+Representa un proceso que consiste en su identificador, la cantidad de memoria estimada que va a necesitar para ejecutarse y el tiempo estimado de ejecución 
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classProceso_a632f57d6ec48e76c80fbeb7734c1148c}\label{classProceso_a632f57d6ec48e76c80fbeb7734c1148c}} 
+\index{Proceso@{Proceso}!Proceso@{Proceso}}
+\index{Proceso@{Proceso}!Proceso@{Proceso}}
+\doxysubsubsection{\texorpdfstring{Proceso()}{Proceso()}}
+{\footnotesize\ttfamily Proceso\+::\+Proceso (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructora por defecto. 
+
+Se ejecuta por defecto al declarar un proceso \begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es un proceso sin inicializar 
+\end{DoxyPostcond}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classProceso_aacfa317b627623ffde171bd0e1419ac8}\label{classProceso_aacfa317b627623ffde171bd0e1419ac8}} 
+\index{Proceso@{Proceso}!avanzar\_tiempo@{avanzar\_tiempo}}
+\index{avanzar\_tiempo@{avanzar\_tiempo}!Proceso@{Proceso}}
+\doxysubsubsection{\texorpdfstring{avanzar\_tiempo()}{avanzar\_tiempo()}}
+{\footnotesize\ttfamily void Proceso\+::avanzar\+\_\+tiempo (\begin{DoxyParamCaption}\item[{int}]{t }\end{DoxyParamCaption})}
+
+
+
+Simula el avance del tiempo en el proceso. 
+
+La ejecucion ha progresado t unidades de tiempo \begin{DoxyPrecond}{Precondición}
+El tipempo estimado del P.\+I. es estrictamente mayor que {\itshape t} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El P.\+I. se ha actualizado como si hubieran pasado {\itshape t} unidades de tiempo 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classProceso_a33b52579d6ee93986d33341bacc86521}\label{classProceso_a33b52579d6ee93986d33341bacc86521}} 
+\index{Proceso@{Proceso}!consultar\_id@{consultar\_id}}
+\index{consultar\_id@{consultar\_id}!Proceso@{Proceso}}
+\doxysubsubsection{\texorpdfstring{consultar\_id()}{consultar\_id()}}
+{\footnotesize\ttfamily int Proceso\+::consultar\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Consultora de la identificacion. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es la identificacion del P.\+I. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classProceso_aac2757dbcfaec1be1d004389273e209f}\label{classProceso_aac2757dbcfaec1be1d004389273e209f}} 
+\index{Proceso@{Proceso}!consultar\_mem@{consultar\_mem}}
+\index{consultar\_mem@{consultar\_mem}!Proceso@{Proceso}}
+\doxysubsubsection{\texorpdfstring{consultar\_mem()}{consultar\_mem()}}
+{\footnotesize\ttfamily int Proceso\+::consultar\+\_\+mem (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Consultora de la memoria estimada. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es la memoria estimada del P.\+I. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classProceso_aca35184be476f234a1e96c9732ef7a82}\label{classProceso_aca35184be476f234a1e96c9732ef7a82}} 
+\index{Proceso@{Proceso}!consultar\_t@{consultar\_t}}
+\index{consultar\_t@{consultar\_t}!Proceso@{Proceso}}
+\doxysubsubsection{\texorpdfstring{consultar\_t()}{consultar\_t()}}
+{\footnotesize\ttfamily int Proceso\+::consultar\+\_\+t (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Consultora del tiempo estimado. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es el tiempo estimado del P.\+I. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classProceso_a5e2a9c28d74a9398ee095d5f04d59836}\label{classProceso_a5e2a9c28d74a9398ee095d5f04d59836}} 
+\index{Proceso@{Proceso}!escribir\_proceso@{escribir\_proceso}}
+\index{escribir\_proceso@{escribir\_proceso}!Proceso@{Proceso}}
+\doxysubsubsection{\texorpdfstring{escribir\_proceso()}{escribir\_proceso()}}
+{\footnotesize\ttfamily void Proceso\+::escribir\+\_\+proceso (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Escribe un proceso. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se ha escrito en el canal estandar de salida los datos del P.\+I. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classProceso_a6e22d1fcaf883e3dde127e6e57ebf908}\label{classProceso_a6e22d1fcaf883e3dde127e6e57ebf908}} 
+\index{Proceso@{Proceso}!inizializado@{inizializado}}
+\index{inizializado@{inizializado}!Proceso@{Proceso}}
+\doxysubsubsection{\texorpdfstring{inizializado()}{inizializado()}}
+{\footnotesize\ttfamily bool Proceso\+::inizializado (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classProceso_acfc1b59d4fa0dd7bba4d02c6c6880ea9}\label{classProceso_acfc1b59d4fa0dd7bba4d02c6c6880ea9}} 
+\index{Proceso@{Proceso}!leer\_proceso@{leer\_proceso}}
+\index{leer\_proceso@{leer\_proceso}!Proceso@{Proceso}}
+\doxysubsubsection{\texorpdfstring{leer\_proceso()}{leer\_proceso()}}
+{\footnotesize\ttfamily void Proceso\+::leer\+\_\+proceso (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lee un proceso. 
+
+\begin{DoxyPrecond}{Precondición}
+El P.\+I. esta sin inicializar y estan preparados en el canal estandar de entrada los datos de un proceso 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El P.\+I. pasa a estar inicializado con el proceso leido del canal estandar de entrada 
+\end{DoxyPostcond}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Proceso_8hh}{Proceso.\+hh}}\end{DoxyCompactItemize}
