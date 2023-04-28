@@ -4,11 +4,13 @@
 
 #ifndef NO_DIAGRAM
 #include <iostream>
+#include <vector>
+#include <map>
+#include <string>
 #endif
 
 using namespace std;
 
 int main() {
-    Procesador a(5);
-//     a.escribir_procesador();
+    Procesador p;
 }

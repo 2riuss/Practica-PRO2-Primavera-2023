@@ -38,8 +38,8 @@ test_test: program.o Cluster.o Procesador.o Proceso.o Area_Espera.o Prioridad.o
 	./test.exe
 
 save: clean
-	mkdir $(t)
-	cp ./[!D]* ./$(t)
+	git add *
+	git commit
 doxygen:
 	doxygen
 	google-chrome ./DOC/html/index.html
