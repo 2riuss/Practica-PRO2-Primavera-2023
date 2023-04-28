@@ -14,6 +14,10 @@ Cluster.o:
 	clear
 	g++ -c Cluster.cc $(OPCIONS)
 
+Procesador.o:
+	clear
+	g++ -c Procesador.cc $(OPCIONS)
+
 Proceso.o:
 	clear
 	g++ -c Proceso.cc $(OPCIONS)
