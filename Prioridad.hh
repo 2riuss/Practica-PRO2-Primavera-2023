@@ -9,7 +9,7 @@
 #include "Proceso.hh"
 
 #ifndef NO_DIAGRAM
-#include <queue>
+#include <list>
 #endif
 
 /**
@@ -22,7 +22,7 @@
  */
 class Prioridad {
 private:
-    queue<Proceso> cjt;
+    list<Proceso> cjt;
     int rechazados;
     int aceptados;
 
@@ -41,7 +41,7 @@ public:
      *
      * Se ejecuta por defecto al declarar una prioridad
      * \pre <em>Cierto</em>
-     * \post El resultado es una prioridad vacio
+     * \post El resultado es una prioridad vacia
      */
     Prioridad();
 
@@ -97,7 +97,7 @@ public:
      * \pre <em>Cierto</em>
      * \post El resultado indica si el P.I. contiene procesos
      */
-    bool vacio() const;
+    bool vacia() const;
 
     /**
      * @brief Consultora del proceso mas antiguo

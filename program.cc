@@ -19,66 +19,69 @@
 #include <iostream>
 #endif
 
+using namespace std;
+
 /**
  * @brief Programa principal de la practica <em>Simulacion de una arquitectura multiprocesador</em>
  */
 int main() {
     Cluster c;
+    c.leer_cluster();
     Area_Espera ae;
     ae.leer_prioridades();
 
     string cmd;
     cin >> cmd;
     while (cmd != "fin") {
+        cout << '#' << cmd << endl;
 
         if (cmd == "cc" or cmd == "configurar_cluster") {
-            c = Cluster();
+            c.clear();
             c.leer_cluster();
         }
-
+/*
         else if (cmd == "mc" or cmd == "modificar_cluster") {
             string p;
             cin >> p;
             Cluster aux;
             aux.leer_cluster();
 
-            if (not c.substituir(p, aux)) {
-                if (not c.existe_procesador(p)) {
-                    cout << "Error: No existe el procesador " << p << endl;
-                }
-                else if (not c.procesador_vacio(p)) {
-                    cout << "Error: El procesador " << p;
-                    cout << " tiene procesos en ejecucion" << endl;
-                }
-                else {
-                    cout << "Error: El procesador " << p;
-                    cout << " tiene procesadores auxiliares" << endl;
-                }
+            if (not c.existe_procesador(p)) {
+                cout << "error: no existe procesador" << endl;
             }
-        }
+            else if (not c.procesador_vacio(p)) {
+                cout << "error: procesador con procesos en ejecucion" << endl;
+            }
+            else if (c.procesadores_auxiliares(p)){
+                cout << "error: procesador con procesadores auxiliares" << endl;
+            }
 
+            else c.substituir(p, aux);
+        }
+*/
         else if (cmd == "ap" or cmd == "alta_prioridad") {
             string id;
             cin >> id;
 
-            if (not ae.agregar_prioridad(id)) {
-                cout << "Error: Prioridad " << id << " ya existente" << endl;
+            if (ae.existe_prioridad(id)) {
+                cout << "error: ya existe prioridad" << endl;
             }
+
+            else ae.agregar_prioridad(id);
         }
 
         else if (cmd == "bp" or cmd == "baja_prioridad") {
             string id;
             cin >> id;
 
-            if (ae.eliminar_prioridad(id)) {
-                if (not ae.existe_prioridad(id)) {
-                    cout << "Error: No existe la prioridad " << id << endl;
-                }
-                else {
-                    cout << "Error: La prioridad " << id;
-                    cout << " tiene procesos pendientes" << endl;
-                }
+            if (not ae.existe_prioridad(id)) {
+                cout << "error: no existe prioridad " << endl;
             }
+            else if (not ae.prioridad_vacia(id)) {
+                cout << "error: prioridad con procesos" << endl;
+            }
+
+            else ae.eliminar_prioridad(id);
         }
 
         else if (cmd == "ape" or cmd == "alta_proceso_espera") {
@@ -87,15 +90,14 @@ int main() {
             Proceso job;
             job.leer_proceso();
 
-            if (not ae.agregar_proceso(id, job)) {
-                if (not ae.existe_prioridad(id)) {
-                    cout << "Error: No existe la prioridad " << id << endl;
-                }
-                else {
-                    cout << "Error: Ya existe un proceso " << job.id();
-                    cout << " en la prioridad " << id << endl;
-                }
+            if (not ae.existe_prioridad(id)) {
+                cout << "error: no existe prioridad " << endl;
             }
+            else if (ae.existe_proceso(id, job.consultar_id())) {
+                cout << "error: ya existe proceso" << endl;
+            }
+
+            else ae.agregar_proceso(id, job);
         }
 
         else if (cmd == "app" or cmd == "alta_proceso_procesador") {
@@ -104,20 +106,17 @@ int main() {
             Proceso job;
             job.leer_proceso();
 
-            if (not c.agregar_proceso(p, job)) {
-                if (not c.existe_procesador(p)) {
-                    cout << "Error: No existe el procesador " << p << endl;
-                }
-                else if (c.existe_proceso(p, job.id())) {
-                    cout << "Error: Ya existe un proceso " << job.id();
-                    cout << " en el procesador " << p << endl;
-                }
-                else {
-                    cout << "Error: El proceso " << job.id();
-                    cout << " no se pude colocar en el procesador ";
-                    cout << p << endl;
-                }
+            if (not c.existe_procesador(p)) {
+                cout << "error: no existe procesador" << endl;
             }
+            else if (c.existe_proceso(p, job.consultar_id())) {
+                cout << "error: ya existe proceso" << endl;
+            }
+            else if (c.cabe_proceso(p, job)) {
+                cout << "error: no cabe proceso" << endl;
+            }
+
+            else c.agregar_proceso(p, job);
         }
 
         else if (cmd == "bpp" or cmd == "baja_proceso_procesador") {
@@ -125,24 +124,23 @@ int main() {
             int n;
             cin >> p >> n;
 
-            if (not c.eliminar_proceso(p, n)) {
-                if (not c.existe_procesador(p)) {
-                    cout << "Error: No existe el procesador " << p << endl;
-                }
-                else {
-                    cout << "Error: No existe el proceso " << n;
-                    cout << " en el procesador " << p << endl;
-                }
+            if (not c.existe_procesador(p)) {
+                cout << "error: no existe procesador" << endl;
             }
-        }
+            else if (not c.existe_proceso(p, n)) {
+                cout << "error: no existe proceso" << endl;
+            }
 
+            else c.eliminar_proceso(p, n);
+        }
+/*
         else if (cmd == "epc" or cmd == "enviar_procesos_cluster") {
             int n;
             cin >> n;
 
             ae.enviar_procesos_cluster(c, n);
         }
-
+*/
         else if (cmd == "at" or cmd == "avanzar_tiempo") {
             int t;
             cin >> t;
@@ -154,9 +152,11 @@ int main() {
             string id;
             cin >> id;
 
-            if (not ae.escribir_prioridad(id)) {
-                cout << "Error: No existe la prioridad " << id << endl;
+            if (not ae.existe_prioridad(id)) {
+                cout << "error: no existe prioridad" << endl;
             }
+
+            else ae.escribir_prioridad(id);
         }
 
         else if (cmd == "iae" or cmd == "imprimir_area_espera") {
@@ -167,9 +167,11 @@ int main() {
             string p;
             cin >> p;
 
-            if (not c.escribir_procesador(p)) {
-                cout << "Error: No existe el procesador " << p << endl;
+            if (not c.existe_procesador(p)) {
+                cout << "error: no existe procesador" << endl;
             }
+
+            else c.escribir_procesador(p);
         }
 
         else if (cmd == "ipc" or cmd == "imprimir_procesadores_cluster") {
@@ -179,20 +181,22 @@ int main() {
         else if (cmd == "iec" or cmd == "imprimir_estructura_cluster") {
             c.escribir_estructura();
         }
-
+/*
         else if (cmd == "cmp" or cmd == "compactar_memoria_procesador") {
             string p;
             cin >> p;
 
-            if (not c.compactar_memoria(p)) {
-                cout << "Error: No existe el procesador " << p << endl;
+            if (not c.existe_procesador(p)) {
+                cout << "error: no existe procesador" << endl;
             }
+
+            else c.compactar_memoria_procesador(p);
         }
 
         else if (cmd == "cmc" or cmd == "compactar_memoria_cluster") {
             c.compactar_memoria();
         }
-
+*/
 
         cin >> cmd;
     }

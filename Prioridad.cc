@@ -1,15 +1,16 @@
+#include "Prioridad.hh"
+
 Prioridad::Prioridad() {
-    queue cjt;
-    int rechazados = 0;
-    int aceptados = 0;
+    rechazados = 0;
+    aceptados = 0;
 }
 
 void Prioridad::agregar_proceso(const Proceso& job) {
-    cjt.push(job);
+    cjt.insert(cjt.end(), job);
 }
 
 void Prioridad::eliminar_proceso() {
-    cjt.pop();
+    cjt.erase(cjt.begin());
 }
 
 void Prioridad::incrementar_aceptados() {
@@ -21,30 +22,29 @@ void Prioridad::incrementar_rechazados() {
 }
 
 bool Prioridad::existe_proceso(int n) const {
-    queue<int> aux = cjt;
+    list<Proceso>::const_iterator it = cjt.begin();
     bool found = false;
 
-    while (not found and not aux.empty()) {
-        found = aux.top().id == n;
-        aux.pop();
+    while (not found and it != cjt.end()) {
+        found = it -> consultar_id() == n;
+        ++it;
     }
 
     return found;
 }
 
-bool Prioridad::vacio() const {
+bool Prioridad::vacia() const {
     return cjt.empty();
 }
 
 Proceso Prioridad::proceso() const {
-    return cjt.top();
+    return *cjt.begin();
 }
 
 void Prioridad::escribir_prioridad() const {
-    queue<int> aux = cjt;
-    while (not aux.empty()) {
-        aux.top().escribir_proceso();
-        aux.pop()
+    for (list<Proceso>::const_iterator it = cjt.begin(); it != cjt.end(); ++it) {
+        it -> escribir_proceso();
     }
+
     cout << aceptados << ' ' << rechazados << endl;
 }

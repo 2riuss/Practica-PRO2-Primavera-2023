@@ -53,26 +53,26 @@ public:
     /**
      * @brief Añade un proceso a una prioridad
      *
-     * \pre <em>Cierto</em>
-     * \post El resultado indica si ha sido possible añadir el proceso <em>job</em> a una prioridad con identificacion <em>id</em> del P.I.; en caso afirmativo este proceso queda añadido a dicho prioridad
+     * \pre Existe una prioridad con identificacion <em>id</em> en el P.I. y no hay ningun proceso con el mismo identificador que el proceso <em>job</em> en la prioridad
+     * \post Se ha añadido el proceso <em>job</em> a la prioridad con identificacion <em>id</em> del P.I.
      */
-    bool agregar_proceso(const string& id, const Proceso& job);
+    void agregar_proceso(const string& id, const Proceso& job);
 
     /**
      * @brief Añade una prioridad al area de espera
      *
-     * \pre <em>Cierto</em>
-     * \post El resultado indica si ha sido possible añadir una prioridad con identificacion <em>id</em> al P.I.; en caso afirmativo se ha añadido una prioridad con identificacion <em>id</em> vacia al P.I.
+     * \pre En el P.I. no existe ninguna prioridad con identificacion <em>id</em>
+     * \post Se ha añadido una prioridad con identificacion <em>id</em> vacia al P.I.
      */
-    bool agregar_prioridad(const string& id);
+    void agregar_prioridad(const string& id);
 
     /**
      * @brief Elimina una prioridad del area de espera
      *
-     * \pre <em>Cierto</em>
-     * \post El resultado indica si existe i ha sido possible eliminar la prioridad con identificacion <em>id</em> del P.I.; en caso afirmativo se ha eliminado dicha prioridad del P.I.
+     * \pre En el P.I. existe una prioridad con identificacion <em>id</em>, sin procesos pendientes
+     * \post Se ha eliminado la prioridad con identificacion <em>id</em> del P.I.
      */
-    bool eliminar_prioridad(const string& id);
+    void eliminar_prioridad(const string& id);
 
 
     // Consultoras
@@ -84,6 +84,22 @@ public:
      * \post El resultado indica si el P.I. contiene una prioridad con identificacion <em>id</em>
      */
     bool existe_prioridad(const string& id) const;
+
+    /**
+     * @brief Indica si la prioridad del area de espera contiene el proceso
+     *
+     * \pre Existe una prioridad con identificacion <em>id</em> en el P.I.
+     * \post El resultado indica si la prioridad con identificacion <em>id</em> del P.I. contiene algun proceso con identificacion <em>n</em>
+     */
+    bool existe_proceso(const string& id, int n) const;
+
+    /**
+     * @brief Indica si la prioridad del area de espera tiene procesos pendientes
+     *
+     * \pre Existe una prioridad con identificacion <em>id</em> en el P.I.
+     * \post El resultado indica si la prioridad con identificacion <em>id</em> del P.I. tiene procesos pendientes
+     */
+    bool prioridad_vacia(const string& id) const;
 
 
     // Lectura y escritura
@@ -99,16 +115,16 @@ public:
     /**
      * @brief Escribe una prioridad
      *
-     * \pre <em>Cierto</em>
-     * \post El resultado indica si existe una prioridad con identificacion <em>id</em> en el P.I.; en caso afirmativo se ha escrito en el canal estandar de salida los procesos pendientes en orden decreciente de antigüedad, el número de procesos colocados en algun cluster y el número de procesos rechazos de dicha prioridad
+     * \pre Existe una prioridad con identificacion <em>id</em> en el P.I.
+     * \post Se ha escrito en el canal estandar de salida los procesos pendientes en orden decreciente de antigüedad, el número de procesos colocados en algun cluster y el número de procesos rechazos de la prioridad con identificacion <em>id</em> del P.I.
      */
-    bool escribir_prioridad(const string& id) const;
+    void escribir_prioridad(const string& id) const;
 
     /**
      * @brief Escribe la informacion pertinente al area de espera
      *
      * \pre <em>Cierto</em>
-     * \post Se ha escrito en el canal estandar de salida todas las prioridades del P.I. con la misma informacion que el metodo <em>escribir_prioridad</em>
+     * \post Se ha escrito en el canal estandar de salida todas las prioridades del P.I. por orden creciente de prioridad con la misma informacion que el metodo <em>escribir_prioridad</em>
      */
     void escribir_area_espera() const;
 

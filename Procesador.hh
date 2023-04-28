@@ -8,6 +8,15 @@
 
 #include "Proceso.hh"
 
+#ifndef NO_DIAGRAM
+#include <iostream>
+#include <string>
+#include <vector>
+#include <map>
+#endif
+
+using namespace std;
+
 /**
  * @class Procesador
  * @brief Representa un procesador
@@ -18,6 +27,15 @@
  */
 class Procesador {
 private:
+    vector<Proceso> mem;
+
+    /* Invariante de la representacion
+     *
+     */
+
+    int posicion_proceso(int n) const;
+    int posicion_hueco(int pmem) const;
+
 
 public:
     // Constructoras
@@ -46,18 +64,18 @@ public:
     /**
      * @brief Añade un proceso al procesador
      *
-     * \pre <em>Cierto</em>
-     * \post El resultado indica si ha sido possible añadir el proceso <em>job</em> al P.I.; en caso afirmativo proceso queda añadido al P.I. en el hueco más ajustado con posicion inicial más pequeña
+     * \pre No hay ningun proceso con el mismo identificador que el proceso <em>job</em> en el P.I. y el proceso <em>job</em> cabe en el P.I.
+     * \post El proceso <em>job</em> queda añadido al P.I. en el hueco más ajustado con posicion inicial más pequeña
      */
-    bool agregar_proceso(const Proceso& job);
+    void agregar_proceso(const Proceso& job);
 
     /**
      * @brief Elimina un proceso del procesador
      *
-     * \pre <em>Cierto</em>
-     * \post El resultado indica si existe i ha sido posible eliminar un proceso de identificacion <em>n</em> en el P.I.; en caso afirmativo este queda eliminado del P.I.
+     * \pre Existe un proceso con identificacion <em>n</em> en el P.I.
+     * \post Se ha eliminado el proceso con identificacion <em>n</em> del P.I.
      */
-    bool eliminar_proceso(int n);
+    void eliminar_proceso(int n);
 
     /**
      * @brief Compacta la memoria del procesador
@@ -95,6 +113,14 @@ public:
      */
     bool vacio() const;
 
+    /**
+     * @brief Indica si el proceso cabe en el procesador
+     *
+     * \pre No existe ningun proceso con la misma identificacion que el proceso <em>job</em> en el P.I.
+     * \post El resultado indica si el proceso <em>job</em> cabe en el P.I.
+     */
+    bool cabe_proceso(const Proceso& job) const;
+
 
     // Lectura y escritura
 
@@ -102,7 +128,7 @@ public:
      * @brief Escribe un procesador
      *
      * \pre <em>Cierto</em>
-     * \post Se ha escrito en el canal estandar de salida la posicion y datos de los procesos del P.I.
+     * \post Se ha escrito en el canal estandar de salida los procesos del P.I. por orden de posicion de memoriala, escriviendo la posicion y el resto de datos de cada proceso
      */
     void escribir_procesador() const;
 };

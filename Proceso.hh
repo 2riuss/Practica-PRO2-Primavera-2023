@@ -6,6 +6,12 @@
 #ifndef PROCESO_HH
 #define PROCESO_HH
 
+#ifndef NO_DIAGRAM
+#include <iostream>
+#endif
+
+using namespace std;
+
 /**
  * @class Proceso
  * @brief Representa un proceso
@@ -37,33 +43,6 @@ public:
     Proceso();
 
 
-    // Consultoras
-
-    /**
-     * @brief Consultora de la identificacion
-     *
-     * \pre <em>Cierto</em>
-     * \post El resultado es la identificacion del P.I.
-     */
-    int id() const;
-
-    /**
-     * @brief Consultora del tiempo estimado
-     *
-     * \pre <em>Cierto</em>
-     * \post El resultado es el tiempo estimado del P.I.
-     */
-    int t() const;
-
-    /**
-     * @brief Consultora de la memoria estimada
-     *
-     * \pre <em>Cierto</em>
-     * \post El resultado es la memoria estimada del P.I.
-     */
-    int mem() const;
-
-
     // Modificadoras
 
     /**
@@ -74,6 +53,35 @@ public:
      * \post El P.I. se ha actualizado como si hubieran pasado <em>t</em> unidades de tiempo
      */
     void avanzar_tiempo(int t);
+
+
+    // Consultoras
+
+    /**
+     * @brief Consultora de la identificacion
+     *
+     * \pre <em>Cierto</em>
+     * \post El resultado es la identificacion del P.I.
+     */
+    int consultar_id() const;
+
+    /**
+     * @brief Consultora del tiempo estimado
+     *
+     * \pre <em>Cierto</em>
+     * \post El resultado es el tiempo estimado del P.I.
+     */
+    int consultar_t() const;
+
+    /**
+     * @brief Consultora de la memoria estimada
+     *
+     * \pre <em>Cierto</em>
+     * \post El resultado es la memoria estimada del P.I.
+     */
+    int consultar_mem() const;
+
+    bool inizializado() const;
 
 
     // Lectura y escritura
