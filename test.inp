@@ -1,0 +1,121 @@
+t
+1
+*
+*
+4
+1111
+11
+11111
+111
+alta_proceso_procesador
+proc1 10 1 10
+alta_proceso_procesador
+t 10 1 10
+alta_proceso_procesador
+t 10 1 10
+alta_proceso_procesador
+t 100 1 10
+baja_proceso_procesador
+proc1 10 1 10
+baja_proceso_procesador
+t 100 1 10
+baja_proceso_procesador
+t 10 1 10
+alta_proceso_procesador
+t 10 1 10
+imprimir_procesadores_cluster
+imprimir_estructura_cluster
+
+configurar_cluster
+proc1
+10
+proc11
+100
+proc111
+500
+*
+*
+proc112
+500
+*
+*
+proc12
+100
+proc121
+500
+*
+*
+proc122
+500
+*
+*
+imprimir_procesadores_cluster
+imprimir_estructura_cluster
+alta_prioridad
+11
+alta_prioridad
+a
+baja_prioridad
+b
+alta_proceso_espera
+a 10 9 9
+alta_proceso_espera
+a 10 8 8
+alta_proceso_espera
+b 10 8 8
+baja_prioridad
+a
+alta_prioridad
+b
+baja_prioridad
+b
+imprimir_area_espera
+imprimir_prioridad
+b
+imprimir_prioridad
+a
+imprimir_prioridad
+11
+imprimir_procesador
+proc1
+imprimir_procesador
+t
+alta_proceso_procesador
+proc1 1 10 1
+imprimir_procesador
+proc1
+alta_proceso_procesador
+proc1 2 1 1
+avanzar_tiempo
+1
+imprimir_procesador
+proc1
+alta_proceso_procesador
+proc1 2 1 1
+imprimir_procesador
+proc1
+alta_proceso_procesador
+proc1 3 7 10
+imprimir_procesador
+proc1
+avanzar_tiempo
+1
+imprimir_procesador
+proc1
+alta_proceso_procesador
+proc1 4 2 1
+imprimir_procesador
+proc1
+avanzar_tiempo
+1
+imprimir_procesador
+proc1
+alta_proceso_procesador
+proc1 5 1 1
+imprimir_procesador
+proc1
+avanzar_tiempo
+90
+imprimir_procesador
+proc1
+fin

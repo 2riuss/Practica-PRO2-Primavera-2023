@@ -60,7 +60,7 @@ void Procesador::avanzar_tiempo(int t) {
     while (i < mem.size()) {
         if (mem[i].inizializado()) {
             int aux = mem[i].consultar_mem();
-            if (mem[i].consultar_t() - t == 0) mem[i] = Proceso();
+            if (mem[i].consultar_t() - t <= 0) mem[i] = Proceso();
             else mem[i].avanzar_tiempo(t);
             i += aux;
         }

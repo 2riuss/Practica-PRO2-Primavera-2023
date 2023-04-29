@@ -35,16 +35,16 @@ open:
 
 testprogram: program.exe
 	./program.exe < ./entrega_intermedia/sample_intermedia.inp > test.txt
-	kate test.txt
+	kate test.txt &
 	kompare test.txt ./entrega_intermedia/sample_intermedia.cor &
 
-test: Cluster.o Procesador.o Proceso.o Area_Espera.o Prioridad.o
-	g++ -c test.cc $(OPCIONS)
-	g++ -o test.exe test.o Cluster.o Procesador.o Proceso.o Area_Espera.o Prioridad.o
-	./test.exe
+test:
+	./program.exe < ./test.inp > ./test.txt
+	kate test.txt &
+	kompare test.txt ./test.cor &
 
 tar:
-	tar -cvf practica.tar [^t]*.cc *.hh
+	tar -cvf practica.tar [^t]*.cc *.hh Makefile
 
 save: clean
 	git add *
