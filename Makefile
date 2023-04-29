@@ -43,6 +43,9 @@ test: Cluster.o Procesador.o Proceso.o Area_Espera.o Prioridad.o
 	g++ -o test.exe test.o Cluster.o Procesador.o Proceso.o Area_Espera.o Prioridad.o
 	./test.exe
 
+tar:
+	tar -cvf practica.tar [^t]*.cc *.hh
+
 save: clean
 	git add *
 	git commit
