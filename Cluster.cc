@@ -33,7 +33,7 @@ bool Cluster::existe_procesador(const string& id) const {
     return procesadores.find(id) != procesadores.end();
 }
 
-bool Cluster::existe_proceso(const string& id, int n) const {
+bool Cluster::existe_proceso(const string& id, int n) {
     return procesadores.find(id) -> second.existe_proceso(n);
 }
 
@@ -51,7 +51,7 @@ bool Cluster::procesadores_auxiliares(const string& id) const {
     return procesadores_auxiliares_aux(estr, id);
 }
 
-bool Cluster::cabe_proceso(const string& p, const Proceso& job) const {
+bool Cluster::cabe_proceso(const string& p, const Proceso& job) {
     return procesadores.find(p) -> second.cabe_proceso(job);
 }
 

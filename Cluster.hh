@@ -149,7 +149,7 @@ public:
      * \pre Existe un procesador con identificacion <em>id</em> en el P.I.
      * \post El resultado indica si el procesador con identificacion <em>id</em> del P.I. contiene algun proceso con identificacion <em>n</em>
      */
-    bool existe_proceso(const string& id, int n) const;
+    bool existe_proceso(const string& id, int n);
 
     /**
      * @brief Indica si el procesador del cluster contiene procesos en ejecucion
@@ -173,7 +173,7 @@ public:
      * \pre Existe un procesador con identificacion <em>id</em> en el P.I. y no existe ningun proceso con la misma identificacion que el proceso <em>job</em> en dicho procesador
      * \post El resultado indica si el proceso <em>job</em> cabe en el procesador con identificacion <em>id</em> del P.I.
      */
-    bool cabe_proceso(const string& p, const Proceso& job) const;
+    bool cabe_proceso(const string& p, const Proceso& job);
 
 
     // Lectura i escritura

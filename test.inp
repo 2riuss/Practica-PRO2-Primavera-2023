@@ -25,7 +25,6 @@ alta_proceso_procesador
 t 10 1 10
 imprimir_procesadores_cluster
 imprimir_estructura_cluster
-
 configurar_cluster
 proc1
 10

@@ -3,95 +3,95 @@
 Procesador::Procesador() {}
 
 Procesador::Procesador(int mem) {
-    this -> mem = vector<Proceso>(mem);
+    this -> mem.insert(this -> mem.end(), make_pair(mem, Proceso()));
+    mem_size = mem;
 }
 
-int Procesador::posicion_hueco(int pmem) const {
-    int i = 0;
-    int hueco = mem.size() + 1;
-    int pos = -1;
-    int pos_aux = 0;
-    while (i <= mem.size() and hueco > pmem) {
-        if (i == mem.size() or mem[i].inizializado()) {
-            int hueco_aux = i - pos_aux;
-            if (pmem <= hueco_aux and hueco_aux < hueco) {
-                hueco = hueco_aux;
-                pos = pos_aux;
-            }
-            if (i < mem.size()) {
-                i += mem[i].consultar_mem();
-                pos_aux = i;
-            }
-            else ++i;
-        }
-        else ++i;
-    }
+list<pair<int, Proceso>>::iterator Procesador::posicion_hueco(int pmem) {
+    list<pair<int, Proceso>>::iterator it = mem.end();
+    int hueco = mem_size + 1;
 
-    return pos;
+    for (list<pair<int, Proceso>>::iterator aux = mem.begin(); aux != mem.end() and hueco > pmem; ++aux) {
+        if (not aux -> second.inizializado() and pmem <= aux -> first and aux -> first < hueco) {
+            hueco = aux -> first;
+            it = aux;
+        }
+    }
+    return it;
 }
 
 void Procesador::agregar_proceso(const Proceso& job) {
-    mem[posicion_hueco(job.consultar_mem())] = job;
+    list<pair<int, Proceso>>::iterator it = posicion_hueco(job.consultar_mem());
+    mem.insert(it, make_pair(job.consultar_mem(), job));
+    if (it -> first == job.consultar_mem()) mem.erase(it);
+    else it -> first -= job.consultar_mem();
 }
 
-int Procesador::posicion_proceso(int n) const {
-    int i = 0;
-    bool found = false;
-    while (not found and i < mem.size()) {
-        if (mem[i].inizializado()) {
-            if (mem[i].consultar_id() == n) found = true;
-            else i += mem[i].consultar_mem();
-        }
-        else ++i;
+list<pair<int, Proceso>>::iterator Procesador::posicion_proceso(int n) {
+    for (list<pair<int, Proceso>>::iterator it = mem.begin(); it != mem.end(); ++it) {
+        if (it -> second.inizializado() and it -> second.consultar_id() == n) return it;
     }
+    return mem.end();
+}
 
-    if (i >= mem.size()) return -1;
-    return i;
+void Procesador::eliminar_proceso_aux(list<pair<int, Proceso>>::iterator& it) {
+    int aux = it -> first;
+    it = mem.erase(it);
+    if (it != mem.end() and not it -> second.inizializado()) {
+        aux += it -> first;
+        it = mem.erase(it);
+    }
+    if (it != mem.begin()) {
+        --it;
+        if (not it -> second.inizializado()) {
+            aux += it -> first;
+            it = mem.erase(it);
+        }
+        else ++it;
+    }
+    mem.insert(it, make_pair(aux, Proceso()));
 }
 
 void Procesador::eliminar_proceso(int n) {
-    mem[posicion_proceso(n)] = Proceso();
+    list<pair<int, Proceso>>::iterator it = posicion_proceso(n);
+    eliminar_proceso_aux(it);
 }
 
 // void Procesador::compactar_memoria() {}
 
 void Procesador::avanzar_tiempo(int t) {
-    int i = 0;
-    while (i < mem.size()) {
-        if (mem[i].inizializado()) {
-            int aux = mem[i].consultar_mem();
-            if (mem[i].consultar_t() - t <= 0) mem[i] = Proceso();
-            else mem[i].avanzar_tiempo(t);
-            i += aux;
+    list<pair<int, Proceso>>::iterator it = mem.begin();
+    while (it != mem.end()) {
+        if (it -> second.inizializado()) {
+            if (it -> second.consultar_t() - t <= 0) eliminar_proceso_aux(it);
+            else {
+                it -> second.avanzar_tiempo(t);
+                ++it;
+            }
         }
-        else ++i;
+        else ++it;
     }
 }
 
-bool Procesador::existe_proceso(int n) const {
-    if (posicion_proceso(n) == -1) return false;
-    return true;
+bool Procesador::existe_proceso(int n) {
+    return posicion_proceso(n) != mem.end();
 }
 
 bool Procesador::vacio() const {
-    for (int i = 0; i < mem.size(); ++i) {
-        if (mem[i].inizializado()) return false;
-    }
-    return true;
+    return mem.size() == 1 and not mem.begin() -> second.inizializado();
 }
 
-bool Procesador::cabe_proceso(const Proceso& job) const {
-    return posicion_hueco(job.consultar_mem()) != -1;
+bool Procesador::cabe_proceso(const Proceso& job) {
+    return posicion_hueco(job.consultar_mem()) != mem.end();
 }
 
 void Procesador::escribir_procesador() const {
-    int i = 0;
-    while (i < mem.size()) {
-        if (mem[i].inizializado()) {
-            cout << i << ' ';
-            mem[i].escribir_proceso();
-            i += mem[i].consultar_mem();
+    int pos = 0;
+    for (list<pair<int, Proceso>>::const_iterator it = mem.begin(); it != mem.end(); ++it) {
+        if (it -> second.inizializado()) {
+            cout << pos << ' ';
+            it -> second.escribir_proceso();
         }
-        else ++i;
+        pos += it -> first;
     }
 }
