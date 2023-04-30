@@ -11,7 +11,7 @@
 #ifndef NO_DIAGRAM
 #include <iostream>
 #include <string>
-#include <list>
+#include <map>
 #endif
 
 using namespace std;
@@ -26,17 +26,16 @@ using namespace std;
  */
 class Procesador {
 private:
-    list<pair<int, Proceso>> mem;
-    int mem_size;
+    map<int, Proceso> mem;
+    int memory_size;
 
     /* Invariante de la representacion
      *
      */
 
-    list<pair<int, Proceso>>::iterator posicion_proceso(int n);
-//     it apunta un proceso inicilizado
-    void eliminar_proceso_aux(list<pair<int, Proceso>>::iterator& it);
-    list<pair<int, Proceso>>::iterator posicion_hueco(int pmem);
+    map<int, Proceso>::const_iterator posicion_proceso(int n) const;
+
+    pair<int, map<int, Proceso>::const_iterator> posicion_hueco(int pmem) const;
 
 
 public:
@@ -105,7 +104,7 @@ public:
      * \pre <em>Cierto</em>
      * \post El resultado indica si el P.I. contiene algun proceso con identificacion <em>n</em>
      */
-    bool existe_proceso(int n);
+    bool existe_proceso(int n) const;
 
     /**
      * @brief Indica si el procesador contiene procesos en ejecucion
@@ -121,7 +120,7 @@ public:
      * \pre No existe ningun proceso con la misma identificacion que el proceso <em>job</em> en el P.I.
      * \post El resultado indica si el proceso <em>job</em> cabe en el P.I.
      */
-    bool cabe_proceso(const Proceso& job);
+    bool cabe_proceso(const Proceso& job) const;
 
 
     // Lectura y escritura

@@ -16,11 +16,11 @@ t 10 1 10
 alta_proceso_procesador
 t 100 1 10
 baja_proceso_procesador
-proc1 10 1 10
+proc1 10
 baja_proceso_procesador
-t 100 1 10
+t 100
 baja_proceso_procesador
-t 10 1 10
+t 10
 alta_proceso_procesador
 t 10 1 10
 imprimir_procesadores_cluster
