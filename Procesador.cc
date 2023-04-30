@@ -8,25 +8,24 @@ Procesador::Procesador(int mem) {
 
 pair<int, map<int, Proceso>::const_iterator> Procesador::posicion_hueco(int pmem) const {
     pair<int, map<int, Proceso>::const_iterator> pos;
-    int hueco;
+    pos.first = -1;
+    int hueco = memory_size + 1;
+
     map<int, Proceso>::const_iterator it = mem.begin();
+    int pos_aux = 0;
     int hueco_aux;
-    if (it != mem.end()) hueco_aux = it -> first;
-    else hueco_aux = memory_size;
-    if (pmem <= hueco_aux) {
-        hueco = hueco_aux;
-        pos.first = 0;
-        pos.second = it;
-    }
-    else {
-        hueco = memory_size + 1;
-        pos.first = -1;
-    }
     while (it != mem.end() and hueco > pmem) {
-        int pos_aux = it -> first + it -> second.consultar_mem();
+        hueco_aux = it -> first - pos_aux;
+        if (pmem <= hueco_aux and hueco_aux < hueco) {
+            hueco = hueco_aux;
+            pos.first = pos_aux;
+            pos.second = it;
+        }
+        pos_aux = it -> first + it -> second.consultar_mem();
         ++it;
-        if (it != mem.end()) hueco_aux = it -> first - pos_aux;
-        else hueco_aux = memory_size - pos_aux;
+    }
+    if (hueco > pmem) {
+        hueco_aux = memory_size - pos_aux;
         if (pmem <= hueco_aux and hueco_aux < hueco) {
             hueco = hueco_aux;
             pos.first = pos_aux;

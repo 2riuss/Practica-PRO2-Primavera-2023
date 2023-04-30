@@ -22,15 +22,10 @@ void Prioridad::incrementar_rechazados() {
 }
 
 bool Prioridad::existe_proceso(int n) const {
-    list<Proceso>::const_iterator it = cjt.begin();
-    bool found = false;
-
-    while (not found and it != cjt.end()) {
-        found = it -> consultar_id() == n;
-        ++it;
+    for (list<Proceso>::const_iterator it = cjt.begin(); it != cjt.end(); ++it) {
+        if (it -> consultar_id() == n) return true;
     }
-
-    return found;
+    return false;
 }
 
 bool Prioridad::vacia() const {

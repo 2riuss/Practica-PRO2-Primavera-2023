@@ -81,8 +81,6 @@ public:
      */
     int consultar_mem() const;
 
-    bool inizializado() const;
-
 
     // Lectura y escritura
 

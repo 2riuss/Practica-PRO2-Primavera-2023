@@ -41,6 +41,8 @@ bool Cluster::procesador_vacio(const string& id) const {
     return procesadores.find(id) -> second.vacio();
 }
 
+/*
+// si implemento un found a l'arbre aquesta canvia
 bool Cluster::procesadores_auxiliares_aux(const BinTree<string>& e, const string& id) {
     if (e.empty()) return false;
     if (e.value() == id) return not e.right().empty() or not e.left().empty();
@@ -50,23 +52,24 @@ bool Cluster::procesadores_auxiliares_aux(const BinTree<string>& e, const string
 bool Cluster::procesadores_auxiliares(const string& id) const {
     return procesadores_auxiliares_aux(estr, id);
 }
+*/
 
 bool Cluster::cabe_proceso(const string& p, const Proceso& job) const {
     return procesadores.find(p) -> second.cabe_proceso(job);
 }
 
-void Cluster::leer_cluster_aux(map<string, Procesador>& proc, BinTree<string>& e) {
+void Cluster::leer_cluster_aux(map<string, Procesador>& procesadores, BinTree<string>& e) {
     string id;
     cin >> id;
 
     if (id != "*") {
         int mem;
         cin >> mem;
-        proc.insert(make_pair(id, Procesador(mem)));
+        procesadores.insert(make_pair(id, Procesador(mem)));
 
         BinTree<string> izq, der;
-        leer_cluster_aux(proc, izq);
-        leer_cluster_aux(proc, der);
+        leer_cluster_aux(procesadores, izq);
+        leer_cluster_aux(procesadores, der);
         e = BinTree<string>(id, izq, der);
     }
 }
@@ -76,7 +79,7 @@ void Cluster::leer_cluster() {
 }
 
 void Cluster::escribir_procesador(const string& id) const {
-    return procesadores.find(id) -> second.escribir_procesador();
+    procesadores.find(id) -> second.escribir_procesador();
 }
 
 void Cluster::escribir_procesadores() const {
