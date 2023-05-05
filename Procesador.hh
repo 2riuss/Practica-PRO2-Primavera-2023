@@ -12,6 +12,7 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <set>
 #endif
 
 using namespace std;
@@ -27,16 +28,13 @@ using namespace std;
 class Procesador {
 private:
     map<int, Proceso> mem;
-    int memory_size;
+    map<int, set<int>> huecos;
+    map<int, int> procesos;
+    int mem_mida;
 
     /* Invariante de la representacion
      *
      */
-
-    map<int, Proceso>::const_iterator posicion_proceso(int n) const;
-
-    pair<int, map<int, Proceso>::const_iterator> posicion_hueco(int pmem) const;
-
 
 public:
     // Constructoras

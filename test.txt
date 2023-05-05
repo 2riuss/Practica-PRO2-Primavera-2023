@@ -1,46 +1,5 @@
-#alta_proceso_procesador proc1 10
-error: no existe procesador
-#alta_proceso_procesador t 10
-#alta_proceso_procesador t 10
-error: ya existe proceso
-#alta_proceso_procesador t 100
-error: no cabe proceso
-#baja_proceso_procesador proc1 10
-error: no existe procesador
-#baja_proceso_procesador t 100
-error: no existe proceso
-#baja_proceso_procesador t 10
-#alta_proceso_procesador t 10
-#imprimir_procesadores_cluster
-t
-0 10 1 10
-#imprimir_estructura_cluster
-(t  )
-#configurar_cluster
-#imprimir_procesadores_cluster
-proc1
-proc11
-proc111
-proc112
-proc12
-proc121
-proc122
 #imprimir_estructura_cluster
 (proc1(proc11(proc111  )(proc112  ))(proc12(proc121  )(proc122  )))
-#alta_prioridad 11
-error: ya existe prioridad
-#alta_prioridad a
-#baja_prioridad b
-error: no existe prioridad
-#alta_proceso_espera a 10
-#alta_proceso_espera a 10
-error: ya existe proceso
-#alta_proceso_espera b 10
-error: no existe prioridad
-#baja_prioridad a
-error: prioridad con procesos
-#alta_prioridad b
-#baja_prioridad b
 #imprimir_area_espera
 11
 0 0
@@ -50,46 +9,102 @@ error: prioridad con procesos
 0 0
 11111
 0 0
-a
-10 9 9
-0 0
-#imprimir_prioridad b
-error: no existe prioridad
-#imprimir_prioridad a
-10 9 9
-0 0
-#imprimir_prioridad 11
-0 0
-#imprimir_procesador proc1
-#imprimir_procesador t
+#imprimir_procesadores_cluster
+proc1
+proc11
+proc111
+proc112
+proc12
+proc121
+proc122
+#alta_proceso_procesador pr 99
 error: no existe procesador
-#alta_proceso_procesador proc1 1
-#imprimir_procesador proc1
-0 1 10 1
-#alta_proceso_procesador proc1 2
+#app proc12 99
+#imprimir_procesador pr
+error: no existe procesador
+#ipro proc12
+0 99 10 15
+#app proc1 99
+#ipro proc1
+0 99 10 10
+#alta_proceso_procesador proc1 99
+error: ya existe proceso
+#app proc12 101
 error: no cabe proceso
-#avanzar_tiempo 1
-#imprimir_procesador proc1
-#alta_proceso_procesador proc1 2
-#imprimir_procesador proc1
-0 2 1 1
-#alta_proceso_procesador proc1 3
-#imprimir_procesador proc1
-0 2 1 1
-1 3 7 10
-#avanzar_tiempo 1
-#imprimir_procesador proc1
-1 3 7 9
-#alta_proceso_procesador proc1 4
-#imprimir_procesador proc1
-1 3 7 9
-8 4 2 1
-#avanzar_tiempo 1
-#imprimir_procesador proc1
-1 3 7 8
-#alta_proceso_procesador proc1 5
-#imprimir_procesador proc1
-0 5 1 1
-1 3 7 8
-#avanzar_tiempo 90
-#imprimir_procesador proc1
+#app proc12 101
+#ipc
+proc1
+0 99 10 10
+proc11
+proc111
+proc112
+proc12
+0 99 10 15
+10 101 90 15
+proc121
+proc122
+#baja_proceso_procesador pr 99
+error: no existe procesador
+#bpp proc12 100
+error: no existe proceso
+#bpp proc12 99
+#ipro proc12
+10 101 90 15
+#avanzar_tiempo 7
+#imprimir_procesador proc12
+10 101 90 8
+#at 2
+#ipro proc1
+0 99 10 1
+#alta_proceso_espera 222 99
+error: no existe prioridad
+#ape 111 99
+#ape 111 99
+error: ya existe proceso
+#ape 111 98
+#ape 111 100
+#imprimir_prioridad 222
+error: no existe prioridad
+#ipri 111
+99 10 10
+98 1000 20
+100 10 1
+0 0
+#alta_prioridad 1111
+error: ya existe prioridad
+#ap 2
+#baja_prioridad 333
+error: no existe prioridad
+#bp 111
+error: prioridad con procesos
+#bp 11
+#iae
+111
+99 10 10
+98 1000 20
+100 10 1
+0 0
+1111
+0 0
+11111
+0 0
+2
+0 0
+#configurar_cluster
+#iec
+(sndr01  )
+#cc
+#iec
+(abc (zsda  ))
+#iae
+111
+99 10 10
+98 1000 20
+100 10 1
+0 0
+1111
+0 0
+11111
+0 0
+2
+0 0

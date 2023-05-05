@@ -137,6 +137,7 @@ int main() {
                 cout << "error: no existe proceso" << endl;
             }
 
+
             else c.eliminar_proceso(p, n);
         }
 /*
