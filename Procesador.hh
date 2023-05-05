@@ -27,14 +27,20 @@ using namespace std;
  */
 class Procesador {
 private:
-    map<int, Proceso> mem;
     map<int, set<int>> huecos;
+    map<int, Proceso> mem;
     map<int, int> procesos;
     int mem_mida;
 
     /* Invariante de la representacion
      *
      */
+//     no existe pos en los sets de huecos
+    void agregar_hueco(int mida, int pos);
+//     existe
+    void eliminar_hueco(int mida, int pos);
+//     existe
+    void eliminar_proceso_aux(const map<int, Proceso>::const_iterator it1, const map<int, int>::const_iterator it2);
 
 public:
     // Constructoras
