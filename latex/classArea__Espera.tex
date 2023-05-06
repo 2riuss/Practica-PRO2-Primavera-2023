@@ -38,13 +38,13 @@ void \mbox{\hyperlink{classArea__Espera_a9beaaa1454da8434e875014de897d8af}{envia
 \begin{DoxyCompactItemize}
 \item 
 map$<$ string, \mbox{\hyperlink{classPrioridad}{Prioridad}} $>$ \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Prioridades pertinentes al area de espera. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Descripción detallada}
 Representa una area de espera. 
 
-Representa una area de espera que cuenta con una serie de prioridades con identificacion unica el las que se encuentran los proces pendientes.
+Representa una area de espera que cuenta con una serie de prioridades con identificador unico en las que se encuentran los procesos pendientes.
 
 La area de espera puede añadir y eliminar prioridades, añadir procesos y enviar procesos a un cluster 
 
@@ -71,11 +71,11 @@ El resultado es una area de espera vacia
 \end{DoxyPostcond}
 
 
-Definición en la línea 3 del archivo Area\+\_\+\+Espera.\+cc.
+Definición en la línea 7 del archivo Area\+\_\+\+Espera.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{3 \{\}}
+\DoxyCodeLine{7 \{\}}
 
 \end{DoxyCode}
 
@@ -92,20 +92,20 @@ Definición en la línea 3 del archivo Area\+\_\+\+Espera.\+cc.
 Añade una prioridad al area de espera. 
 
 \begin{DoxyPrecond}{Precondición}
-En el P.\+I. no existe ninguna prioridad con identificacion {\itshape id} 
+En el P.\+I. no existe ninguna prioridad con identificador {\itshape id} 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
-Se ha añadido una prioridad con identificacion {\itshape id} vacia al P.\+I. 
+Se ha añadido una prioridad con identificador {\itshape id} vacia al P.\+I. 
 \end{DoxyPostcond}
 
 
-Definición en la línea 9 del archivo Area\+\_\+\+Espera.\+cc.
+Definición en la línea 13 del archivo Area\+\_\+\+Espera.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{9                                                     \{}
-\DoxyCodeLine{10     \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}.insert(make\_pair(\textcolor{keywordtype}{id}, \mbox{\hyperlink{classPrioridad}{Prioridad}}()));}
-\DoxyCodeLine{11 \}}
+\DoxyCodeLine{13                                                     \{}
+\DoxyCodeLine{14     \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}.insert(make\_pair(\textcolor{keywordtype}{id}, \mbox{\hyperlink{classPrioridad}{Prioridad}}()));}
+\DoxyCodeLine{15 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classArea__Espera_a4e2085f9c20dabbda4be302390ad573a}\label{classArea__Espera_a4e2085f9c20dabbda4be302390ad573a}} 
@@ -119,20 +119,20 @@ Definición en la línea 9 del archivo Area\+\_\+\+Espera.\+cc.
 Añade un proceso a una prioridad. 
 
 \begin{DoxyPrecond}{Precondición}
-Existe una prioridad con identificacion {\itshape id} en el P.\+I. y no hay ningun proceso con el mismo identificador que el proceso {\itshape job} en la prioridad 
+Existe una prioridad con identificador {\itshape id} en el P.\+I. y no hay ningun proceso con el mismo identificador que el proceso {\itshape job} en la prioridad 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
-Se ha añadido el proceso {\itshape job} a la prioridad con identificacion {\itshape id} del P.\+I. 
+Se ha añadido el proceso {\itshape job} a la prioridad con identificador {\itshape id} del P.\+I. 
 \end{DoxyPostcond}
 
 
-Definición en la línea 5 del archivo Area\+\_\+\+Espera.\+cc.
+Definición en la línea 9 del archivo Area\+\_\+\+Espera.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{5                                                                       \{}
-\DoxyCodeLine{6     \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}.find(\textcolor{keywordtype}{id}) -\/> second.agregar\_proceso(job);}
-\DoxyCodeLine{7 \}}
+\DoxyCodeLine{9                                                                       \{}
+\DoxyCodeLine{10     \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}.find(\textcolor{keywordtype}{id}) -\/> second.agregar\_proceso(job);}
+\DoxyCodeLine{11 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classArea__Espera_ab5e3b5e9e0094b699eccafc7b21da4ef}\label{classArea__Espera_ab5e3b5e9e0094b699eccafc7b21da4ef}} 
@@ -146,20 +146,20 @@ Definición en la línea 5 del archivo Area\+\_\+\+Espera.\+cc.
 Elimina una prioridad del area de espera. 
 
 \begin{DoxyPrecond}{Precondición}
-En el P.\+I. existe una prioridad con identificacion {\itshape id}, sin procesos pendientes 
+En el P.\+I. existe una prioridad con identificador {\itshape id}, sin procesos pendientes 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
-Se ha eliminado la prioridad con identificacion {\itshape id} del P.\+I. 
+Se ha eliminado la prioridad con identificador {\itshape id} del P.\+I. 
 \end{DoxyPostcond}
 
 
-Definición en la línea 13 del archivo Area\+\_\+\+Espera.\+cc.
+Definición en la línea 17 del archivo Area\+\_\+\+Espera.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{13                                                      \{}
-\DoxyCodeLine{14     \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}.erase(\textcolor{keywordtype}{id});}
-\DoxyCodeLine{15 \}}
+\DoxyCodeLine{17                                                      \{}
+\DoxyCodeLine{18     \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}.erase(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{19 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classArea__Espera_a9beaaa1454da8434e875014de897d8af}\label{classArea__Espera_a9beaaa1454da8434e875014de897d8af}} 
@@ -196,16 +196,16 @@ Se ha escrito en el canal estandar de salida todas las prioridades del P.\+I. po
 \end{DoxyPostcond}
 
 
-Definición en la línea 44 del archivo Area\+\_\+\+Espera.\+cc.
+Definición en la línea 48 del archivo Area\+\_\+\+Espera.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{44                                              \{}
-\DoxyCodeLine{45     \textcolor{keywordflow}{for} (map<string, Prioridad>::const\_iterator it = \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}.begin(); it != \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}.end(); ++it) \{}
-\DoxyCodeLine{46         cout << it -\/> first << endl;}
-\DoxyCodeLine{47         it -\/> second.escribir\_prioridad();}
-\DoxyCodeLine{48     \}}
-\DoxyCodeLine{49 \}}
+\DoxyCodeLine{48                                              \{}
+\DoxyCodeLine{49     \textcolor{keywordflow}{for} (map<string, Prioridad>::const\_iterator it = \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}.begin(); it != \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}.end(); ++it) \{}
+\DoxyCodeLine{50         cout << it -\/> first << endl;}
+\DoxyCodeLine{51         it -\/> second.escribir\_prioridad();}
+\DoxyCodeLine{52     \}}
+\DoxyCodeLine{53 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classArea__Espera_a80fbd2a4e6341d6326e970db82d43715}\label{classArea__Espera_a80fbd2a4e6341d6326e970db82d43715}} 
@@ -219,20 +219,20 @@ Definición en la línea 44 del archivo Area\+\_\+\+Espera.\+cc.
 Escribe una prioridad. 
 
 \begin{DoxyPrecond}{Precondición}
-Existe una prioridad con identificacion {\itshape id} en el P.\+I. 
+Existe una prioridad con identificador {\itshape id} en el P.\+I. 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
-Se ha escrito en el canal estandar de salida los procesos pendientes en orden decreciente de antigüedad, el número de procesos colocados en algun cluster y el número de procesos rechazos de la prioridad con identificacion {\itshape id} del P.\+I. 
+Se ha escrito en el canal estandar de salida los procesos pendientes en orden decreciente de antigüedad, el número de procesos colocados en algun cluster y el número de procesos rechazos de la prioridad con identificador {\itshape id} del P.\+I. 
 \end{DoxyPostcond}
 
 
-Definición en la línea 40 del archivo Area\+\_\+\+Espera.\+cc.
+Definición en la línea 44 del archivo Area\+\_\+\+Espera.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{40                                                            \{}
-\DoxyCodeLine{41     \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}.find(\textcolor{keywordtype}{id}) -\/> second.escribir\_prioridad();}
-\DoxyCodeLine{42 \}}
+\DoxyCodeLine{44                                                            \{}
+\DoxyCodeLine{45     \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}.find(\textcolor{keywordtype}{id}) -\/> second.escribir\_prioridad();}
+\DoxyCodeLine{46 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classArea__Espera_a88234c39549de7308c20c3b3fab1256d}\label{classArea__Espera_a88234c39549de7308c20c3b3fab1256d}} 
@@ -249,17 +249,17 @@ Indica si existe la prioridad en la area de espera.
 {\itshape Cierto} 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
-El resultado indica si el P.\+I. contiene una prioridad con identificacion {\itshape id} 
+El resultado indica si el P.\+I. contiene una prioridad con identificador {\itshape id} 
 \end{DoxyPostcond}
 
 
-Definición en la línea 17 del archivo Area\+\_\+\+Espera.\+cc.
+Definición en la línea 21 del archivo Area\+\_\+\+Espera.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{17                                                          \{}
-\DoxyCodeLine{18     \textcolor{keywordflow}{return} \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}.find(\textcolor{keywordtype}{id}) != \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}.end();}
-\DoxyCodeLine{19 \}}
+\DoxyCodeLine{21                                                          \{}
+\DoxyCodeLine{22     \textcolor{keywordflow}{return} \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}.find(\textcolor{keywordtype}{id}) != \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}.end();}
+\DoxyCodeLine{23 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classArea__Espera_a030a36022523a99cf2dad3a2eea48962}\label{classArea__Espera_a030a36022523a99cf2dad3a2eea48962}} 
@@ -273,20 +273,20 @@ Definición en la línea 17 del archivo Area\+\_\+\+Espera.\+cc.
 Indica si la prioridad del area de espera contiene el proceso. 
 
 \begin{DoxyPrecond}{Precondición}
-Existe una prioridad con identificacion {\itshape id} en el P.\+I. 
+Existe una prioridad con identificador {\itshape id} en el P.\+I. 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
-El resultado indica si la prioridad con identificacion {\itshape id} del P.\+I. contiene algun proceso con identificacion {\itshape n} 
+El resultado indica si la prioridad con identificador {\itshape id} del P.\+I. contiene algun proceso con identificador {\itshape n} 
 \end{DoxyPostcond}
 
 
-Definición en la línea 21 del archivo Area\+\_\+\+Espera.\+cc.
+Definición en la línea 25 del archivo Area\+\_\+\+Espera.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{21                                                               \{}
-\DoxyCodeLine{22     \textcolor{keywordflow}{return} \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}.find(\textcolor{keywordtype}{id}) -\/> second.existe\_proceso(n);}
-\DoxyCodeLine{23 \}}
+\DoxyCodeLine{25                                                               \{}
+\DoxyCodeLine{26     \textcolor{keywordflow}{return} \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}.find(\textcolor{keywordtype}{id}) -\/> second.existe\_proceso(n);}
+\DoxyCodeLine{27 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classArea__Espera_ac308b8a8b5991c87c2475f29e2bbbe4f}\label{classArea__Espera_ac308b8a8b5991c87c2475f29e2bbbe4f}} 
@@ -307,20 +307,20 @@ Se han añadido las prioridades vacias leidas del canal estandar de entrada al P
 \end{DoxyPostcond}
 
 
-Definición en la línea 29 del archivo Area\+\_\+\+Espera.\+cc.
+Definición en la línea 33 del archivo Area\+\_\+\+Espera.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{29                                    \{}
-\DoxyCodeLine{30     \textcolor{keywordtype}{int} n;}
-\DoxyCodeLine{31     cin >> n;}
-\DoxyCodeLine{32 }
-\DoxyCodeLine{33     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < n; ++i) \{}
-\DoxyCodeLine{34         \textcolor{keywordtype}{string} id;}
-\DoxyCodeLine{35         cin >> id;}
-\DoxyCodeLine{36         \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}.insert(make\_pair(\textcolor{keywordtype}{id}, \mbox{\hyperlink{classPrioridad}{Prioridad}}()));}
-\DoxyCodeLine{37     \}}
-\DoxyCodeLine{38 \}}
+\DoxyCodeLine{33                                    \{}
+\DoxyCodeLine{34     \textcolor{keywordtype}{int} n;}
+\DoxyCodeLine{35     cin >> n;}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < n; ++i) \{}
+\DoxyCodeLine{38         \textcolor{keywordtype}{string} id;}
+\DoxyCodeLine{39         cin >> id;}
+\DoxyCodeLine{40         \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}.insert(make\_pair(\textcolor{keywordtype}{id}, \mbox{\hyperlink{classPrioridad}{Prioridad}}()));}
+\DoxyCodeLine{41     \}}
+\DoxyCodeLine{42 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classArea__Espera_a89e9d3c9e090f9e69be338a77985941a}\label{classArea__Espera_a89e9d3c9e090f9e69be338a77985941a}} 
@@ -334,20 +334,20 @@ Definición en la línea 29 del archivo Area\+\_\+\+Espera.\+cc.
 Indica si la prioridad del area de espera tiene procesos pendientes. 
 
 \begin{DoxyPrecond}{Precondición}
-Existe una prioridad con identificacion {\itshape id} en el P.\+I. 
+Existe una prioridad con identificador {\itshape id} en el P.\+I. 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
-El resultado indica si la prioridad con identificacion {\itshape id} del P.\+I. tiene procesos pendientes 
+El resultado indica si la prioridad con identificador {\itshape id} del P.\+I. tiene procesos pendientes 
 \end{DoxyPostcond}
 
 
-Definición en la línea 25 del archivo Area\+\_\+\+Espera.\+cc.
+Definición en la línea 29 del archivo Area\+\_\+\+Espera.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{25                                                         \{}
-\DoxyCodeLine{26     \textcolor{keywordflow}{return} \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}.find(\textcolor{keywordtype}{id}) -\/> second.vacia();}
-\DoxyCodeLine{27 \}}
+\DoxyCodeLine{29                                                         \{}
+\DoxyCodeLine{30     \textcolor{keywordflow}{return} \mbox{\hyperlink{classArea__Espera_a33680d8fc3c0c0198bc0626ee4d5fc62}{ae}}.find(\textcolor{keywordtype}{id}) -\/> second.vacia();}
+\DoxyCodeLine{31 \}}
 
 \end{DoxyCode}
 
@@ -361,7 +361,11 @@ Definición en la línea 25 del archivo Area\+\_\+\+Espera.\+cc.
 
 
 
-Definición en la línea 30 del archivo Area\+\_\+\+Espera.\+hh.
+Prioridades pertinentes al area de espera. 
+
+Ordenadas por un identificador 
+
+Definición en la línea 34 del archivo Area\+\_\+\+Espera.\+hh.
 
 
 

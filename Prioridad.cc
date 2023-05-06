@@ -1,3 +1,7 @@
+/** @file Prioridad.cc
+    @brief Código de la clase Prioridad
+*/
+
 #include "Prioridad.hh"
 
 Prioridad::Prioridad() {

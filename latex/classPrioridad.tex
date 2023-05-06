@@ -34,11 +34,11 @@ void \mbox{\hyperlink{classPrioridad_ac11c1709a1bde371738948e59bcd7715}{escribir
 \begin{DoxyCompactItemize}
 \item 
 list$<$ \mbox{\hyperlink{classProceso}{Proceso}} $>$ \mbox{\hyperlink{classPrioridad_af3141cdfac87c4e1690242c38862f15a}{cjt}}
-\item 
+\begin{DoxyCompactList}\small\item\em Procesos pertinentes a la prioridad. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classPrioridad_a65a0d943a980d29aedab2b7700a6ae7a}{rechazados}}
-\item 
+\begin{DoxyCompactList}\small\item\em Numero de procesos rechazados por algun cluster. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classPrioridad_a618a5c55d8c8dcd68fa9e85dc0b26066}{aceptados}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Numero de procesos aceptados por algun cluster. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Descripción detallada}
@@ -71,14 +71,14 @@ El resultado es una prioridad vacia
 \end{DoxyPostcond}
 
 
-Definición en la línea 3 del archivo Prioridad.\+cc.
+Definición en la línea 7 del archivo Prioridad.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{3                      \{}
-\DoxyCodeLine{4     \mbox{\hyperlink{classPrioridad_a65a0d943a980d29aedab2b7700a6ae7a}{rechazados}} = 0;}
-\DoxyCodeLine{5     \mbox{\hyperlink{classPrioridad_a618a5c55d8c8dcd68fa9e85dc0b26066}{aceptados}} = 0;}
-\DoxyCodeLine{6 \}}
+\DoxyCodeLine{7                      \{}
+\DoxyCodeLine{8     \mbox{\hyperlink{classPrioridad_a65a0d943a980d29aedab2b7700a6ae7a}{rechazados}} = 0;}
+\DoxyCodeLine{9     \mbox{\hyperlink{classPrioridad_a618a5c55d8c8dcd68fa9e85dc0b26066}{aceptados}} = 0;}
+\DoxyCodeLine{10 \}}
 
 \end{DoxyCode}
 
@@ -95,20 +95,20 @@ Definición en la línea 3 del archivo Prioridad.\+cc.
 Añade un proceso a la prioridad. 
 
 \begin{DoxyPrecond}{Precondición}
-En el P.\+I. no hay procesos con la misma identificacion que {\itshape job} 
+En el P.\+I. no hay procesos con el mismo identificador que {\itshape job} 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
 Se ha añadido el proceso {\itshape job} al P.\+I. 
 \end{DoxyPostcond}
 
 
-Definición en la línea 8 del archivo Prioridad.\+cc.
+Definición en la línea 12 del archivo Prioridad.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{8                                                   \{}
-\DoxyCodeLine{9     \mbox{\hyperlink{classPrioridad_af3141cdfac87c4e1690242c38862f15a}{cjt}}.insert(\mbox{\hyperlink{classPrioridad_af3141cdfac87c4e1690242c38862f15a}{cjt}}.end(), job);}
-\DoxyCodeLine{10 \}}
+\DoxyCodeLine{12                                                   \{}
+\DoxyCodeLine{13     \mbox{\hyperlink{classPrioridad_af3141cdfac87c4e1690242c38862f15a}{cjt}}.insert(\mbox{\hyperlink{classPrioridad_af3141cdfac87c4e1690242c38862f15a}{cjt}}.end(), job);}
+\DoxyCodeLine{14 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classPrioridad_aa7b26432aeff5700f85bfdf38d3d1b69}\label{classPrioridad_aa7b26432aeff5700f85bfdf38d3d1b69}} 
@@ -129,13 +129,13 @@ Se ha eliminado el proceso mas antiguo del P.\+I.
 \end{DoxyPostcond}
 
 
-Definición en la línea 12 del archivo Prioridad.\+cc.
+Definición en la línea 16 del archivo Prioridad.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{12                                  \{}
-\DoxyCodeLine{13     \mbox{\hyperlink{classPrioridad_af3141cdfac87c4e1690242c38862f15a}{cjt}}.erase(\mbox{\hyperlink{classPrioridad_af3141cdfac87c4e1690242c38862f15a}{cjt}}.begin());}
-\DoxyCodeLine{14 \}}
+\DoxyCodeLine{16                                  \{}
+\DoxyCodeLine{17     \mbox{\hyperlink{classPrioridad_af3141cdfac87c4e1690242c38862f15a}{cjt}}.erase(\mbox{\hyperlink{classPrioridad_af3141cdfac87c4e1690242c38862f15a}{cjt}}.begin());}
+\DoxyCodeLine{18 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classPrioridad_ac11c1709a1bde371738948e59bcd7715}\label{classPrioridad_ac11c1709a1bde371738948e59bcd7715}} 
@@ -156,17 +156,17 @@ Se ha escrito en el canal estandar de salida los procesos del P.\+I. en orden de
 \end{DoxyPostcond}
 
 
-Definición en la línea 44 del archivo Prioridad.\+cc.
+Definición en la línea 43 del archivo Prioridad.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{44                                          \{}
-\DoxyCodeLine{45     \textcolor{keywordflow}{for} (list<Proceso>::const\_iterator it = \mbox{\hyperlink{classPrioridad_af3141cdfac87c4e1690242c38862f15a}{cjt}}.begin(); it != \mbox{\hyperlink{classPrioridad_af3141cdfac87c4e1690242c38862f15a}{cjt}}.end(); ++it) \{}
-\DoxyCodeLine{46         it -\/> escribir\_proceso();}
-\DoxyCodeLine{47     \}}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{49     cout << \mbox{\hyperlink{classPrioridad_a618a5c55d8c8dcd68fa9e85dc0b26066}{aceptados}} << \textcolor{charliteral}{' '} << \mbox{\hyperlink{classPrioridad_a65a0d943a980d29aedab2b7700a6ae7a}{rechazados}} << endl;}
-\DoxyCodeLine{50 \}}
+\DoxyCodeLine{43                                          \{}
+\DoxyCodeLine{44     \textcolor{keywordflow}{for} (list<Proceso>::const\_iterator it = \mbox{\hyperlink{classPrioridad_af3141cdfac87c4e1690242c38862f15a}{cjt}}.begin(); it != \mbox{\hyperlink{classPrioridad_af3141cdfac87c4e1690242c38862f15a}{cjt}}.end(); ++it) \{}
+\DoxyCodeLine{45         it -\/> escribir\_proceso();}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     cout << \mbox{\hyperlink{classPrioridad_a618a5c55d8c8dcd68fa9e85dc0b26066}{aceptados}} << \textcolor{charliteral}{' '} << \mbox{\hyperlink{classPrioridad_a65a0d943a980d29aedab2b7700a6ae7a}{rechazados}} << endl;}
+\DoxyCodeLine{49 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classPrioridad_a468e13b536904645e39906092055284b}\label{classPrioridad_a468e13b536904645e39906092055284b}} 
@@ -183,25 +183,20 @@ Indica si la prioridad contiene el proceso.
 {\itshape Cierto} 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
-El resultado indica si el P.\+I. contiene algun proceso con identificacion {\itshape n} 
+El resultado indica si el P.\+I. contiene algun proceso con identificador {\itshape n} 
 \end{DoxyPostcond}
 
 
-Definición en la línea 24 del archivo Prioridad.\+cc.
+Definición en la línea 28 del archivo Prioridad.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{24                                           \{}
-\DoxyCodeLine{25     list<Proceso>::const\_iterator it = \mbox{\hyperlink{classPrioridad_af3141cdfac87c4e1690242c38862f15a}{cjt}}.begin();}
-\DoxyCodeLine{26     \textcolor{keywordtype}{bool} found = \textcolor{keyword}{false};}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28     \textcolor{keywordflow}{while} (not found and it != \mbox{\hyperlink{classPrioridad_af3141cdfac87c4e1690242c38862f15a}{cjt}}.end()) \{}
-\DoxyCodeLine{29         found = it -\/> consultar\_id() == n;}
-\DoxyCodeLine{30         ++it;}
+\DoxyCodeLine{28                                           \{}
+\DoxyCodeLine{29     \textcolor{keywordflow}{for} (list<Proceso>::const\_iterator it = \mbox{\hyperlink{classPrioridad_af3141cdfac87c4e1690242c38862f15a}{cjt}}.begin(); it != \mbox{\hyperlink{classPrioridad_af3141cdfac87c4e1690242c38862f15a}{cjt}}.end(); ++it) \{}
+\DoxyCodeLine{30         \textcolor{keywordflow}{if} (it -\/> consultar\_id() == n) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{31     \}}
-\DoxyCodeLine{32 }
-\DoxyCodeLine{33     \textcolor{keywordflow}{return} found;}
-\DoxyCodeLine{34 \}}
+\DoxyCodeLine{32     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{33 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classPrioridad_a7ac1aced277c5bad5df5a9deb1acb01f}\label{classPrioridad_a7ac1aced277c5bad5df5a9deb1acb01f}} 
@@ -222,13 +217,13 @@ Se ha incrementado en uno el contador de procesos aceptados del P.\+I.
 \end{DoxyPostcond}
 
 
-Definición en la línea 16 del archivo Prioridad.\+cc.
+Definición en la línea 20 del archivo Prioridad.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{16                                       \{}
-\DoxyCodeLine{17     ++\mbox{\hyperlink{classPrioridad_a618a5c55d8c8dcd68fa9e85dc0b26066}{aceptados}};}
-\DoxyCodeLine{18 \}}
+\DoxyCodeLine{20                                       \{}
+\DoxyCodeLine{21     ++\mbox{\hyperlink{classPrioridad_a618a5c55d8c8dcd68fa9e85dc0b26066}{aceptados}};}
+\DoxyCodeLine{22 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classPrioridad_aa6ae362131d34f8809368b1a28b163a9}\label{classPrioridad_aa6ae362131d34f8809368b1a28b163a9}} 
@@ -249,13 +244,13 @@ Se ha incrementado en uno el contador de procesos rechazados del P.\+I.
 \end{DoxyPostcond}
 
 
-Definición en la línea 20 del archivo Prioridad.\+cc.
+Definición en la línea 24 del archivo Prioridad.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{20                                        \{}
-\DoxyCodeLine{21     ++\mbox{\hyperlink{classPrioridad_a65a0d943a980d29aedab2b7700a6ae7a}{rechazados}};}
-\DoxyCodeLine{22 \}}
+\DoxyCodeLine{24                                        \{}
+\DoxyCodeLine{25     ++\mbox{\hyperlink{classPrioridad_a65a0d943a980d29aedab2b7700a6ae7a}{rechazados}};}
+\DoxyCodeLine{26 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classPrioridad_afc25cf197eef84396826d9380737f768}\label{classPrioridad_afc25cf197eef84396826d9380737f768}} 
@@ -276,13 +271,13 @@ El resultado es el proceso mas antiguo del P.\+I.
 \end{DoxyPostcond}
 
 
-Definición en la línea 40 del archivo Prioridad.\+cc.
+Definición en la línea 39 del archivo Prioridad.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{40                                  \{}
-\DoxyCodeLine{41     \textcolor{keywordflow}{return} *\mbox{\hyperlink{classPrioridad_af3141cdfac87c4e1690242c38862f15a}{cjt}}.begin();}
-\DoxyCodeLine{42 \}}
+\DoxyCodeLine{39                                  \{}
+\DoxyCodeLine{40     \textcolor{keywordflow}{return} *\mbox{\hyperlink{classPrioridad_af3141cdfac87c4e1690242c38862f15a}{cjt}}.begin();}
+\DoxyCodeLine{41 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classPrioridad_a1d8103c061b0554a72231104e6b45685}\label{classPrioridad_a1d8103c061b0554a72231104e6b45685}} 
@@ -303,13 +298,13 @@ El resultado indica si el P.\+I. contiene procesos
 \end{DoxyPostcond}
 
 
-Definición en la línea 36 del archivo Prioridad.\+cc.
+Definición en la línea 35 del archivo Prioridad.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{36                             \{}
-\DoxyCodeLine{37     \textcolor{keywordflow}{return} \mbox{\hyperlink{classPrioridad_af3141cdfac87c4e1690242c38862f15a}{cjt}}.empty();}
-\DoxyCodeLine{38 \}}
+\DoxyCodeLine{35                             \{}
+\DoxyCodeLine{36     \textcolor{keywordflow}{return} \mbox{\hyperlink{classPrioridad_af3141cdfac87c4e1690242c38862f15a}{cjt}}.empty();}
+\DoxyCodeLine{37 \}}
 
 \end{DoxyCode}
 
@@ -323,7 +318,11 @@ Definición en la línea 36 del archivo Prioridad.\+cc.
 
 
 
-Definición en la línea 27 del archivo Prioridad.\+hh.
+Numero de procesos aceptados por algun cluster. 
+
+
+
+Definición en la línea 36 del archivo Prioridad.\+hh.
 
 \mbox{\Hypertarget{classPrioridad_af3141cdfac87c4e1690242c38862f15a}\label{classPrioridad_af3141cdfac87c4e1690242c38862f15a}} 
 \index{Prioridad@{Prioridad}!cjt@{cjt}}
@@ -333,7 +332,11 @@ Definición en la línea 27 del archivo Prioridad.\+hh.
 
 
 
-Definición en la línea 25 del archivo Prioridad.\+hh.
+Procesos pertinentes a la prioridad. 
+
+Ordenada crecientemente por antiguedad 
+
+Definición en la línea 30 del archivo Prioridad.\+hh.
 
 \mbox{\Hypertarget{classPrioridad_a65a0d943a980d29aedab2b7700a6ae7a}\label{classPrioridad_a65a0d943a980d29aedab2b7700a6ae7a}} 
 \index{Prioridad@{Prioridad}!rechazados@{rechazados}}
@@ -343,7 +346,11 @@ Definición en la línea 25 del archivo Prioridad.\+hh.
 
 
 
-Definición en la línea 26 del archivo Prioridad.\+hh.
+Numero de procesos rechazados por algun cluster. 
+
+
+
+Definición en la línea 33 del archivo Prioridad.\+hh.
 
 
 

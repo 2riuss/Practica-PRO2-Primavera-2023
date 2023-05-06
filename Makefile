@@ -49,7 +49,7 @@ save: clean
 	git commit
 doxygen:
 	doxygen
-	google-chrome ./DOC/html/index.html &
+	google-chrome ./html/index.html &
 
 clean:
 	rm -f *.o

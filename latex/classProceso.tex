@@ -17,13 +17,11 @@ Representa un proceso.
 void \mbox{\hyperlink{classProceso_aacfa317b627623ffde171bd0e1419ac8}{avanzar\+\_\+tiempo}} (int \mbox{\hyperlink{classProceso_ab451039e3e8d61b99b11f050112a46d1}{t}})
 \begin{DoxyCompactList}\small\item\em Simula el avance del tiempo en el proceso. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classProceso_a33b52579d6ee93986d33341bacc86521}{consultar\+\_\+id}} () const
-\begin{DoxyCompactList}\small\item\em Consultora de la identificacion. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Consultora del identificador. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classProceso_aca35184be476f234a1e96c9732ef7a82}{consultar\+\_\+t}} () const
 \begin{DoxyCompactList}\small\item\em Consultora del tiempo estimado. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classProceso_aac2757dbcfaec1be1d004389273e209f}{consultar\+\_\+mem}} () const
 \begin{DoxyCompactList}\small\item\em Consultora de la memoria estimada. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classProceso_a6e22d1fcaf883e3dde127e6e57ebf908}{inizializado}} () const
-\item 
 void \mbox{\hyperlink{classProceso_acfc1b59d4fa0dd7bba4d02c6c6880ea9}{leer\+\_\+proceso}} ()
 \begin{DoxyCompactList}\small\item\em Lee un proceso. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classProceso_a5e2a9c28d74a9398ee095d5f04d59836}{escribir\+\_\+proceso}} () const
@@ -32,11 +30,11 @@ void \mbox{\hyperlink{classProceso_a5e2a9c28d74a9398ee095d5f04d59836}{escribir\+
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{classProceso_aedb36cca995b8b23d2e3d3739d30b216}{id}}
-\item 
+\begin{DoxyCompactList}\small\item\em Identificador del proceso. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classProceso_ab451039e3e8d61b99b11f050112a46d1}{t}}
-\item 
+\begin{DoxyCompactList}\small\item\em Tiempo estimado de ejecucion del proceso. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classProceso_a2f0077c9db56775d552dc3941a81ec0b}{mem}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Memoria necesaria estimada para ejecutar el proceso. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Descripción detallada}
@@ -67,13 +65,11 @@ El resultado es un proceso sin inicializar
 \end{DoxyPostcond}
 
 
-Definición en la línea 3 del archivo Proceso.\+cc.
+Definición en la línea 7 del archivo Proceso.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{3                  \{}
-\DoxyCodeLine{4     \textcolor{keywordtype}{id} = -\/1;}
-\DoxyCodeLine{5 \}}
+\DoxyCodeLine{7 \{\}}
 
 \end{DoxyCode}
 
@@ -97,13 +93,13 @@ El P.\+I. se ha actualizado como si hubieran pasado {\itshape t} unidades de tie
 \end{DoxyPostcond}
 
 
-Definición en la línea 7 del archivo Proceso.\+cc.
+Definición en la línea 9 del archivo Proceso.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{7                                   \{}
-\DoxyCodeLine{8     \textcolor{keyword}{this} -\/> \mbox{\hyperlink{classProceso_ab451039e3e8d61b99b11f050112a46d1}{t}} -\/= \mbox{\hyperlink{classProceso_ab451039e3e8d61b99b11f050112a46d1}{t}};}
-\DoxyCodeLine{9 \}}
+\DoxyCodeLine{9                                   \{}
+\DoxyCodeLine{10     \textcolor{keyword}{this} -\/> \mbox{\hyperlink{classProceso_ab451039e3e8d61b99b11f050112a46d1}{t}} -\/= \mbox{\hyperlink{classProceso_ab451039e3e8d61b99b11f050112a46d1}{t}};}
+\DoxyCodeLine{11 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classProceso_a33b52579d6ee93986d33341bacc86521}\label{classProceso_a33b52579d6ee93986d33341bacc86521}} 
@@ -114,23 +110,23 @@ Definición en la línea 7 del archivo Proceso.\+cc.
 
 
 
-Consultora de la identificacion. 
+Consultora del identificador. 
 
 \begin{DoxyPrecond}{Precondición}
 {\itshape Cierto} 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
-El resultado es la identificacion del P.\+I. 
+El resultado es el identificador del P.\+I. 
 \end{DoxyPostcond}
 
 
-Definición en la línea 11 del archivo Proceso.\+cc.
+Definición en la línea 13 del archivo Proceso.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{11                                 \{}
-\DoxyCodeLine{12     \textcolor{keywordflow}{return} \mbox{\hyperlink{classProceso_aedb36cca995b8b23d2e3d3739d30b216}{id}};}
-\DoxyCodeLine{13 \}}
+\DoxyCodeLine{13                                 \{}
+\DoxyCodeLine{14     \textcolor{keywordflow}{return} \mbox{\hyperlink{classProceso_aedb36cca995b8b23d2e3d3739d30b216}{id}};}
+\DoxyCodeLine{15 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classProceso_aac2757dbcfaec1be1d004389273e209f}\label{classProceso_aac2757dbcfaec1be1d004389273e209f}} 
@@ -151,13 +147,13 @@ El resultado es la memoria estimada del P.\+I.
 \end{DoxyPostcond}
 
 
-Definición en la línea 19 del archivo Proceso.\+cc.
+Definición en la línea 21 del archivo Proceso.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{19                                  \{}
-\DoxyCodeLine{20     \textcolor{keywordflow}{return} \mbox{\hyperlink{classProceso_a2f0077c9db56775d552dc3941a81ec0b}{mem}};}
-\DoxyCodeLine{21 \}}
+\DoxyCodeLine{21                                  \{}
+\DoxyCodeLine{22     \textcolor{keywordflow}{return} \mbox{\hyperlink{classProceso_a2f0077c9db56775d552dc3941a81ec0b}{mem}};}
+\DoxyCodeLine{23 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classProceso_aca35184be476f234a1e96c9732ef7a82}\label{classProceso_aca35184be476f234a1e96c9732ef7a82}} 
@@ -178,13 +174,13 @@ El resultado es el tiempo estimado del P.\+I.
 \end{DoxyPostcond}
 
 
-Definición en la línea 15 del archivo Proceso.\+cc.
+Definición en la línea 17 del archivo Proceso.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{15                                \{}
-\DoxyCodeLine{16     \textcolor{keywordflow}{return} \mbox{\hyperlink{classProceso_ab451039e3e8d61b99b11f050112a46d1}{t}};}
-\DoxyCodeLine{17 \}}
+\DoxyCodeLine{17                                \{}
+\DoxyCodeLine{18     \textcolor{keywordflow}{return} \mbox{\hyperlink{classProceso_ab451039e3e8d61b99b11f050112a46d1}{t}};}
+\DoxyCodeLine{19 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classProceso_a5e2a9c28d74a9398ee095d5f04d59836}\label{classProceso_a5e2a9c28d74a9398ee095d5f04d59836}} 
@@ -205,30 +201,13 @@ Se ha escrito en el canal estandar de salida los datos del P.\+I.
 \end{DoxyPostcond}
 
 
-Definición en la línea 31 del archivo Proceso.\+cc.
+Definición en la línea 29 del archivo Proceso.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{31                                      \{}
-\DoxyCodeLine{32     cout << \textcolor{keywordtype}{id} << \textcolor{charliteral}{' '} << \mbox{\hyperlink{classProceso_a2f0077c9db56775d552dc3941a81ec0b}{mem}} << \textcolor{charliteral}{' '} << \mbox{\hyperlink{classProceso_ab451039e3e8d61b99b11f050112a46d1}{t}} << endl;;}
-\DoxyCodeLine{33 \}}
-
-\end{DoxyCode}
-\mbox{\Hypertarget{classProceso_a6e22d1fcaf883e3dde127e6e57ebf908}\label{classProceso_a6e22d1fcaf883e3dde127e6e57ebf908}} 
-\index{Proceso@{Proceso}!inizializado@{inizializado}}
-\index{inizializado@{inizializado}!Proceso@{Proceso}}
-\doxysubsubsection{\texorpdfstring{inizializado()}{inizializado()}}
-{\footnotesize\ttfamily bool Proceso\+::inizializado (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-
-
-Definición en la línea 23 del archivo Proceso.\+cc.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{23                                  \{}
-\DoxyCodeLine{24     \textcolor{keywordflow}{return} \textcolor{keywordtype}{id} != -\/1;}
-\DoxyCodeLine{25 \}}
+\DoxyCodeLine{29                                      \{}
+\DoxyCodeLine{30     cout << \textcolor{keywordtype}{id} << \textcolor{charliteral}{' '} << \mbox{\hyperlink{classProceso_a2f0077c9db56775d552dc3941a81ec0b}{mem}} << \textcolor{charliteral}{' '} << \mbox{\hyperlink{classProceso_ab451039e3e8d61b99b11f050112a46d1}{t}} << endl;;}
+\DoxyCodeLine{31 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classProceso_acfc1b59d4fa0dd7bba4d02c6c6880ea9}\label{classProceso_acfc1b59d4fa0dd7bba4d02c6c6880ea9}} 
@@ -249,13 +228,13 @@ El P.\+I. pasa a estar inicializado con el proceso leido del canal estandar de e
 \end{DoxyPostcond}
 
 
-Definición en la línea 27 del archivo Proceso.\+cc.
+Definición en la línea 25 del archivo Proceso.\+cc.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{27                            \{}
-\DoxyCodeLine{28     cin >> \textcolor{keywordtype}{id} >> \mbox{\hyperlink{classProceso_a2f0077c9db56775d552dc3941a81ec0b}{mem}} >> \mbox{\hyperlink{classProceso_ab451039e3e8d61b99b11f050112a46d1}{t}};}
-\DoxyCodeLine{29 \}}
+\DoxyCodeLine{25                            \{}
+\DoxyCodeLine{26     cin >> \textcolor{keywordtype}{id} >> \mbox{\hyperlink{classProceso_a2f0077c9db56775d552dc3941a81ec0b}{mem}} >> \mbox{\hyperlink{classProceso_ab451039e3e8d61b99b11f050112a46d1}{t}};}
+\DoxyCodeLine{27 \}}
 
 \end{DoxyCode}
 
@@ -269,7 +248,11 @@ Definición en la línea 27 del archivo Proceso.\+cc.
 
 
 
-Definición en la línea 23 del archivo Proceso.\+hh.
+Identificador del proceso. 
+
+
+
+Definición en la línea 25 del archivo Proceso.\+hh.
 
 \mbox{\Hypertarget{classProceso_a2f0077c9db56775d552dc3941a81ec0b}\label{classProceso_a2f0077c9db56775d552dc3941a81ec0b}} 
 \index{Proceso@{Proceso}!mem@{mem}}
@@ -279,7 +262,11 @@ Definición en la línea 23 del archivo Proceso.\+hh.
 
 
 
-Definición en la línea 25 del archivo Proceso.\+hh.
+Memoria necesaria estimada para ejecutar el proceso. 
+
+
+
+Definición en la línea 31 del archivo Proceso.\+hh.
 
 \mbox{\Hypertarget{classProceso_ab451039e3e8d61b99b11f050112a46d1}\label{classProceso_ab451039e3e8d61b99b11f050112a46d1}} 
 \index{Proceso@{Proceso}!t@{t}}
@@ -289,7 +276,11 @@ Definición en la línea 25 del archivo Proceso.\+hh.
 
 
 
-Definición en la línea 24 del archivo Proceso.\+hh.
+Tiempo estimado de ejecucion del proceso. 
+
+
+
+Definición en la línea 28 del archivo Proceso.\+hh.
 
 
 

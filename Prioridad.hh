@@ -22,8 +22,17 @@
  */
 class Prioridad {
 private:
+
+
+    /** @brief Procesos pertinentes a la prioridad
+
+     Ordenada crecientemente por antiguedad */
     list<Proceso> cjt;
+
+    /** @brief Numero de procesos rechazados por algun cluster */
     int rechazados;
+
+    /** @brief Numero de procesos aceptados por algun cluster */
     int aceptados;
 
     /* invariantes de la representación:
@@ -51,7 +60,7 @@ public:
     /**
      * @brief Añade un proceso a la prioridad
      *
-     * \pre En el P.I. no hay procesos con la misma identificacion que <em>job</em>
+     * \pre En el P.I. no hay procesos con el mismo identificador que <em>job</em>
      * \post Se ha añadido el proceso <em>job</em> al P.I.
      */
     void agregar_proceso(const Proceso& job);
@@ -87,7 +96,7 @@ public:
      * @brief Indica si la prioridad contiene el proceso
      *
      * \pre <em>Cierto</em>
-     * \post El resultado indica si el P.I. contiene algun proceso con identificacion <em>n</em>
+     * \post El resultado indica si el P.I. contiene algun proceso con identificador <em>n</em>
      */
     bool existe_proceso(int n) const;
 

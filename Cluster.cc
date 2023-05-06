@@ -1,3 +1,7 @@
+/** @file Cluster.cc
+    @brief Código de la clase Cluster
+*/
+
 #include "Cluster.hh"
 
 Cluster::Cluster() {}

@@ -27,19 +27,53 @@ using namespace std;
  */
 class Procesador {
 private:
+
+    /** @brief Conjuntos de huecos libres en el procesador
+     *
+     * Los huecos estan designados por su posicion inicial y estan agrupados y ordenados por su tamaño */
     map<int, set<int>> huecos;
+
+    /** @brief Procesos pertenecientes al procesador
+     *
+     * Ordenados por su posicion inicial */
     map<int, Proceso> mem;
+
+    /** @brief Posicion inicial de los procesos pertenecientes al procesador
+     *
+     * Ordenadas por el identificador del proceso al que hacen referencia */
     map<int, int> procesos;
+
+    /** @brief Tamaño de la memoria del procesador */
     int mem_mida;
 
     /* Invariante de la representacion
-     *
+     *  - mem > 0
+     *  -
+     *  -
      */
-//     no existe pos en los sets de huecos
+
+    /**
+     * @brief Añade un hueco al procesador
+     *
+     * \pre No hay ningun hueco que empieze en <em>pos</em>
+     * \post Se ha añadido un hueco de mida <em>mida</em> que empieza en <em>pos</em> en el P.I.
+     */
     void agregar_hueco(int mida, int pos);
-//     existe
+
+    /**
+     * @brief Elimina un hueco del procesador
+     *
+     * \pre Existe un hueco de mida <em>mida</em> que empieza en <em>pos</em>
+     * \post Se ha eliminado el hueco de mida <em>mida</em> i que empieza en <em>pos</em> del P.I.
+     */
     void eliminar_hueco(int mida, int pos);
-//     existe
+
+    /**
+     * @brief Elimina un proceso del procesador
+     *
+     * \pre <em>it1</em> apunta a un proceso en <em>mem</em> i <em>it2</em> apunta a la entrada del mismo proceso en <em>procesos</em>
+     * \post Se ha eliminado el proceso apuntado por <em>it1</em> i <em>it2</em> del P.I.
+     */
     void eliminar_proceso_aux(const map<int, Proceso>::const_iterator it1, const map<int, int>::const_iterator it2);
 
 public:
@@ -77,8 +111,8 @@ public:
     /**
      * @brief Elimina un proceso del procesador
      *
-     * \pre Existe un proceso con identificacion <em>n</em> en el P.I.
-     * \post Se ha eliminado el proceso con identificacion <em>n</em> del P.I.
+     * \pre Existe un proceso con identificador <em>n</em> en el P.I.
+     * \post Se ha eliminado el proceso con identificador <em>n</em> del P.I.
      */
     void eliminar_proceso(int n);
 
@@ -106,7 +140,7 @@ public:
      * @brief Indica si el procesador contiene el proceso
      *
      * \pre <em>Cierto</em>
-     * \post El resultado indica si el P.I. contiene algun proceso con identificacion <em>n</em>
+     * \post El resultado indica si el P.I. contiene algun proceso con identificador <em>n</em>
      */
     bool existe_proceso(int n) const;
 
@@ -121,7 +155,7 @@ public:
     /**
      * @brief Indica si el proceso cabe en el procesador
      *
-     * \pre No existe ningun proceso con la misma identificacion que el proceso <em>job</em> en el P.I.
+     * \pre No existe ningun proceso con el mismo identificador que el proceso <em>job</em> en el P.I.
      * \post El resultado indica si el proceso <em>job</em> cabe en el P.I.
      */
     bool cabe_proceso(const Proceso& job) const;

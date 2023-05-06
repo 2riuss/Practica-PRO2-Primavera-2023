@@ -1,3 +1,7 @@
+/** @file Area_Espera.cc
+    @brief Código de la clase Area_Espera
+*/
+
 #include "Area_Espera.hh"
 
 Area_Espera::Area_Espera() {}

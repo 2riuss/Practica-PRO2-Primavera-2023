@@ -30,11 +30,17 @@ using namespace std;
 class Cluster {
 private:
 
+    /** @brief Estructura interna del cluster */
     BinTree<string> estr;
+
+    /** @brief Procesadores pertenecientes al cluster
+     *
+     * Ordenados por un identificador */
     map<string, Procesador> procesadores;
 
     /* Invariante de la representacion
-     * estr no buit
+     *  - los strings del map procesadores representan los identificadores de los procesadores
+     *  - proceesadores no contiene procesadores con un mismo identificador
      */
 
     /** @brief Inmersion de <em>leer_cluster</em>, debilitamiento de la postcondicion
@@ -43,10 +49,21 @@ private:
      * \post <em>e</em> contiene la estructura del cluster del canal estandar de entrada y sus procesadores se han añadido a <em>proc</em>
      */
     static void leer_cluster_aux(map<string, Procesador>& proc, BinTree<string>& e);
+
+    /** @brief Inmersion de <em>escribir_estructura</em>
+     *
+     * \pre <em>Cierto</em>
+     * \post Se ha escrito en el canal estandar de salida la estructura de procesadores representada por <em>e</em>
+     */
     static void escribir_estructura_aux(const BinTree<string>& e);
 
-// pre: procesador id pertenece a e
+    /** @brief Inmersion de <em>procesadores_auxiliares</em>
+     *
+     * \pre <em>id</em> se encuentra en <em>e</em>
+     * \post El resultado indica si el nodo <em>id</em> tiene hijos
+     */
     static bool procesadores_auxiliares_aux(const BinTree<string>& e, const string& id);
+
 public:
     // Constructoras
 
@@ -65,16 +82,16 @@ public:
     /**
      * @brief Añade un proceso a un procesador
      *
-     * \pre Existe un procesador con identificacion <em>id</em> en el P.I., no hay ningun proceso con el mismo identificador que el proceso <em>job</em> en el procesador y el proceso <em>job</em> cabe en dicho procesador
-     * \post El proceso <em>job</em> queda añadido al procesador con identificacion <em>id</em> del P.I. en el hueco más ajustado con posicion inicial más pequeña
+     * \pre Existe un procesador con identificador <em>id</em> en el P.I., no hay ningun proceso con el mismo identificador que el proceso <em>job</em> en el procesador y el proceso <em>job</em> cabe en dicho procesador
+     * \post El proceso <em>job</em> queda añadido al procesador con identificador <em>id</em> del P.I. en el hueco más ajustado con posicion inicial más pequeña
      */
     void agregar_proceso(const string& id, const Proceso& job);
 
     /**
      * @brief Elimina un proceso de un procesador
      *
-     * \pre Existe un procesador con identificacion <em>id</em> en el P.I. que contiene el proceso con identificacion <em>n</em>
-     * \post Se ha eliminado el proceso con identificacion <em>n</em> del procesador con identificacion <em>id</em> del P.I.
+     * \pre Existe un procesador con identificador <em>id</em> en el P.I. que contiene el proceso con identificador <em>n</em>
+     * \post Se ha eliminado el proceso con identificador <em>n</em> del procesador con identificador <em>id</em> del P.I.
      */
     void eliminar_proceso(const string& id, int n);
 
@@ -93,16 +110,16 @@ public:
     /**
      * @brief Sustituye un procesador por un cluster
      *
-     * \pre En el P.I. existe un procesador con identificacion <em>id</em>, sin procesos en ejecucion y sin procesadores auxiliares
-     * \post El cluster <em>c</em> se ha colocado en el lugar del procesador con identificacion <em>id</em>, substituiendolo en el P.I.
+     * \pre En el P.I. existe un procesador con identificador <em>id</em>, sin procesos en ejecucion y sin procesadores auxiliares
+     * \post El cluster <em>c</em> se ha colocado en el lugar del procesador con identificador <em>id</em>, substituiendolo en el P.I.
      */
     void substituir(const string& id, const Cluster& c);
 
     /**
      * @brief Compacta la memoria de un procesador
      *
-     * \pre Existe un procesador con identificacion <em>id</em> en el P.I.
-     * \post Se ha compactado la memoria del procesador con identificacion <em>id</em> del P.I.; es decir, se han movido todos los procesos hacia el principio de la memoria del procesador respetando el orden inicial y sin huecos ni solapamientos
+     * \pre Existe un procesador con identificador <em>id</em> en el P.I.
+     * \post Se ha compactado la memoria del procesador con identificador <em>id</em> del P.I.; es decir, se han movido todos los procesos hacia el principio de la memoria del procesador respetando el orden inicial y sin huecos ni solapamientos
      */
     void compactar_memoria_procesador(const string& id);
 
@@ -139,39 +156,39 @@ public:
      * @brief Indica si existe el procesador en el cluster
      *
      * \pre <em>Cierto</em>
-     * \post El resultado indica si hay algun procesador de identificacion <em>id</em> en el P.I.
+     * \post El resultado indica si hay algun procesador de identificador <em>id</em> en el P.I.
      */
     bool existe_procesador(const string& id) const;
 
     /**
      * @brief Indica si el procesador del cluster contiene el proceso
      *
-     * \pre Existe un procesador con identificacion <em>id</em> en el P.I.
-     * \post El resultado indica si el procesador con identificacion <em>id</em> del P.I. contiene algun proceso con identificacion <em>n</em>
+     * \pre Existe un procesador con identificador <em>id</em> en el P.I.
+     * \post El resultado indica si el procesador con identificador <em>id</em> del P.I. contiene algun proceso con identificador <em>n</em>
      */
     bool existe_proceso(const string& id, int n) const;
 
     /**
      * @brief Indica si el procesador del cluster contiene procesos en ejecucion
      *
-     * \pre Existe un procesador con identificacion <em>id</em> en el P.I.
-     * \post El resultado indica si el procesador con identificacion <em>id</em> del P.I. contiene procesos
+     * \pre Existe un procesador con identificador <em>id</em> en el P.I.
+     * \post El resultado indica si el procesador con identificador <em>id</em> del P.I. contiene procesos
      */
     bool procesador_vacio(const string& id) const;
 
     /**
      * @brief Indica si el procesador del cluster tiene procesadores auxiliares
      *
-     * \pre Existe un procesador con identificacion <em>id</em> en el P.I.
-     * \post El resultado indica si el procesador con identificacion <em>id</em> del P.I. tiene procesadores auxiliares
+     * \pre Existe un procesador con identificador <em>id</em> en el P.I.
+     * \post El resultado indica si el procesador con identificador <em>id</em> del P.I. tiene procesadores auxiliares
      */
     bool procesadores_auxiliares(const string& id) const;
 
     /**
      * @brief Indica si el proceso cabe en el procesador del cluster
      *
-     * \pre Existe un procesador con identificacion <em>id</em> en el P.I. y no existe ningun proceso con la misma identificacion que el proceso <em>job</em> en dicho procesador
-     * \post El resultado indica si el proceso <em>job</em> cabe en el procesador con identificacion <em>id</em> del P.I.
+     * \pre Existe un procesador con identificador <em>id</em> en el P.I. y no existe ningun proceso con el mismo identificador que el proceso <em>job</em> en dicho procesador
+     * \post El resultado indica si el proceso <em>job</em> cabe en el procesador con identificador <em>id</em> del P.I.
      */
     bool cabe_proceso(const string& p, const Proceso& job) const;
 
@@ -189,8 +206,8 @@ public:
     /**
      * @brief Escribe un procesador
      *
-     * \pre Existe un procesador con identificacion <em>id</em> en el P.I.
-     * \post Se ha escrito en el canal estandar de salida la posicion y datos de los procesos del procesador con identificacion <em>id</em> del P.I.
+     * \pre Existe un procesador con identificador <em>id</em> en el P.I.
+     * \post Se ha escrito en el canal estandar de salida la posicion y datos de los procesos del procesador con identificador <em>id</em> del P.I.
      */
     void escribir_procesador(const string& id) const;
 

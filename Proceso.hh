@@ -20,8 +20,14 @@ using namespace std;
  */
 class Proceso {
 private:
+
+    /** @brief Identificador del proceso */
     int id;
+
+    /** @brief Tiempo estimado de ejecucion del proceso */
     int t;
+
+    /** @brief Memoria necesaria estimada para ejecutar el proceso */
     int mem;
 
     /* invariantes de la representación:
@@ -58,10 +64,10 @@ public:
     // Consultoras
 
     /**
-     * @brief Consultora de la identificacion
+     * @brief Consultora del identificador
      *
      * \pre <em>Cierto</em>
-     * \post El resultado es la identificacion del P.I.
+     * \post El resultado es el identificador del P.I.
      */
     int consultar_id() const;
 

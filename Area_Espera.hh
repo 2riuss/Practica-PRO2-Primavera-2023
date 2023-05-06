@@ -21,17 +21,21 @@ using namespace std;
  * @class Area_Espera
  * @brief Representa una area de espera
  *
- * Representa una area de espera que cuenta con una serie de prioridades con identificacion unica el las que se encuentran los proces pendientes.
+ * Representa una area de espera que cuenta con una serie de prioridades con identificador unico en las que se encuentran los procesos pendientes.
  *
  * La area de espera puede añadir y eliminar prioridades, añadir procesos y enviar procesos a un cluster
  */
 class Area_Espera {
 private:
+
+    /** @brief Prioridades pertinentes al area de espera
+     *
+     * Ordenadas por un identificador */
     map<string, Prioridad> ae;
 
     /* Invariantes de la representación
-     *  - los strings del map ae representan las identificaciones de las prioridades
-     *  - ae no contiene prioridades con una misma identificacion
+     *  - los strings del map ae representan los identificadores de las prioridades
+     *  - ae no contiene prioridades con un mismo identificador
      */
 
 
@@ -53,24 +57,24 @@ public:
     /**
      * @brief Añade un proceso a una prioridad
      *
-     * \pre Existe una prioridad con identificacion <em>id</em> en el P.I. y no hay ningun proceso con el mismo identificador que el proceso <em>job</em> en la prioridad
-     * \post Se ha añadido el proceso <em>job</em> a la prioridad con identificacion <em>id</em> del P.I.
+     * \pre Existe una prioridad con identificador <em>id</em> en el P.I. y no hay ningun proceso con el mismo identificador que el proceso <em>job</em> en la prioridad
+     * \post Se ha añadido el proceso <em>job</em> a la prioridad con identificador <em>id</em> del P.I.
      */
     void agregar_proceso(const string& id, const Proceso& job);
 
     /**
      * @brief Añade una prioridad al area de espera
      *
-     * \pre En el P.I. no existe ninguna prioridad con identificacion <em>id</em>
-     * \post Se ha añadido una prioridad con identificacion <em>id</em> vacia al P.I.
+     * \pre En el P.I. no existe ninguna prioridad con identificador <em>id</em>
+     * \post Se ha añadido una prioridad con identificador <em>id</em> vacia al P.I.
      */
     void agregar_prioridad(const string& id);
 
     /**
      * @brief Elimina una prioridad del area de espera
      *
-     * \pre En el P.I. existe una prioridad con identificacion <em>id</em>, sin procesos pendientes
-     * \post Se ha eliminado la prioridad con identificacion <em>id</em> del P.I.
+     * \pre En el P.I. existe una prioridad con identificador <em>id</em>, sin procesos pendientes
+     * \post Se ha eliminado la prioridad con identificador <em>id</em> del P.I.
      */
     void eliminar_prioridad(const string& id);
 
@@ -81,23 +85,23 @@ public:
      * @brief Indica si existe la prioridad en la area de espera
      *
      * \pre <em>Cierto</em>
-     * \post El resultado indica si el P.I. contiene una prioridad con identificacion <em>id</em>
+     * \post El resultado indica si el P.I. contiene una prioridad con identificador <em>id</em>
      */
     bool existe_prioridad(const string& id) const;
 
     /**
      * @brief Indica si la prioridad del area de espera contiene el proceso
      *
-     * \pre Existe una prioridad con identificacion <em>id</em> en el P.I.
-     * \post El resultado indica si la prioridad con identificacion <em>id</em> del P.I. contiene algun proceso con identificacion <em>n</em>
+     * \pre Existe una prioridad con identificador <em>id</em> en el P.I.
+     * \post El resultado indica si la prioridad con identificador <em>id</em> del P.I. contiene algun proceso con identificador <em>n</em>
      */
     bool existe_proceso(const string& id, int n) const;
 
     /**
      * @brief Indica si la prioridad del area de espera tiene procesos pendientes
      *
-     * \pre Existe una prioridad con identificacion <em>id</em> en el P.I.
-     * \post El resultado indica si la prioridad con identificacion <em>id</em> del P.I. tiene procesos pendientes
+     * \pre Existe una prioridad con identificador <em>id</em> en el P.I.
+     * \post El resultado indica si la prioridad con identificador <em>id</em> del P.I. tiene procesos pendientes
      */
     bool prioridad_vacia(const string& id) const;
 
@@ -115,8 +119,8 @@ public:
     /**
      * @brief Escribe una prioridad
      *
-     * \pre Existe una prioridad con identificacion <em>id</em> en el P.I.
-     * \post Se ha escrito en el canal estandar de salida los procesos pendientes en orden decreciente de antigüedad, el número de procesos colocados en algun cluster y el número de procesos rechazos de la prioridad con identificacion <em>id</em> del P.I.
+     * \pre Existe una prioridad con identificador <em>id</em> en el P.I.
+     * \post Se ha escrito en el canal estandar de salida los procesos pendientes en orden decreciente de antigüedad, el número de procesos colocados en algun cluster y el número de procesos rechazos de la prioridad con identificador <em>id</em> del P.I.
      */
     void escribir_prioridad(const string& id) const;
 

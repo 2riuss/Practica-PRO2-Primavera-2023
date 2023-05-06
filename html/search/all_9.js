@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['t_64',['t',['../classProceso.html#ab451039e3e8d61b99b11f050112a46d1',1,'Proceso']]]
+  ['substituir_67',['substituir',['../classCluster.html#a2f47f9ded1a66f41198ac356a8001d11',1,'Cluster']]]
 ];

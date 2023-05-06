@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['substituir_63',['substituir',['../classCluster.html#a2f47f9ded1a66f41198ac356a8001d11',1,'Cluster']]]
+  ['rechazados_66',['rechazados',['../classPrioridad.html#a65a0d943a980d29aedab2b7700a6ae7a',1,'Prioridad']]]
 ];

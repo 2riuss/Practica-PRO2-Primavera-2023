@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Fichero Fuente Prioridad.hh</title>
+<title>Simulando una arquitectura multiprocesador: Fichero Fuente Prioridad.hh</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Simulando una arquitectura multiprocesador
+   &#160;<span id="projectnumber">Bernat Dosrius Lleonart</span>
    </div>
   </td>
  </tr>
@@ -77,63 +78,67 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classPrioridad.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPrioridad.html">Prioridad</a> {</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">   25</a></span>&#160;    list&lt;Proceso&gt; <a class="code" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classPrioridad.html#a65a0d943a980d29aedab2b7700a6ae7a">   26</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classPrioridad.html#a65a0d943a980d29aedab2b7700a6ae7a">rechazados</a>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classPrioridad.html#a618a5c55d8c8dcd68fa9e85dc0b26066">   27</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classPrioridad.html#a618a5c55d8c8dcd68fa9e85dc0b26066">aceptados</a>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">/* invariantes de la representación:</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">     * - cjt no contiene procesos con una misma id</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">     * - cjt esta ordenado por antiguedad</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">     * - rechazados és un entero &gt;= 0</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">     * - aceptados és un entero &gt;= 0</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// Constructoras</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="classPrioridad.html#a239123296380077ef6959111bf599a90">Prioridad</a>();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">   30</a></span>&#160;    list&lt;Proceso&gt; <a class="code" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classPrioridad.html#a65a0d943a980d29aedab2b7700a6ae7a">   33</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classPrioridad.html#a65a0d943a980d29aedab2b7700a6ae7a">rechazados</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classPrioridad.html#a618a5c55d8c8dcd68fa9e85dc0b26066">   36</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classPrioridad.html#a618a5c55d8c8dcd68fa9e85dc0b26066">aceptados</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">/* invariantes de la representación:</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">     * - cjt no contiene procesos con una misma id</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">     * - cjt esta ordenado por antiguedad</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">     * - rechazados és un entero &gt;= 0</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">     * - aceptados és un entero &gt;= 0</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">// Constructoras</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">// Modificadoras</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPrioridad.html#a3d1e763dea8067c1573d61c854c03a9b">agregar_proceso</a>(<span class="keyword">const</span> <a class="code" href="classProceso.html">Proceso</a>&amp; job);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPrioridad.html#aa7b26432aeff5700f85bfdf38d3d1b69">eliminar_proceso</a>();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPrioridad.html#a7ac1aced277c5bad5df5a9deb1acb01f">incrementar_aceptados</a>();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPrioridad.html#aa6ae362131d34f8809368b1a28b163a9">incrementar_rechazados</a>();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="classPrioridad.html#a239123296380077ef6959111bf599a90">Prioridad</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">// Modificadoras</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPrioridad.html#a3d1e763dea8067c1573d61c854c03a9b">agregar_proceso</a>(<span class="keyword">const</span> <a class="code" href="classProceso.html">Proceso</a>&amp; job);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPrioridad.html#aa7b26432aeff5700f85bfdf38d3d1b69">eliminar_proceso</a>();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPrioridad.html#a7ac1aced277c5bad5df5a9deb1acb01f">incrementar_aceptados</a>();</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">// Consultoras</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classPrioridad.html#a468e13b536904645e39906092055284b">existe_proceso</a>(<span class="keywordtype">int</span> n) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classPrioridad.html#a1d8103c061b0554a72231104e6b45685">vacia</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <a class="code" href="classProceso.html">Proceso</a> <a class="code" href="classPrioridad.html#afc25cf197eef84396826d9380737f768">proceso</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPrioridad.html#aa6ae362131d34f8809368b1a28b163a9">incrementar_rechazados</a>();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="comment">// Consultoras</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classPrioridad.html#a468e13b536904645e39906092055284b">existe_proceso</a>(<span class="keywordtype">int</span> n) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classPrioridad.html#a1d8103c061b0554a72231104e6b45685">vacia</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">// Lectura y escritura</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPrioridad.html#ac11c1709a1bde371738948e59bcd7715">escribir_prioridad</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;};</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <a class="code" href="classProceso.html">Proceso</a> <a class="code" href="classPrioridad.html#afc25cf197eef84396826d9380737f768">proceso</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="comment">// Lectura y escritura</span></div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPrioridad.html#ac11c1709a1bde371738948e59bcd7715">escribir_prioridad</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;};</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aProceso_8hh_html"><div class="ttname"><a href="Proceso_8hh.html">Proceso.hh</a></div><div class="ttdoc">Especificacion de la clase Proceso.</div></div>
 <div class="ttc" id="aclassPrioridad_html"><div class="ttname"><a href="classPrioridad.html">Prioridad</a></div><div class="ttdoc">Representa una prioridad.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8hh_source.html#l00023">Prioridad.hh:23</a></div></div>
-<div class="ttc" id="aclassPrioridad_html_a1d8103c061b0554a72231104e6b45685"><div class="ttname"><a href="classPrioridad.html#a1d8103c061b0554a72231104e6b45685">Prioridad::vacia</a></div><div class="ttdeci">bool vacia() const</div><div class="ttdoc">Indica si la prioridad contiene procesos pendientes.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00036">Prioridad.cc:36</a></div></div>
-<div class="ttc" id="aclassPrioridad_html_a239123296380077ef6959111bf599a90"><div class="ttname"><a href="classPrioridad.html#a239123296380077ef6959111bf599a90">Prioridad::Prioridad</a></div><div class="ttdeci">Prioridad()</div><div class="ttdoc">Constructora por defecto.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00003">Prioridad.cc:3</a></div></div>
-<div class="ttc" id="aclassPrioridad_html_a3d1e763dea8067c1573d61c854c03a9b"><div class="ttname"><a href="classPrioridad.html#a3d1e763dea8067c1573d61c854c03a9b">Prioridad::agregar_proceso</a></div><div class="ttdeci">void agregar_proceso(const Proceso &amp;job)</div><div class="ttdoc">Añade un proceso a la prioridad.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00008">Prioridad.cc:8</a></div></div>
-<div class="ttc" id="aclassPrioridad_html_a468e13b536904645e39906092055284b"><div class="ttname"><a href="classPrioridad.html#a468e13b536904645e39906092055284b">Prioridad::existe_proceso</a></div><div class="ttdeci">bool existe_proceso(int n) const</div><div class="ttdoc">Indica si la prioridad contiene el proceso.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00024">Prioridad.cc:24</a></div></div>
-<div class="ttc" id="aclassPrioridad_html_a618a5c55d8c8dcd68fa9e85dc0b26066"><div class="ttname"><a href="classPrioridad.html#a618a5c55d8c8dcd68fa9e85dc0b26066">Prioridad::aceptados</a></div><div class="ttdeci">int aceptados</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8hh_source.html#l00027">Prioridad.hh:27</a></div></div>
-<div class="ttc" id="aclassPrioridad_html_a65a0d943a980d29aedab2b7700a6ae7a"><div class="ttname"><a href="classPrioridad.html#a65a0d943a980d29aedab2b7700a6ae7a">Prioridad::rechazados</a></div><div class="ttdeci">int rechazados</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8hh_source.html#l00026">Prioridad.hh:26</a></div></div>
-<div class="ttc" id="aclassPrioridad_html_a7ac1aced277c5bad5df5a9deb1acb01f"><div class="ttname"><a href="classPrioridad.html#a7ac1aced277c5bad5df5a9deb1acb01f">Prioridad::incrementar_aceptados</a></div><div class="ttdeci">void incrementar_aceptados()</div><div class="ttdoc">Incrementa el contador de procesos aceptados de la prioridad en uno.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00016">Prioridad.cc:16</a></div></div>
-<div class="ttc" id="aclassPrioridad_html_aa6ae362131d34f8809368b1a28b163a9"><div class="ttname"><a href="classPrioridad.html#aa6ae362131d34f8809368b1a28b163a9">Prioridad::incrementar_rechazados</a></div><div class="ttdeci">void incrementar_rechazados()</div><div class="ttdoc">Incrementa el contador de procesos rechazados de la prioridad en uno.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00020">Prioridad.cc:20</a></div></div>
-<div class="ttc" id="aclassPrioridad_html_aa7b26432aeff5700f85bfdf38d3d1b69"><div class="ttname"><a href="classPrioridad.html#aa7b26432aeff5700f85bfdf38d3d1b69">Prioridad::eliminar_proceso</a></div><div class="ttdeci">void eliminar_proceso()</div><div class="ttdoc">Elimina un proceso de la prioridad.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00012">Prioridad.cc:12</a></div></div>
-<div class="ttc" id="aclassPrioridad_html_ac11c1709a1bde371738948e59bcd7715"><div class="ttname"><a href="classPrioridad.html#ac11c1709a1bde371738948e59bcd7715">Prioridad::escribir_prioridad</a></div><div class="ttdeci">void escribir_prioridad() const</div><div class="ttdoc">Escribe una prioridad.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00044">Prioridad.cc:44</a></div></div>
-<div class="ttc" id="aclassPrioridad_html_af3141cdfac87c4e1690242c38862f15a"><div class="ttname"><a href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">Prioridad::cjt</a></div><div class="ttdeci">list&lt; Proceso &gt; cjt</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8hh_source.html#l00025">Prioridad.hh:25</a></div></div>
-<div class="ttc" id="aclassPrioridad_html_afc25cf197eef84396826d9380737f768"><div class="ttname"><a href="classPrioridad.html#afc25cf197eef84396826d9380737f768">Prioridad::proceso</a></div><div class="ttdeci">Proceso proceso() const</div><div class="ttdoc">Consultora del proceso mas antiguo.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00040">Prioridad.cc:40</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_a1d8103c061b0554a72231104e6b45685"><div class="ttname"><a href="classPrioridad.html#a1d8103c061b0554a72231104e6b45685">Prioridad::vacia</a></div><div class="ttdeci">bool vacia() const</div><div class="ttdoc">Indica si la prioridad contiene procesos pendientes.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00035">Prioridad.cc:35</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_a239123296380077ef6959111bf599a90"><div class="ttname"><a href="classPrioridad.html#a239123296380077ef6959111bf599a90">Prioridad::Prioridad</a></div><div class="ttdeci">Prioridad()</div><div class="ttdoc">Constructora por defecto.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00007">Prioridad.cc:7</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_a3d1e763dea8067c1573d61c854c03a9b"><div class="ttname"><a href="classPrioridad.html#a3d1e763dea8067c1573d61c854c03a9b">Prioridad::agregar_proceso</a></div><div class="ttdeci">void agregar_proceso(const Proceso &amp;job)</div><div class="ttdoc">Añade un proceso a la prioridad.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00012">Prioridad.cc:12</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_a468e13b536904645e39906092055284b"><div class="ttname"><a href="classPrioridad.html#a468e13b536904645e39906092055284b">Prioridad::existe_proceso</a></div><div class="ttdeci">bool existe_proceso(int n) const</div><div class="ttdoc">Indica si la prioridad contiene el proceso.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00028">Prioridad.cc:28</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_a618a5c55d8c8dcd68fa9e85dc0b26066"><div class="ttname"><a href="classPrioridad.html#a618a5c55d8c8dcd68fa9e85dc0b26066">Prioridad::aceptados</a></div><div class="ttdeci">int aceptados</div><div class="ttdoc">Numero de procesos aceptados por algun cluster.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8hh_source.html#l00036">Prioridad.hh:36</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_a65a0d943a980d29aedab2b7700a6ae7a"><div class="ttname"><a href="classPrioridad.html#a65a0d943a980d29aedab2b7700a6ae7a">Prioridad::rechazados</a></div><div class="ttdeci">int rechazados</div><div class="ttdoc">Numero de procesos rechazados por algun cluster.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8hh_source.html#l00033">Prioridad.hh:33</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_a7ac1aced277c5bad5df5a9deb1acb01f"><div class="ttname"><a href="classPrioridad.html#a7ac1aced277c5bad5df5a9deb1acb01f">Prioridad::incrementar_aceptados</a></div><div class="ttdeci">void incrementar_aceptados()</div><div class="ttdoc">Incrementa el contador de procesos aceptados de la prioridad en uno.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00020">Prioridad.cc:20</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_aa6ae362131d34f8809368b1a28b163a9"><div class="ttname"><a href="classPrioridad.html#aa6ae362131d34f8809368b1a28b163a9">Prioridad::incrementar_rechazados</a></div><div class="ttdeci">void incrementar_rechazados()</div><div class="ttdoc">Incrementa el contador de procesos rechazados de la prioridad en uno.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00024">Prioridad.cc:24</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_aa7b26432aeff5700f85bfdf38d3d1b69"><div class="ttname"><a href="classPrioridad.html#aa7b26432aeff5700f85bfdf38d3d1b69">Prioridad::eliminar_proceso</a></div><div class="ttdeci">void eliminar_proceso()</div><div class="ttdoc">Elimina un proceso de la prioridad.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00016">Prioridad.cc:16</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_ac11c1709a1bde371738948e59bcd7715"><div class="ttname"><a href="classPrioridad.html#ac11c1709a1bde371738948e59bcd7715">Prioridad::escribir_prioridad</a></div><div class="ttdeci">void escribir_prioridad() const</div><div class="ttdoc">Escribe una prioridad.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00043">Prioridad.cc:43</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_af3141cdfac87c4e1690242c38862f15a"><div class="ttname"><a href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">Prioridad::cjt</a></div><div class="ttdeci">list&lt; Proceso &gt; cjt</div><div class="ttdoc">Procesos pertinentes a la prioridad.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8hh_source.html#l00030">Prioridad.hh:30</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_afc25cf197eef84396826d9380737f768"><div class="ttname"><a href="classPrioridad.html#afc25cf197eef84396826d9380737f768">Prioridad::proceso</a></div><div class="ttdeci">Proceso proceso() const</div><div class="ttdoc">Consultora del proceso mas antiguo.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00039">Prioridad.cc:39</a></div></div>
 <div class="ttc" id="aclassProceso_html"><div class="ttname"><a href="classProceso.html">Proceso</a></div><div class="ttdoc">Representa un proceso.</div><div class="ttdef"><b>Definition:</b> <a href="Proceso_8hh_source.html#l00021">Proceso.hh:21</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

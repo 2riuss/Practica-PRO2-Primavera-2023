@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['rechazados_136',['rechazados',['../classPrioridad.html#a65a0d943a980d29aedab2b7700a6ae7a',1,'Prioridad']]]
+  ['procesadores_141',['procesadores',['../classCluster.html#a0456efea2e21cfeebda8f61669649a59',1,'Cluster']]],
+  ['procesos_142',['procesos',['../classProcesador.html#a5658c31931650b06c122d7ee505f52a2',1,'Procesador']]]
 ];

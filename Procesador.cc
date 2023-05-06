@@ -1,3 +1,7 @@
+/** @file Procesador.cc
+    @brief Código de la clase Procesador
+*/
+
 #include "Procesador.hh"
 
 Procesador::Procesador() {}

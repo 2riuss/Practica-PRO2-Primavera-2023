@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Referencia de la Clase Prioridad</title>
+<title>Simulando una arquitectura multiprocesador: Referencia de la Clase Prioridad</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Simulando una arquitectura multiprocesador
+   &#160;<span id="projectnumber">Bernat Dosrius Lleonart</span>
    </div>
   </td>
  </tr>
@@ -108,10 +109,13 @@ Métodos públicos</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Atributos privados</h2></td></tr>
 <tr class="memitem:af3141cdfac87c4e1690242c38862f15a"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classProceso.html">Proceso</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a></td></tr>
+<tr class="memdesc:af3141cdfac87c4e1690242c38862f15a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procesos pertinentes a la prioridad.  <a href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">Más...</a><br /></td></tr>
 <tr class="separator:af3141cdfac87c4e1690242c38862f15a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65a0d943a980d29aedab2b7700a6ae7a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPrioridad.html#a65a0d943a980d29aedab2b7700a6ae7a">rechazados</a></td></tr>
+<tr class="memdesc:a65a0d943a980d29aedab2b7700a6ae7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Numero de procesos rechazados por algun cluster.  <a href="classPrioridad.html#a65a0d943a980d29aedab2b7700a6ae7a">Más...</a><br /></td></tr>
 <tr class="separator:a65a0d943a980d29aedab2b7700a6ae7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a618a5c55d8c8dcd68fa9e85dc0b26066"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPrioridad.html#a618a5c55d8c8dcd68fa9e85dc0b26066">aceptados</a></td></tr>
+<tr class="memdesc:a618a5c55d8c8dcd68fa9e85dc0b26066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Numero de procesos aceptados por algun cluster.  <a href="classPrioridad.html#a618a5c55d8c8dcd68fa9e85dc0b26066">Más...</a><br /></td></tr>
 <tr class="separator:a618a5c55d8c8dcd68fa9e85dc0b26066"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
@@ -140,13 +144,13 @@ Atributos privados</h2></td></tr>
 <p>Se ejecuta por defecto al declarar una prioridad </p><dl class="section pre"><dt>Precondición</dt><dd><em>Cierto</em> </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>El resultado es una prioridad vacia </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="Prioridad_8cc_source.html#l00003">3</a> del archivo <a class="el" href="Prioridad_8cc_source.html">Prioridad.cc</a>.</p>
-<div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;                     {</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <a class="code" href="classPrioridad.html#a65a0d943a980d29aedab2b7700a6ae7a">rechazados</a> = 0;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <a class="code" href="classPrioridad.html#a618a5c55d8c8dcd68fa9e85dc0b26066">aceptados</a> = 0;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;}</div>
-<div class="ttc" id="aclassPrioridad_html_a618a5c55d8c8dcd68fa9e85dc0b26066"><div class="ttname"><a href="classPrioridad.html#a618a5c55d8c8dcd68fa9e85dc0b26066">Prioridad::aceptados</a></div><div class="ttdeci">int aceptados</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8hh_source.html#l00027">Prioridad.hh:27</a></div></div>
-<div class="ttc" id="aclassPrioridad_html_a65a0d943a980d29aedab2b7700a6ae7a"><div class="ttname"><a href="classPrioridad.html#a65a0d943a980d29aedab2b7700a6ae7a">Prioridad::rechazados</a></div><div class="ttdeci">int rechazados</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8hh_source.html#l00026">Prioridad.hh:26</a></div></div>
+<p class="definition">Definición en la línea <a class="el" href="Prioridad_8cc_source.html#l00007">7</a> del archivo <a class="el" href="Prioridad_8cc_source.html">Prioridad.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;                     {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="classPrioridad.html#a65a0d943a980d29aedab2b7700a6ae7a">rechazados</a> = 0;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="classPrioridad.html#a618a5c55d8c8dcd68fa9e85dc0b26066">aceptados</a> = 0;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
+<div class="ttc" id="aclassPrioridad_html_a618a5c55d8c8dcd68fa9e85dc0b26066"><div class="ttname"><a href="classPrioridad.html#a618a5c55d8c8dcd68fa9e85dc0b26066">Prioridad::aceptados</a></div><div class="ttdeci">int aceptados</div><div class="ttdoc">Numero de procesos aceptados por algun cluster.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8hh_source.html#l00036">Prioridad.hh:36</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_a65a0d943a980d29aedab2b7700a6ae7a"><div class="ttname"><a href="classPrioridad.html#a65a0d943a980d29aedab2b7700a6ae7a">Prioridad::rechazados</a></div><div class="ttdeci">int rechazados</div><div class="ttdoc">Numero de procesos rechazados por algun cluster.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8hh_source.html#l00033">Prioridad.hh:33</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -168,14 +172,14 @@ Atributos privados</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Añade un proceso a la prioridad. </p>
-<dl class="section pre"><dt>Precondición</dt><dd>En el P.I. no hay procesos con la misma identificacion que <em>job</em> </dd></dl>
+<dl class="section pre"><dt>Precondición</dt><dd>En el P.I. no hay procesos con el mismo identificador que <em>job</em> </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Se ha añadido el proceso <em>job</em> al P.I. </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="Prioridad_8cc_source.html#l00008">8</a> del archivo <a class="el" href="Prioridad_8cc_source.html">Prioridad.cc</a>.</p>
-<div class="fragment"><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;                                                  {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a>.insert(<a class="code" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a>.end(), job);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
-<div class="ttc" id="aclassPrioridad_html_af3141cdfac87c4e1690242c38862f15a"><div class="ttname"><a href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">Prioridad::cjt</a></div><div class="ttdeci">list&lt; Proceso &gt; cjt</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8hh_source.html#l00025">Prioridad.hh:25</a></div></div>
+<p class="definition">Definición en la línea <a class="el" href="Prioridad_8cc_source.html#l00012">12</a> del archivo <a class="el" href="Prioridad_8cc_source.html">Prioridad.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;                                                  {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a>.insert(<a class="code" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a>.end(), job);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
+<div class="ttc" id="aclassPrioridad_html_af3141cdfac87c4e1690242c38862f15a"><div class="ttname"><a href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">Prioridad::cjt</a></div><div class="ttdeci">list&lt; Proceso &gt; cjt</div><div class="ttdoc">Procesos pertinentes a la prioridad.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8hh_source.html#l00030">Prioridad.hh:30</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -198,10 +202,10 @@ Atributos privados</h2></td></tr>
 <dl class="section pre"><dt>Precondición</dt><dd>El P.I. contine algun proceso </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Se ha eliminado el proceso mas antiguo del P.I. </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="Prioridad_8cc_source.html#l00012">12</a> del archivo <a class="el" href="Prioridad_8cc_source.html">Prioridad.cc</a>.</p>
-<div class="fragment"><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;                                 {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a>.erase(<a class="code" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a>.begin());</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
+<p class="definition">Definición en la línea <a class="el" href="Prioridad_8cc_source.html#l00016">16</a> del archivo <a class="el" href="Prioridad_8cc_source.html">Prioridad.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                                 {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a>.erase(<a class="code" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a>.begin());</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -224,14 +228,14 @@ Atributos privados</h2></td></tr>
 <dl class="section pre"><dt>Precondición</dt><dd><em>Cierto</em> </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Se ha escrito en el canal estandar de salida los procesos del P.I. en orden decreciente de antigüedad, el número de procesos colocados en algun cluster y el número de procesos rechazos del P.I. </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="Prioridad_8cc_source.html#l00044">44</a> del archivo <a class="el" href="Prioridad_8cc_source.html">Prioridad.cc</a>.</p>
-<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                                         {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">for</span> (list&lt;Proceso&gt;::const_iterator it = <a class="code" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a>.begin(); it != <a class="code" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a>.end(); ++it) {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        it -&gt; escribir_proceso();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    cout &lt;&lt; <a class="code" href="classPrioridad.html#a618a5c55d8c8dcd68fa9e85dc0b26066">aceptados</a> &lt;&lt; <span class="charliteral">&#39; &#39;</span> &lt;&lt; <a class="code" href="classPrioridad.html#a65a0d943a980d29aedab2b7700a6ae7a">rechazados</a> &lt;&lt; endl;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<p class="definition">Definición en la línea <a class="el" href="Prioridad_8cc_source.html#l00043">43</a> del archivo <a class="el" href="Prioridad_8cc_source.html">Prioridad.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                                         {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">for</span> (list&lt;Proceso&gt;::const_iterator it = <a class="code" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a>.begin(); it != <a class="code" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a>.end(); ++it) {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        it -&gt; escribir_proceso();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    cout &lt;&lt; <a class="code" href="classPrioridad.html#a618a5c55d8c8dcd68fa9e85dc0b26066">aceptados</a> &lt;&lt; <span class="charliteral">&#39; &#39;</span> &lt;&lt; <a class="code" href="classPrioridad.html#a65a0d943a980d29aedab2b7700a6ae7a">rechazados</a> &lt;&lt; endl;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -253,20 +257,15 @@ Atributos privados</h2></td></tr>
 
 <p>Indica si la prioridad contiene el proceso. </p>
 <dl class="section pre"><dt>Precondición</dt><dd><em>Cierto</em> </dd></dl>
-<dl class="section post"><dt>Postcondición</dt><dd>El resultado indica si el P.I. contiene algun proceso con identificacion <em>n</em> </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>El resultado indica si el P.I. contiene algun proceso con identificador <em>n</em> </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="Prioridad_8cc_source.html#l00024">24</a> del archivo <a class="el" href="Prioridad_8cc_source.html">Prioridad.cc</a>.</p>
-<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                          {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    list&lt;Proceso&gt;::const_iterator it = <a class="code" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a>.begin();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">while</span> (not found and it != <a class="code" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a>.end()) {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        found = it -&gt; consultar_id() == n;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        ++it;</div>
+<p class="definition">Definición en la línea <a class="el" href="Prioridad_8cc_source.html#l00028">28</a> del archivo <a class="el" href="Prioridad_8cc_source.html">Prioridad.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                                          {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">for</span> (list&lt;Proceso&gt;::const_iterator it = <a class="code" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a>.begin(); it != <a class="code" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a>.end(); ++it) {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">if</span> (it -&gt; consultar_id() == n) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">return</span> found;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -289,10 +288,10 @@ Atributos privados</h2></td></tr>
 <dl class="section pre"><dt>Precondición</dt><dd><em>Cierto</em> </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Se ha incrementado en uno el contador de procesos aceptados del P.I. </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="Prioridad_8cc_source.html#l00016">16</a> del archivo <a class="el" href="Prioridad_8cc_source.html">Prioridad.cc</a>.</p>
-<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                                      {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    ++<a class="code" href="classPrioridad.html#a618a5c55d8c8dcd68fa9e85dc0b26066">aceptados</a>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
+<p class="definition">Definición en la línea <a class="el" href="Prioridad_8cc_source.html#l00020">20</a> del archivo <a class="el" href="Prioridad_8cc_source.html">Prioridad.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                                      {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    ++<a class="code" href="classPrioridad.html#a618a5c55d8c8dcd68fa9e85dc0b26066">aceptados</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -315,10 +314,10 @@ Atributos privados</h2></td></tr>
 <dl class="section pre"><dt>Precondición</dt><dd><em>Cierto</em> </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Se ha incrementado en uno el contador de procesos rechazados del P.I. </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="Prioridad_8cc_source.html#l00020">20</a> del archivo <a class="el" href="Prioridad_8cc_source.html">Prioridad.cc</a>.</p>
-<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                                       {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    ++<a class="code" href="classPrioridad.html#a65a0d943a980d29aedab2b7700a6ae7a">rechazados</a>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
+<p class="definition">Definición en la línea <a class="el" href="Prioridad_8cc_source.html#l00024">24</a> del archivo <a class="el" href="Prioridad_8cc_source.html">Prioridad.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                       {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    ++<a class="code" href="classPrioridad.html#a65a0d943a980d29aedab2b7700a6ae7a">rechazados</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -341,10 +340,10 @@ Atributos privados</h2></td></tr>
 <dl class="section pre"><dt>Precondición</dt><dd>El P.I. contine algun proceso </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>El resultado es el proceso mas antiguo del P.I. </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="Prioridad_8cc_source.html#l00040">40</a> del archivo <a class="el" href="Prioridad_8cc_source.html">Prioridad.cc</a>.</p>
-<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                                 {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">return</span> *<a class="code" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a>.begin();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
+<p class="definition">Definición en la línea <a class="el" href="Prioridad_8cc_source.html#l00039">39</a> del archivo <a class="el" href="Prioridad_8cc_source.html">Prioridad.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                                 {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">return</span> *<a class="code" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a>.begin();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -367,10 +366,10 @@ Atributos privados</h2></td></tr>
 <dl class="section pre"><dt>Precondición</dt><dd><em>Cierto</em> </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>El resultado indica si el P.I. contiene procesos </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="Prioridad_8cc_source.html#l00036">36</a> del archivo <a class="el" href="Prioridad_8cc_source.html">Prioridad.cc</a>.</p>
-<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                            {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a>.empty();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+<p class="definition">Definición en la línea <a class="el" href="Prioridad_8cc_source.html#l00035">35</a> del archivo <a class="el" href="Prioridad_8cc_source.html">Prioridad.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                            {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classPrioridad.html#af3141cdfac87c4e1690242c38862f15a">cjt</a>.empty();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -395,7 +394,9 @@ Atributos privados</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="Prioridad_8hh_source.html#l00027">27</a> del archivo <a class="el" href="Prioridad_8hh_source.html">Prioridad.hh</a>.</p>
+<p>Numero de procesos aceptados por algun cluster. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="Prioridad_8hh_source.html#l00036">36</a> del archivo <a class="el" href="Prioridad_8hh_source.html">Prioridad.hh</a>.</p>
 
 </div>
 </div>
@@ -419,7 +420,10 @@ Atributos privados</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="Prioridad_8hh_source.html#l00025">25</a> del archivo <a class="el" href="Prioridad_8hh_source.html">Prioridad.hh</a>.</p>
+<p>Procesos pertinentes a la prioridad. </p>
+<p>Ordenada crecientemente por antiguedad </p>
+
+<p class="definition">Definición en la línea <a class="el" href="Prioridad_8hh_source.html#l00030">30</a> del archivo <a class="el" href="Prioridad_8hh_source.html">Prioridad.hh</a>.</p>
 
 </div>
 </div>
@@ -443,7 +447,9 @@ Atributos privados</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="Prioridad_8hh_source.html#l00026">26</a> del archivo <a class="el" href="Prioridad_8hh_source.html">Prioridad.hh</a>.</p>
+<p>Numero de procesos rechazados por algun cluster. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="Prioridad_8hh_source.html#l00033">33</a> del archivo <a class="el" href="Prioridad_8hh_source.html">Prioridad.hh</a>.</p>
 
 </div>
 </div>
