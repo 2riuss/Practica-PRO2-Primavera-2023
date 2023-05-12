@@ -39,7 +39,7 @@ int main() {
             c.leer_cluster();
             cout << '#' << cmd << endl;
         }
-/*
+
         else if (cmd == "mc" or cmd == "modificar_cluster") {
             string p;
             cin >> p;
@@ -51,15 +51,15 @@ int main() {
                 cout << "error: no existe procesador" << endl;
             }
             else if (not c.procesador_vacio(p)) {
-                cout << "error: procesador con procesos en ejecucion" << endl;
+                cout << "error: procesador con procesos" << endl;
             }
             else if (c.procesadores_auxiliares(p)){
-                cout << "error: procesador con procesadores auxiliares" << endl;
+                cout << "error: procesador con auxiliares" << endl;
             }
 
             else c.substituir(p, aux);
         }
-*/
+
         else if (cmd == "ap" or cmd == "alta_prioridad") {
             string id;
             cin >> id;
@@ -140,7 +140,7 @@ int main() {
 
             else c.eliminar_proceso(p, n);
         }
-/*
+
         else if (cmd == "epc" or cmd == "enviar_procesos_cluster") {
             int n;
             cin >> n;
@@ -148,7 +148,7 @@ int main() {
 
             ae.enviar_procesos_cluster(c, n);
         }
-*/
+
         else if (cmd == "at" or cmd == "avanzar_tiempo") {
             int t;
             cin >> t;
@@ -198,7 +198,7 @@ int main() {
 
             c.escribir_estructura();
         }
-/*
+
         else if (cmd == "cmp" or cmd == "compactar_memoria_procesador") {
             string p;
             cin >> p;
@@ -216,7 +216,7 @@ int main() {
 
             c.compactar_memoria();
         }
-*/
+
 
         cin >> cmd;
     }

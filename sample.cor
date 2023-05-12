@@ -148,6 +148,7 @@ proc122
 #epc 100
 #ipc
 p1
+0 80 10 10
 p2
 p3
 proc1
@@ -155,7 +156,6 @@ proc1
 proc11
 0 100 10 1
 10 80 5 5
-15 80 10 10
 proc111
 proc112
 proc12

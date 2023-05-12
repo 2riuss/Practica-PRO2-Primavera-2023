@@ -36,8 +36,14 @@ bool Prioridad::vacia() const {
     return cjt.empty();
 }
 
-Proceso Prioridad::proceso() const {
+Proceso Prioridad::primer() const {
     return *cjt.begin();
+}
+
+Proceso Prioridad::ultim() const {
+    list<Proceso>::const_iterator it = cjt.end();
+    --it;
+    return *it;
 }
 
 void Prioridad::escribir_prioridad() const {

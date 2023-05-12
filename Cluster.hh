@@ -64,6 +64,10 @@ private:
      */
     static bool procesadores_auxiliares_aux(const BinTree<string>& e, const string& id);
 
+    static void agregar_proceso_aux(const Proceso& job, const map<string, Procesador>& proc, const BinTree<string>& e, bool& succes, string& candidat, int& min_hueco, int& free_mem);
+
+    static BinTree<string> substituir_aux(const string& id, BinTree<string>& e1, const BinTree<string>& e2);
+
 public:
     // Constructoras
 
@@ -105,7 +109,7 @@ public:
      *  - más cercania a la raíz del cúster
      *  - más a la izquierda del cluster
      */
-    void agregar_proceso(const Proceso& job);
+    bool agregar_proceso(const Proceso& job);
 
     /**
      * @brief Sustituye un procesador por un cluster

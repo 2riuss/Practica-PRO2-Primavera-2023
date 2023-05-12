@@ -10,7 +10,7 @@ Procesador::Procesador(int mem) {
     mem_mida = mem;
 
     set<int> newset;
-    newset.insert(0);
+    newset.insert(newset.end(), 0);
     huecos.insert(huecos.end(), make_pair(mem, newset));
 }
 
@@ -80,7 +80,26 @@ void Procesador::eliminar_proceso(int n) {
     eliminar_proceso_aux(it1, it2);
 }
 
-// void Procesador::compactar_memoria() {}
+void Procesador::compactar_memoria() {
+    int pos = 0;
+    map<int, Proceso>::iterator it = mem.begin();
+    while (it != mem.end()) {
+        if (it -> first != pos) {
+            procesos.find(it -> second.consultar_id()) -> second = pos;
+            mem.insert(it, make_pair(pos, it -> second));
+            pos += it -> second.consultar_mem();
+            it = mem.erase(it);
+        }
+        else {
+            pos += it -> second.consultar_mem();
+            ++it;
+        }
+    }
+    huecos.clear();
+    set<int> newset;
+    newset.insert(newset.end(), pos);
+    huecos.insert(huecos.end(), make_pair(mem_mida - pos, newset));
+}
 
 void Procesador::avanzar_tiempo(int t) {
     map<int, Proceso>::iterator it = mem.begin();
@@ -106,8 +125,20 @@ bool Procesador::vacio() const {
     return procesos.empty();
 }
 
+int Procesador::free_mem() const {
+    int aux = 0;
+    for (map<int, set<int>>::const_iterator it = huecos.begin(); it != huecos.end(); ++it) {
+        aux += it -> first*it -> second.size();
+    }
+    return aux;
+}
+
 bool Procesador::cabe_proceso(const Proceso& job) const {
     return huecos.lower_bound(job.consultar_mem()) != huecos.end();
+}
+
+int Procesador::hueco_proceso(const Proceso& job) const {
+    return huecos.lower_bound(job.consultar_mem()) -> first;
 }
 
 void Procesador::escribir_procesador() const {

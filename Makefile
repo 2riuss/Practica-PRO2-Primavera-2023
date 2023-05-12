@@ -31,13 +31,17 @@ Prioridad.o:
 	g++ -c Prioridad.cc $(OPCIONS)
 
 open:
-	kate *.cc [^B]*.hh Makefile ./entrega_intermedia/s* &
+	kate *.cc [^B]*.hh Makefile &
 
-testprogram: program.exe
+test2:
+	./program.exe < ./sample.inp > test.txt
+	kompare test.txt ./sample.cor &
+
+test1:
 	./program.exe < ./entrega_intermedia/sample_intermedia.inp > test.txt
 	kompare test.txt ./entrega_intermedia/sample_intermedia.cor &
 
-test:
+test0:
 	./program.exe < ./test.inp > ./test.txt
 	kompare test.txt ./test.cor &
 

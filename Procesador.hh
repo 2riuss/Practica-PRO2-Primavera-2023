@@ -152,6 +152,8 @@ public:
      */
     bool vacio() const;
 
+    int free_mem() const;
+
     /**
      * @brief Indica si el proceso cabe en el procesador
      *
@@ -159,6 +161,8 @@ public:
      * \post El resultado indica si el proceso <em>job</em> cabe en el P.I.
      */
     bool cabe_proceso(const Proceso& job) const;
+
+    int hueco_proceso(const Proceso& job) const;
 
 
     // Lectura y escritura

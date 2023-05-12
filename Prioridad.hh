@@ -114,8 +114,10 @@ public:
      * \pre El P.I. contine algun proceso
      * \post El resultado es el proceso mas antiguo del P.I.
      */
-    Proceso proceso() const;
+    Proceso primer() const;
 
+// no buit
+    Proceso ultim() const;
 
     // Lectura y escritura
 

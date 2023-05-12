@@ -52,4 +52,27 @@ void Area_Espera::escribir_area_espera() const {
     }
 }
 
-// void Area_Espera::enviar_procesos_cluster(Cluster& c, int n) {}
+void Area_Espera::enviar_procesos_cluster(Cluster& c, int n) {
+    map<string, Prioridad>::iterator it = ae.begin();
+    while (it != ae.end() and it -> second.vacia()) ++it;
+    int ultim = -1;
+    if (it != ae.end()) ultim = it -> second.ultim().consultar_id();
+    while (n > 0 and it != ae.end()) {
+        Proceso job = it -> second.primer();
+        if (c.agregar_proceso(job)) {
+            it -> second.incrementar_aceptados();
+            it -> second.eliminar_proceso();
+            --n;
+        }
+        else {
+            it -> second.incrementar_rechazados();
+            it -> second.eliminar_proceso();
+            it -> second.agregar_proceso(job);
+        }
+        if (job.consultar_id() == ultim) {
+            ++it;
+            while (it != ae.end() and it -> second.vacia()) ++it;
+            if (it != ae.end()) ultim = it -> second.ultim().consultar_id();
+        }
+    }
+}
