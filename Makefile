@@ -3,31 +3,24 @@ OPCIONS = -D_JUDGE_ -D_GLIBCXX_DEBUG -O2 -Wall -Wextra -Werror -Wno-sign-compare
 #G++ = g++-10
 
 program.exe: clean program.o Cluster.o Procesador.o Proceso.o Area_Espera.o Prioridad.o
-	clear
 	g++ -o program.exe program.o Cluster.o Procesador.o Proceso.o Area_Espera.o Prioridad.o
 
 program.o:
-	clear
 	g++ -c program.cc $(OPCIONS)
 
 Cluster.o:
-	clear
 	g++ -c Cluster.cc $(OPCIONS)
 
 Procesador.o:
-	clear
 	g++ -c Procesador.cc $(OPCIONS)
 
 Proceso.o:
-	clear
 	g++ -c Proceso.cc $(OPCIONS)
 
 Area_Espera.o:
-	clear
 	g++ -c Area_Espera.cc $(OPCIONS)
 
 Prioridad.o:
-	clear
 	g++ -c Prioridad.cc $(OPCIONS)
 
 open:

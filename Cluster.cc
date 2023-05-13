@@ -14,33 +14,34 @@ void Cluster::eliminar_proceso(const string& id, int n) {
     procesadores.find(id) -> second.eliminar_proceso(n);
 }
 
-// esta malament pq proximitat a la arrel i en cas empat esquerra
-void Cluster::agregar_proceso_aux(const Proceso& job, const map<string, Procesador>& proc, const BinTree<string>& e, bool& succes, string& candidat, int& min_hueco, int& free_mem) {
-    map<string, Procesador>::const_iterator it = proc.find(e.value());
-    if (it -> second.cabe_proceso(job)) {
-        int aux = it -> second.hueco_proceso(job);
-        if (min_hueco == -1 or aux <= min_hueco) {
-            int aux2 = it -> second.free_mem();
-            if (min_hueco == -1 or aux < min_hueco or free_mem < aux2) {
-                min_hueco = aux;
-                candidat = it -> first;
-                succes = true;
-                free_mem = aux2;
+bool Cluster::agregar_proceso(const Proceso& job) {
+    string candidat;
+    int min_hueco = -1;
+    int free_mem = -1;
+    queue<BinTree<string>> cola;
+    cola.push(estr);
+
+    while (min_hueco != job.consultar_mem() and not cola.empty()) {
+        map<string, Procesador>::const_iterator it = procesadores.find(cola.front().value());
+        if (not it -> second.existe_proceso(job.consultar_id()) and it -> second.cabe_proceso(job)) {
+            int aux = it -> second.hueco_proceso(job);
+            if (min_hueco == -1 or aux <= min_hueco) {
+                int aux2 = it -> second.free_mem();
+                if (min_hueco == -1 or aux < min_hueco or free_mem < aux2) {
+                    min_hueco = aux;
+                    candidat = it -> first;
+                    free_mem = aux2;
+                }
             }
         }
-    }
-    if (min_hueco != job.consultar_mem() and not e.left().empty()) agregar_proceso_aux(job, proc, e.left(), succes, candidat, min_hueco, free_mem);
-    if (min_hueco != job.consultar_mem() and not e.right().empty()) agregar_proceso_aux(job, proc, e.right(), succes, candidat, min_hueco, free_mem);
-}
 
-bool Cluster::agregar_proceso(const Proceso& job) {
-    bool b = false;
-    string pro;
-    int a1, a2;
-    a1 = a2 = -1;
-    agregar_proceso_aux(job, procesadores, estr, b, pro, a1, a2);
-    if (b) procesadores.find(pro) -> second.agregar_proceso(job);
-    return b;
+        if (not cola.front().left().empty()) cola.push(cola.front().left());
+        if (not cola.front().right().empty()) cola.push(cola.front().right());
+        cola.pop();
+    }
+
+    if (min_hueco != -1) procesadores.find(candidat) -> second.agregar_proceso(job);
+    return min_hueco != -1;
 }
 
 BinTree<string> Cluster::substituir_aux(const string& id, BinTree<string>& e1, const BinTree<string>& e2) {

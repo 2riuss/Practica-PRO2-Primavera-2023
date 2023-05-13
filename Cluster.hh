@@ -14,6 +14,7 @@
 #include <string>
 #include "BinTree.hh"
 #include <map>
+#include <queue>
 #endif
 
 using namespace std;
@@ -63,8 +64,6 @@ private:
      * \post El resultado indica si el nodo <em>id</em> tiene hijos
      */
     static bool procesadores_auxiliares_aux(const BinTree<string>& e, const string& id);
-
-    static void agregar_proceso_aux(const Proceso& job, const map<string, Procesador>& proc, const BinTree<string>& e, bool& succes, string& candidat, int& min_hueco, int& free_mem);
 
     static BinTree<string> substituir_aux(const string& id, BinTree<string>& e1, const BinTree<string>& e2);
 
