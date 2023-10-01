@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['vacia_69',['vacia',['../classPrioridad.html#a1d8103c061b0554a72231104e6b45685',1,'Prioridad']]],
-  ['vacio_70',['vacio',['../classProcesador.html#aa0cc3905c36dac0d66b2c078d4950eab',1,'Procesador']]]
+  ['substituir_70',['substituir',['../classCluster.html#a70c8276662b2b396225c5a3dcf80611a',1,'Cluster']]],
+  ['substituir_5faux_71',['substituir_aux',['../classCluster.html#a3ed0804b3d8f9d264ca102305e53c53f',1,'Cluster']]]
 ];

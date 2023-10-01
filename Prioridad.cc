@@ -10,11 +10,11 @@ Prioridad::Prioridad() {
 }
 
 void Prioridad::agregar_proceso(const Proceso& job) {
-    cjt.insert(cjt.end(), job);
+    procesos_pendientes.insert(procesos_pendientes.end(), job);
 }
 
 void Prioridad::eliminar_proceso() {
-    cjt.erase(cjt.begin());
+    procesos_pendientes.erase(procesos_pendientes.begin());
 }
 
 void Prioridad::incrementar_aceptados() {
@@ -25,29 +25,27 @@ void Prioridad::incrementar_rechazados() {
     ++rechazados;
 }
 
-bool Prioridad::existe_proceso(int n) const {
-    for (list<Proceso>::const_iterator it = cjt.begin(); it != cjt.end(); ++it) {
-        if (it -> consultar_id() == n) return true;
+bool Prioridad::existe_proceso(int id_proceso) const {
+    for (list<Proceso>::const_iterator it = procesos_pendientes.begin(); it != procesos_pendientes.end(); ++it) {
+        if (it -> consultar_id() == id_proceso) return true;
     }
     return false;
 }
 
 bool Prioridad::vacia() const {
-    return cjt.empty();
+    return procesos_pendientes.empty();
 }
 
 Proceso Prioridad::primer() const {
-    return *cjt.begin();
+    return *procesos_pendientes.begin();
 }
 
-Proceso Prioridad::ultim() const {
-    list<Proceso>::const_iterator it = cjt.end();
-    --it;
-    return *it;
+int Prioridad::num_procesos() const {
+    return procesos_pendientes.size();
 }
 
 void Prioridad::escribir_prioridad() const {
-    for (list<Proceso>::const_iterator it = cjt.begin(); it != cjt.end(); ++it) {
+    for (list<Proceso>::const_iterator it = procesos_pendientes.begin(); it != procesos_pendientes.end(); ++it) {
         it -> escribir_proceso();
     }
 

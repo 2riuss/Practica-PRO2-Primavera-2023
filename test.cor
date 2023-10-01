@@ -93,3 +93,25 @@ error: no cabe proceso
 1 3 7 8
 #avanzar_tiempo 90
 #imprimir_procesador proc1
+#imprimir_procesadores_cluster
+proc1
+proc11
+proc111
+proc112
+proc12
+proc121
+proc122
+#imprimir_estructura_cluster
+(proc1(proc11(proc111  )(proc112  ))(proc12(proc121  )(proc122  )))
+#imprimir_area_espera
+11
+0 0
+111
+0 0
+1111
+0 0
+11111
+0 0
+a
+10 9 9
+0 0

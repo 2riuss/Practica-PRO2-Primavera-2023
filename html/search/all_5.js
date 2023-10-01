@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['leer_5fcluster_40',['leer_cluster',['../classCluster.html#a1823bab6dff05332c50e507d5e5c6107',1,'Cluster']]],
-  ['leer_5fcluster_5faux_41',['leer_cluster_aux',['../classCluster.html#a448ff285e9b0693f2fdf1dce6f669e21',1,'Cluster']]],
-  ['leer_5fprioridades_42',['leer_prioridades',['../classArea__Espera.html#ac308b8a8b5991c87c2475f29e2bbbe4f',1,'Area_Espera']]],
-  ['leer_5fproceso_43',['leer_proceso',['../classProceso.html#acfc1b59d4fa0dd7bba4d02c6c6880ea9',1,'Proceso']]]
+  ['id_40',['id',['../classProceso.html#aedb36cca995b8b23d2e3d3739d30b216',1,'Proceso']]],
+  ['idproceso_5fpos_41',['idProceso_pos',['../classProcesador.html#a3746d96383d78a659aafc128f93877ab',1,'Procesador']]],
+  ['incrementar_5faceptados_42',['incrementar_aceptados',['../classPrioridad.html#a7ac1aced277c5bad5df5a9deb1acb01f',1,'Prioridad']]],
+  ['incrementar_5frechazados_43',['incrementar_rechazados',['../classPrioridad.html#aa6ae362131d34f8809368b1a28b163a9',1,'Prioridad']]]
 ];

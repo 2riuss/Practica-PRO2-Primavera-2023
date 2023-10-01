@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['main_44',['main',['../program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'program.cc']]],
-  ['mem_45',['mem',['../classProcesador.html#a62085f567fa9ab7d35b270a794e518cf',1,'Procesador::mem()'],['../classProceso.html#a2f0077c9db56775d552dc3941a81ec0b',1,'Proceso::mem()']]],
-  ['mem_5fmida_46',['mem_mida',['../classProcesador.html#a48a3d463cd247d6e47777bca5f1bf177',1,'Procesador']]]
+  ['leer_5fcluster_44',['leer_cluster',['../classCluster.html#a1823bab6dff05332c50e507d5e5c6107',1,'Cluster']]],
+  ['leer_5fcluster_5faux_45',['leer_cluster_aux',['../classCluster.html#a64d628499508698666d8e193dc002976',1,'Cluster']]],
+  ['leer_5fprioridades_46',['leer_prioridades',['../classArea__Espera.html#ac308b8a8b5991c87c2475f29e2bbbe4f',1,'Area_Espera']]],
+  ['leer_5fproceso_47',['leer_proceso',['../classProceso.html#acfc1b59d4fa0dd7bba4d02c6c6880ea9',1,'Proceso']]]
 ];

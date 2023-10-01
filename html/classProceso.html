@@ -136,6 +136,7 @@ Atributos privados</h2></td></tr>
 <p>Constructora por defecto. </p>
 <p>Se ejecuta por defecto al declarar un proceso </p><dl class="section pre"><dt>Precondición</dt><dd><em>Cierto</em> </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>El resultado es un proceso sin inicializar </dd></dl>
+<dl class="section user"><dt>Coste</dt><dd>O(1) </dd></dl>
 
 <p class="definition">Definición en la línea <a class="el" href="Proceso_8cc_source.html#l00007">7</a> del archivo <a class="el" href="Proceso_8cc_source.html">Proceso.cc</a>.</p>
 <div class="fragment"><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{}</div>
@@ -160,8 +161,9 @@ Atributos privados</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Simula el avance del tiempo en el proceso. </p>
-<p>La ejecucion ha progresado t unidades de tiempo </p><dl class="section pre"><dt>Precondición</dt><dd>El tipempo estimado del P.I. es estrictamente mayor que <em>t</em> </dd></dl>
+<p>La ejecucion ha progresado t unidades de tiempo </p><dl class="section pre"><dt>Precondición</dt><dd>El P.I. esta inicializado y el tipempo estimado del P.I. es estrictamente mayor que <em>t</em> </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>El P.I. se ha actualizado como si hubieran pasado <em>t</em> unidades de tiempo </dd></dl>
+<dl class="section user"><dt>Coste</dt><dd>O(1) </dd></dl>
 
 <p class="definition">Definición en la línea <a class="el" href="Proceso_8cc_source.html#l00009">9</a> del archivo <a class="el" href="Proceso_8cc_source.html">Proceso.cc</a>.</p>
 <div class="fragment"><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;                                  {</div>
@@ -187,8 +189,9 @@ Atributos privados</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Consultora del identificador. </p>
-<dl class="section pre"><dt>Precondición</dt><dd><em>Cierto</em> </dd></dl>
+<dl class="section pre"><dt>Precondición</dt><dd>El P.I. esta inicializado </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>El resultado es el identificador del P.I. </dd></dl>
+<dl class="section user"><dt>Coste</dt><dd>O(1) </dd></dl>
 
 <p class="definition">Definición en la línea <a class="el" href="Proceso_8cc_source.html#l00013">13</a> del archivo <a class="el" href="Proceso_8cc_source.html">Proceso.cc</a>.</p>
 <div class="fragment"><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                                {</div>
@@ -214,8 +217,9 @@ Atributos privados</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Consultora de la memoria estimada. </p>
-<dl class="section pre"><dt>Precondición</dt><dd><em>Cierto</em> </dd></dl>
+<dl class="section pre"><dt>Precondición</dt><dd>El P.I. esta inicializado </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>El resultado es la memoria estimada del P.I. </dd></dl>
+<dl class="section user"><dt>Coste</dt><dd>O(1) </dd></dl>
 
 <p class="definition">Definición en la línea <a class="el" href="Proceso_8cc_source.html#l00021">21</a> del archivo <a class="el" href="Proceso_8cc_source.html">Proceso.cc</a>.</p>
 <div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                                 {</div>
@@ -241,8 +245,9 @@ Atributos privados</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Consultora del tiempo estimado. </p>
-<dl class="section pre"><dt>Precondición</dt><dd><em>Cierto</em> </dd></dl>
+<dl class="section pre"><dt>Precondición</dt><dd>El P.I. esta inicializado </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>El resultado es el tiempo estimado del P.I. </dd></dl>
+<dl class="section user"><dt>Coste</dt><dd>O(1) </dd></dl>
 
 <p class="definition">Definición en la línea <a class="el" href="Proceso_8cc_source.html#l00017">17</a> del archivo <a class="el" href="Proceso_8cc_source.html">Proceso.cc</a>.</p>
 <div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                               {</div>
@@ -267,8 +272,9 @@ Atributos privados</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Escribe un proceso. </p>
-<dl class="section pre"><dt>Precondición</dt><dd><em>Cierto</em> </dd></dl>
+<dl class="section pre"><dt>Precondición</dt><dd>El P.I. esta inicializado </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Se ha escrito en el canal estandar de salida los datos del P.I. </dd></dl>
+<dl class="section user"><dt>Coste</dt><dd>O(1) </dd></dl>
 
 <p class="definition">Definición en la línea <a class="el" href="Proceso_8cc_source.html#l00029">29</a> del archivo <a class="el" href="Proceso_8cc_source.html">Proceso.cc</a>.</p>
 <div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                                     {</div>
@@ -295,6 +301,7 @@ Atributos privados</h2></td></tr>
 <p>Lee un proceso. </p>
 <dl class="section pre"><dt>Precondición</dt><dd>El P.I. esta sin inicializar y estan preparados en el canal estandar de entrada los datos de un proceso </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>El P.I. pasa a estar inicializado con el proceso leido del canal estandar de entrada </dd></dl>
+<dl class="section user"><dt>Coste</dt><dd>O(1) </dd></dl>
 
 <p class="definition">Definición en la línea <a class="el" href="Proceso_8cc_source.html#l00025">25</a> del archivo <a class="el" href="Proceso_8cc_source.html">Proceso.cc</a>.</p>
 <div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                           {</div>

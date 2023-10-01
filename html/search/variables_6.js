@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['procesadores_141',['procesadores',['../classCluster.html#a0456efea2e21cfeebda8f61669649a59',1,'Cluster']]],
-  ['procesos_142',['procesos',['../classProcesador.html#a5658c31931650b06c122d7ee505f52a2',1,'Procesador']]]
+  ['mem_148',['mem',['../classProceso.html#a2f0077c9db56775d552dc3941a81ec0b',1,'Proceso']]],
+  ['memory_5fsize_149',['memory_size',['../classProcesador.html#a418204528fe8aa481777594d42dc1a77',1,'Procesador']]]
 ];

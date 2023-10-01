@@ -2,8 +2,6 @@
  * @mainpage Pràctica Bernat Dosrius Lleonart: Simulando una arquitectura multiprocesador
  *
  * En esta pràctica se construye un programa modular que ofrece un menú de opciones para gestionar una arquitectura multiprocesador. Se introducen las clases Cluster, Procesador, Area_Espera, Prioridad y Proceso.
- *
- * Sólo se documentan elementos públicos.
  */
 
 /**

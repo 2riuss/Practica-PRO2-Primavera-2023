@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['main_121',['main',['../program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'program.cc']]]
+  ['incrementar_5faceptados_121',['incrementar_aceptados',['../classPrioridad.html#a7ac1aced277c5bad5df5a9deb1acb01f',1,'Prioridad']]],
+  ['incrementar_5frechazados_122',['incrementar_rechazados',['../classPrioridad.html#aa6ae362131d34f8809368b1a28b163a9',1,'Prioridad']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rechazados_66',['rechazados',['../classPrioridad.html#a65a0d943a980d29aedab2b7700a6ae7a',1,'Prioridad']]]
+  ['num_5fprocesos_51',['num_procesos',['../classPrioridad.html#ac2f8f35ada4a1dea84ee13dc3d26d76e',1,'Prioridad']]]
 ];

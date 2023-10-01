@@ -78,89 +78,86 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;BinTree.hh&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classCluster.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCluster.html">Cluster</a> {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classCluster.html#a98182aff1e89d6c6c73dd245e992a76a">   34</a></span>&#160;    BinTree&lt;string&gt; <a class="code" href="classCluster.html#a98182aff1e89d6c6c73dd245e992a76a">estr</a>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classCluster.html#a0456efea2e21cfeebda8f61669649a59">   39</a></span>&#160;    map&lt;string, Procesador&gt; <a class="code" href="classCluster.html#a0456efea2e21cfeebda8f61669649a59">procesadores</a>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">/* Invariante de la representacion</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">     *  - los strings del map procesadores representan los identificadores de los procesadores</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">     *  - proceesadores no contiene procesadores con un mismo identificador</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> leer_cluster_aux(map&lt;string, Procesador&gt;&amp; proc, BinTree&lt;string&gt;&amp; e);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> escribir_estructura_aux(<span class="keyword">const</span> BinTree&lt;string&gt;&amp; e);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classCluster.html#a874aefd0fd6d25776d8b6b5127ddb5e1">   65</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classCluster.html#a874aefd0fd6d25776d8b6b5127ddb5e1">procesadores_auxiliares_aux</a>(<span class="keyword">const</span> BinTree&lt;string&gt;&amp; e, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;queue&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classCluster.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCluster.html">Cluster</a> {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classCluster.html#a3da8dde9664e84c3007bec9b80430a9b">   35</a></span>&#160;    BinTree&lt;string&gt; <a class="code" href="classCluster.html#a3da8dde9664e84c3007bec9b80430a9b">estructura</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classCluster.html#a133660526a433cb13b10182e85dfb118">   40</a></span>&#160;    map&lt;string, pair&lt;bool, Procesador&gt;&gt; <a class="code" href="classCluster.html#a133660526a433cb13b10182e85dfb118">cjt_procesadores</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">/* Invariante de la representacion</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">     * - Los strings del map cjt_procesadores y los del BinTree estructura representan los identificadores de los procesadores</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">     * - Todo string de cjt_procesadores también esta en estructura y viceversa</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">     * - cjt_procesadores no contiene procesadores con un mismo identificador</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">     * - estructura no contiene dos identificadores iguales</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">static</span> BinTree&lt;string&gt; substituir_aux(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id_procesador, <span class="keyword">const</span> BinTree&lt;string&gt;&amp; e1, <span class="keyword">const</span> BinTree&lt;string&gt;&amp; e2);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> leer_cluster_aux(map&lt;<span class="keywordtype">string</span>, pair&lt;bool, Procesador&gt;&gt;&amp; cjt_pro, BinTree&lt;string&gt;&amp; e);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">// Constructoras</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="classCluster.html">Cluster</a>();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">// Modificadoras</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span> agregar_proceso(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <span class="keywordtype">id</span>, <span class="keyword">const</span> <a class="code" href="classProceso.html">Proceso</a>&amp; job);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> eliminar_proceso(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <span class="keywordtype">id</span>, <span class="keywordtype">int</span> n);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="classCluster.html#a602981e792962e7da266947b249b4942">  108</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCluster.html#a602981e792962e7da266947b249b4942">agregar_proceso</a>(<span class="keyword">const</span> <a class="code" href="classProceso.html">Proceso</a>&amp; job);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="classCluster.html#a2f47f9ded1a66f41198ac356a8001d11">  116</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCluster.html#a2f47f9ded1a66f41198ac356a8001d11">substituir</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <span class="keywordtype">id</span>, <span class="keyword">const</span> <a class="code" href="classCluster.html">Cluster</a>&amp; c);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="classCluster.html#af1d70d101f428e687474d14808e1e1dc">  124</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCluster.html#af1d70d101f428e687474d14808e1e1dc">compactar_memoria_procesador</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="classCluster.html#a622839c3b8dc923dc36f6026f35db269">  132</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCluster.html#a622839c3b8dc923dc36f6026f35db269">compactar_memoria</a>();</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordtype">void</span> avanzar_tiempo(<span class="keywordtype">int</span> t);</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordtype">void</span> clear();</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="comment">// Consultoras</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordtype">bool</span> existe_procesador(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordtype">bool</span> existe_proceso(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <span class="keywordtype">id</span>, <span class="keywordtype">int</span> n) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> escribir_estructura_aux(<span class="keyword">const</span> BinTree&lt;string&gt;&amp; e);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">// Constructoras</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="classCluster.html">Cluster</a>();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">// Modificadoras</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">void</span> agregar_proceso(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id_procesador, <span class="keyword">const</span> <a class="code" href="classProceso.html">Proceso</a>&amp; job);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">void</span> eliminar_proceso(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id_procesador, <span class="keywordtype">int</span> id_proceso);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">bool</span> agregar_proceso(<span class="keyword">const</span> <a class="code" href="classProceso.html">Proceso</a>&amp; job);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">void</span> substituir(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id_procesador, <span class="keyword">const</span> <a class="code" href="classCluster.html">Cluster</a>&amp; c);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordtype">void</span> compactar_memoria_procesador(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id_procesador);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">void</span> compactar_memoria();</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordtype">void</span> avanzar_tiempo(<span class="keywordtype">int</span> t);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">void</span> clear();</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordtype">bool</span> procesador_vacio(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
-<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="classCluster.html#a8aa0aa56c2e4dfbd1ada2aa6ba7153c8">  185</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classCluster.html#a8aa0aa56c2e4dfbd1ada2aa6ba7153c8">procesadores_auxiliares</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordtype">bool</span> cabe_proceso(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; p, <span class="keyword">const</span> <a class="code" href="classProceso.html">Proceso</a>&amp; job) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="comment">// Lectura i escritura</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordtype">void</span> leer_cluster();</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordtype">void</span> escribir_procesador(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordtype">void</span> escribir_procesadores() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordtype">void</span> escribir_estructura() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;};</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="comment">// Consultoras</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordtype">bool</span> existe_procesador(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id_procesador) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordtype">bool</span> existe_proceso(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id_procesador, <span class="keywordtype">int</span> id_proceso) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordtype">bool</span> procesador_vacio(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id_procesador) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordtype">bool</span> procesadores_auxiliares(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id_procesador) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordtype">bool</span> cabe_proceso(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id_procesador, <span class="keyword">const</span> <a class="code" href="classProceso.html">Proceso</a>&amp; job) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="comment">// Lectura i escritura</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordtype">void</span> leer_cluster();</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keywordtype">void</span> escribir_procesador(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id_procesador) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="keywordtype">void</span> escribir_procesadores() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keywordtype">void</span> escribir_estructura() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;};</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aProcesador_8hh_html"><div class="ttname"><a href="Procesador_8hh.html">Procesador.hh</a></div><div class="ttdoc">Especificacion de la clase Procesador.</div></div>
 <div class="ttc" id="aProceso_8hh_html"><div class="ttname"><a href="Proceso_8hh.html">Proceso.hh</a></div><div class="ttdoc">Especificacion de la clase Proceso.</div></div>
-<div class="ttc" id="aclassCluster_html"><div class="ttname"><a href="classCluster.html">Cluster</a></div><div class="ttdoc">Representa un cluster de procesadores.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8hh_source.html#l00030">Cluster.hh:30</a></div></div>
-<div class="ttc" id="aclassCluster_html_a0456efea2e21cfeebda8f61669649a59"><div class="ttname"><a href="classCluster.html#a0456efea2e21cfeebda8f61669649a59">Cluster::procesadores</a></div><div class="ttdeci">map&lt; string, Procesador &gt; procesadores</div><div class="ttdoc">Procesadores pertenecientes al cluster.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8hh_source.html#l00039">Cluster.hh:39</a></div></div>
-<div class="ttc" id="aclassCluster_html_a2f47f9ded1a66f41198ac356a8001d11"><div class="ttname"><a href="classCluster.html#a2f47f9ded1a66f41198ac356a8001d11">Cluster::substituir</a></div><div class="ttdeci">void substituir(const string &amp;id, const Cluster &amp;c)</div><div class="ttdoc">Sustituye un procesador por un cluster.</div></div>
-<div class="ttc" id="aclassCluster_html_a602981e792962e7da266947b249b4942"><div class="ttname"><a href="classCluster.html#a602981e792962e7da266947b249b4942">Cluster::agregar_proceso</a></div><div class="ttdeci">void agregar_proceso(const Proceso &amp;job)</div><div class="ttdoc">Añade un proceso al cluster.</div></div>
-<div class="ttc" id="aclassCluster_html_a622839c3b8dc923dc36f6026f35db269"><div class="ttname"><a href="classCluster.html#a622839c3b8dc923dc36f6026f35db269">Cluster::compactar_memoria</a></div><div class="ttdeci">void compactar_memoria()</div><div class="ttdoc">Compacta la memoria de todos los procesadores del cluster.</div></div>
-<div class="ttc" id="aclassCluster_html_a874aefd0fd6d25776d8b6b5127ddb5e1"><div class="ttname"><a href="classCluster.html#a874aefd0fd6d25776d8b6b5127ddb5e1">Cluster::procesadores_auxiliares_aux</a></div><div class="ttdeci">static bool procesadores_auxiliares_aux(const BinTree&lt; string &gt; &amp;e, const string &amp;id)</div><div class="ttdoc">Inmersion de procesadores_auxiliares</div></div>
-<div class="ttc" id="aclassCluster_html_a8aa0aa56c2e4dfbd1ada2aa6ba7153c8"><div class="ttname"><a href="classCluster.html#a8aa0aa56c2e4dfbd1ada2aa6ba7153c8">Cluster::procesadores_auxiliares</a></div><div class="ttdeci">bool procesadores_auxiliares(const string &amp;id) const</div><div class="ttdoc">Indica si el procesador del cluster tiene procesadores auxiliares.</div></div>
-<div class="ttc" id="aclassCluster_html_a98182aff1e89d6c6c73dd245e992a76a"><div class="ttname"><a href="classCluster.html#a98182aff1e89d6c6c73dd245e992a76a">Cluster::estr</a></div><div class="ttdeci">BinTree&lt; string &gt; estr</div><div class="ttdoc">Estructura interna del cluster.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8hh_source.html#l00034">Cluster.hh:34</a></div></div>
-<div class="ttc" id="aclassCluster_html_af1d70d101f428e687474d14808e1e1dc"><div class="ttname"><a href="classCluster.html#af1d70d101f428e687474d14808e1e1dc">Cluster::compactar_memoria_procesador</a></div><div class="ttdeci">void compactar_memoria_procesador(const string &amp;id)</div><div class="ttdoc">Compacta la memoria de un procesador.</div></div>
+<div class="ttc" id="aclassCluster_html"><div class="ttname"><a href="classCluster.html">Cluster</a></div><div class="ttdoc">Representa un cluster de procesadores.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8hh_source.html#l00031">Cluster.hh:31</a></div></div>
+<div class="ttc" id="aclassCluster_html_a133660526a433cb13b10182e85dfb118"><div class="ttname"><a href="classCluster.html#a133660526a433cb13b10182e85dfb118">Cluster::cjt_procesadores</a></div><div class="ttdeci">map&lt; string, pair&lt; bool, Procesador &gt; &gt; cjt_procesadores</div><div class="ttdoc">Procesadores pertenecientes al cluster y un bool que indica si tienen procesadores auxiliares.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8hh_source.html#l00040">Cluster.hh:40</a></div></div>
+<div class="ttc" id="aclassCluster_html_a3da8dde9664e84c3007bec9b80430a9b"><div class="ttname"><a href="classCluster.html#a3da8dde9664e84c3007bec9b80430a9b">Cluster::estructura</a></div><div class="ttdeci">BinTree&lt; string &gt; estructura</div><div class="ttdoc">Estructura interna del cluster.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8hh_source.html#l00035">Cluster.hh:35</a></div></div>
 <div class="ttc" id="aclassProceso_html"><div class="ttname"><a href="classProceso.html">Proceso</a></div><div class="ttdoc">Representa un proceso.</div><div class="ttdef"><b>Definition:</b> <a href="Proceso_8hh_source.html#l00021">Proceso.hh:21</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

@@ -63,6 +63,9 @@ Se ejecuta por defecto al declarar un proceso \begin{DoxyPrecond}{Precondición}
 \begin{DoxyPostcond}{Postcondición}
 El resultado es un proceso sin inicializar 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+O(1) 
+\end{DoxyParagraph}
 
 
 Definición en la línea 7 del archivo Proceso.\+cc.
@@ -86,11 +89,14 @@ Definición en la línea 7 del archivo Proceso.\+cc.
 Simula el avance del tiempo en el proceso. 
 
 La ejecucion ha progresado t unidades de tiempo \begin{DoxyPrecond}{Precondición}
-El tipempo estimado del P.\+I. es estrictamente mayor que {\itshape t} 
+El P.\+I. esta inicializado y el tipempo estimado del P.\+I. es estrictamente mayor que {\itshape t} 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
 El P.\+I. se ha actualizado como si hubieran pasado {\itshape t} unidades de tiempo 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+O(1) 
+\end{DoxyParagraph}
 
 
 Definición en la línea 9 del archivo Proceso.\+cc.
@@ -113,11 +119,14 @@ Definición en la línea 9 del archivo Proceso.\+cc.
 Consultora del identificador. 
 
 \begin{DoxyPrecond}{Precondición}
-{\itshape Cierto} 
+El P.\+I. esta inicializado 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
 El resultado es el identificador del P.\+I. 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+O(1) 
+\end{DoxyParagraph}
 
 
 Definición en la línea 13 del archivo Proceso.\+cc.
@@ -140,11 +149,14 @@ Definición en la línea 13 del archivo Proceso.\+cc.
 Consultora de la memoria estimada. 
 
 \begin{DoxyPrecond}{Precondición}
-{\itshape Cierto} 
+El P.\+I. esta inicializado 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
 El resultado es la memoria estimada del P.\+I. 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+O(1) 
+\end{DoxyParagraph}
 
 
 Definición en la línea 21 del archivo Proceso.\+cc.
@@ -167,11 +179,14 @@ Definición en la línea 21 del archivo Proceso.\+cc.
 Consultora del tiempo estimado. 
 
 \begin{DoxyPrecond}{Precondición}
-{\itshape Cierto} 
+El P.\+I. esta inicializado 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
 El resultado es el tiempo estimado del P.\+I. 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+O(1) 
+\end{DoxyParagraph}
 
 
 Definición en la línea 17 del archivo Proceso.\+cc.
@@ -194,11 +209,14 @@ Definición en la línea 17 del archivo Proceso.\+cc.
 Escribe un proceso. 
 
 \begin{DoxyPrecond}{Precondición}
-{\itshape Cierto} 
+El P.\+I. esta inicializado 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
 Se ha escrito en el canal estandar de salida los datos del P.\+I. 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+O(1) 
+\end{DoxyParagraph}
 
 
 Definición en la línea 29 del archivo Proceso.\+cc.
@@ -226,6 +244,9 @@ El P.\+I. esta sin inicializar y estan preparados en el canal estandar de entrad
 \begin{DoxyPostcond}{Postcondición}
 El P.\+I. pasa a estar inicializado con el proceso leido del canal estandar de entrada 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+O(1) 
+\end{DoxyParagraph}
 
 
 Definición en la línea 25 del archivo Proceso.\+cc.

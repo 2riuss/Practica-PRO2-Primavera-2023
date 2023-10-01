@@ -6,31 +6,31 @@
 
 Cluster::Cluster() {}
 
-void Cluster::agregar_proceso(const string& id, const Proceso& job) {
-    procesadores.find(id) -> second.agregar_proceso(job);
+void Cluster::agregar_proceso(const string& id_procesador, const Proceso& job) {
+    cjt_procesadores.find(id_procesador) -> second.second.agregar_proceso(job);
 }
 
-void Cluster::eliminar_proceso(const string& id, int n) {
-    procesadores.find(id) -> second.eliminar_proceso(n);
+void Cluster::eliminar_proceso(const string& id_procesador, int id_proceso) {
+    cjt_procesadores.find(id_procesador) -> second.second.eliminar_proceso(id_proceso);
 }
 
 bool Cluster::agregar_proceso(const Proceso& job) {
-    string candidat;
-    int min_hueco = -1;
-    int free_mem = -1;
+    string candidat_id;
+    int candidat_hueco = -1;
+    int candidat_free_mem = -1;
     queue<BinTree<string>> cola;
-    cola.push(estr);
+    if (not estructura.empty()) cola.push(estructura);
 
-    while (min_hueco != job.consultar_mem() and not cola.empty()) {
-        map<string, Procesador>::const_iterator it = procesadores.find(cola.front().value());
-        if (not it -> second.existe_proceso(job.consultar_id()) and it -> second.cabe_proceso(job)) {
-            int aux = it -> second.hueco_proceso(job);
-            if (min_hueco == -1 or aux <= min_hueco) {
-                int aux2 = it -> second.free_mem();
-                if (min_hueco == -1 or aux < min_hueco or free_mem < aux2) {
-                    min_hueco = aux;
-                    candidat = it -> first;
-                    free_mem = aux2;
+    while (candidat_hueco != job.consultar_mem() and not cola.empty()) {
+        map<string, pair<bool, Procesador>>::const_iterator it = cjt_procesadores.find(cola.front().value());
+        if (not it -> second.second.existe_proceso(job.consultar_id()) and it -> second.second.cabe_proceso(job)) {
+            int hueco = it -> second.second.hueco_proceso(job);
+            if (candidat_hueco == -1 or hueco <= candidat_hueco) {
+                int free_mem = it -> second.second.free_mem();
+                if (candidat_hueco == -1 or hueco < candidat_hueco or candidat_free_mem < free_mem) {
+                    candidat_id = it -> first;
+                    candidat_hueco = hueco;
+                    candidat_free_mem = free_mem;
                 }
             }
         }
@@ -40,103 +40,96 @@ bool Cluster::agregar_proceso(const Proceso& job) {
         cola.pop();
     }
 
-    if (min_hueco != -1) procesadores.find(candidat) -> second.agregar_proceso(job);
-    return min_hueco != -1;
+    if (candidat_hueco != -1) cjt_procesadores.find(candidat_id) -> second.second.agregar_proceso(job);
+    return candidat_hueco != -1;
 }
 
-BinTree<string> Cluster::substituir_aux(const string& id, BinTree<string>& e1, const BinTree<string>& e2) {
+BinTree<string> Cluster::substituir_aux(const string& id_procesador, const BinTree<string>& e1, const BinTree<string>& e2) {
     if (e1.empty()) return e1;
-    if (e1.value() == id) return e2;
+    if (e1.value() == id_procesador) return e2;
     BinTree<string> l = e1.left();
     BinTree<string> r = e1.right();
-    return BinTree<string>(e1.value(), substituir_aux(id, l, e2), substituir_aux(id, r, e2));
+    return BinTree<string>(e1.value(), substituir_aux(id_procesador, l, e2), substituir_aux(id_procesador, r, e2));
 }
 
-void Cluster::substituir(const string& id, const Cluster& c) {
-    procesadores.erase(id);
-    for (map<string, Procesador>::const_iterator it = c.procesadores.begin(); it != c.procesadores.end(); ++it) {
-        procesadores.insert(*it);
+void Cluster::substituir(const string& id_procesador, const Cluster& c) {
+    cjt_procesadores.erase(id_procesador);
+    for (map<string, pair<bool, Procesador>>::const_iterator it = c.cjt_procesadores.begin(); it != c.cjt_procesadores.end(); ++it) {
+        cjt_procesadores.insert(*it);
     }
-    estr = substituir_aux(id, estr, c.estr);
+    estructura = substituir_aux(id_procesador, estructura, c.estructura);
 }
 
-void Cluster::compactar_memoria_procesador(const string& id) {
-    procesadores.find(id) -> second.compactar_memoria();
+void Cluster::compactar_memoria_procesador(const string& id_procesador) {
+    cjt_procesadores.find(id_procesador) -> second.second.compactar_memoria();
 }
 
 void Cluster::compactar_memoria() {
-    for (map<string, Procesador>::iterator it = procesadores.begin(); it != procesadores.end(); ++it) {
-        it -> second.compactar_memoria();
+    for (map<string, pair<bool, Procesador>>::iterator it = cjt_procesadores.begin(); it != cjt_procesadores.end(); ++it) {
+        it -> second.second.compactar_memoria();
     }
 }
 
 void Cluster::avanzar_tiempo(int t) {
-    for (map<string, Procesador>::iterator it = procesadores.begin(); it != procesadores.end(); ++it) {
-        it -> second.avanzar_tiempo(t);
+    for (map<string, pair<bool, Procesador>>::iterator it = cjt_procesadores.begin(); it != cjt_procesadores.end(); ++it) {
+        it -> second.second.avanzar_tiempo(t);
     }
 }
 
 void Cluster::clear() {
-    procesadores.clear();
-    estr = BinTree<string>();
+    cjt_procesadores.clear();
+    estructura = BinTree<string>();
 }
 
-bool Cluster::existe_procesador(const string& id) const {
-    return procesadores.find(id) != procesadores.end();
+bool Cluster::existe_procesador(const string& id_procesador) const {
+    return cjt_procesadores.find(id_procesador) != cjt_procesadores.end();
 }
 
-bool Cluster::existe_proceso(const string& id, int n) const {
-    return procesadores.find(id) -> second.existe_proceso(n);
+bool Cluster::existe_proceso(const string& id_procesador, int id_proceso) const {
+    return cjt_procesadores.find(id_procesador) -> second.second.existe_proceso(id_proceso);
 }
 
-bool Cluster::procesador_vacio(const string& id) const {
-    return procesadores.find(id) -> second.vacio();
+bool Cluster::procesador_vacio(const string& id_procesador) const {
+    return cjt_procesadores.find(id_procesador) -> second.second.vacio();
 }
 
-// si implemento un found a l'arbre aquesta canvia
-// si fas un bool s'elimina
-bool Cluster::procesadores_auxiliares_aux(const BinTree<string>& e, const string& id) {
-    if (e.empty()) return false;
-    if (e.value() == id) return not e.right().empty() or not e.left().empty();
-    return procesadores_auxiliares_aux(e.right(), id) or procesadores_auxiliares_aux(e.left(), id);
+bool Cluster::procesadores_auxiliares(const string& id_procesador) const {
+    return cjt_procesadores.find(id_procesador) -> second.first;
 }
 
-bool Cluster::procesadores_auxiliares(const string& id) const {
-    return procesadores_auxiliares_aux(estr, id);
+bool Cluster::cabe_proceso(const string& id_procesador, const Proceso& job) const {
+    return cjt_procesadores.find(id_procesador) -> second.second.cabe_proceso(job);
 }
 
-bool Cluster::cabe_proceso(const string& p, const Proceso& job) const {
-    return procesadores.find(p) -> second.cabe_proceso(job);
-}
-
-void Cluster::leer_cluster_aux(map<string, Procesador>& procesadores, BinTree<string>& e) {
+void Cluster::leer_cluster_aux(map<string, pair<bool, Procesador>>& cjt_pro, BinTree<string>& e) {
     string id;
     cin >> id;
 
     if (id != "*") {
         int mem;
         cin >> mem;
-        procesadores.insert(make_pair(id, Procesador(mem)));
 
         BinTree<string> izq, der;
-        leer_cluster_aux(procesadores, izq);
-        leer_cluster_aux(procesadores, der);
+        leer_cluster_aux(cjt_pro, izq);
+        leer_cluster_aux(cjt_pro, der);
+
+        cjt_pro.insert(make_pair(id, make_pair(not izq.empty() or not der.empty(), Procesador(mem))));
         e = BinTree<string>(id, izq, der);
     }
 }
 
 void Cluster::leer_cluster() {
-    leer_cluster_aux(procesadores, estr);
+    leer_cluster_aux(cjt_procesadores, estructura);
 }
 
 void Cluster::escribir_procesador(const string& id) const {
-    procesadores.find(id) -> second.escribir_procesador();
+    cjt_procesadores.find(id) -> second.second.escribir_procesador();
 }
 
 void Cluster::escribir_procesadores() const {
-    for (map<string, Procesador>::const_iterator it = procesadores.begin(); it != procesadores.end(); ++it) {
+    for (map<string, pair<bool, Procesador>>::const_iterator it = cjt_procesadores.begin(); it != cjt_procesadores.end(); ++it) {
         cout << it -> first << endl;
-        it -> second.escribir_procesador();
+        it -> second.second.escribir_procesador();
     }
 }
 
@@ -151,6 +144,6 @@ void Cluster::escribir_estructura_aux(const BinTree<string>& e) {
 }
 
 void Cluster::escribir_estructura() const {
-    escribir_estructura_aux(estr);
+    escribir_estructura_aux(estructura);
     cout << endl;
 }

@@ -25,6 +25,8 @@ alta_proceso_procesador
 t 10 1 10
 imprimir_procesadores_cluster
 imprimir_estructura_cluster
+
+
 configurar_cluster
 proc1
 10
@@ -50,6 +52,8 @@ proc122
 *
 imprimir_procesadores_cluster
 imprimir_estructura_cluster
+
+
 alta_prioridad
 11
 alta_prioridad
@@ -75,6 +79,8 @@ imprimir_prioridad
 a
 imprimir_prioridad
 11
+
+
 imprimir_procesador
 proc1
 imprimir_procesador
@@ -117,4 +123,8 @@ avanzar_tiempo
 90
 imprimir_procesador
 proc1
+
+imprimir_procesadores_cluster
+imprimir_estructura_cluster
+imprimir_area_espera
 fin

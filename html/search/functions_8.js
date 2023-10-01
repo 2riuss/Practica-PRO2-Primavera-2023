@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['vacia_131',['vacia',['../classPrioridad.html#a1d8103c061b0554a72231104e6b45685',1,'Prioridad']]],
-  ['vacio_132',['vacio',['../classProcesador.html#aa0cc3905c36dac0d66b2c078d4950eab',1,'Procesador']]]
+  ['num_5fprocesos_128',['num_procesos',['../classPrioridad.html#ac2f8f35ada4a1dea84ee13dc3d26d76e',1,'Prioridad']]]
 ];

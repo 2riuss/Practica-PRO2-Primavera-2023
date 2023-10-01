@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['incrementar_5faceptados_115',['incrementar_aceptados',['../classPrioridad.html#a7ac1aced277c5bad5df5a9deb1acb01f',1,'Prioridad']]],
-  ['incrementar_5frechazados_116',['incrementar_rechazados',['../classPrioridad.html#aa6ae362131d34f8809368b1a28b163a9',1,'Prioridad']]]
+  ['free_5fmem_119',['free_mem',['../classProcesador.html#afa33659c7bd7ab6431151bf569d0fccb',1,'Procesador']]]
 ];

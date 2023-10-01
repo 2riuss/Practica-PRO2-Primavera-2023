@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['id_138',['id',['../classProceso.html#aedb36cca995b8b23d2e3d3739d30b216',1,'Proceso']]]
+  ['huecos_145',['huecos',['../classProcesador.html#a4df6aff2b5cffc92889fa78a2665eec5',1,'Procesador']]]
 ];
