@@ -26,31 +26,32 @@ Prioridad.o: Prioridad.hh Prioridad.cc
 open:
 	kate program.cc Cluster.hh Cluster.cc Procesador.hh Procesador.cc Area_Espera.hh Area_Espera.cc Prioridad.hh Prioridad.cc Proceso.hh Proceso.cc Makefile &
 
-test2:
+test3: program.exe
+	./program.exe < ./sample2.inp > test.txt
+	kompare test.txt ./sample2.cor &
+	rm test.txt
+
+test2: program.exe
 	./program.exe < ./sample.inp > test.txt
 	kompare test.txt ./sample.cor &
 	rm test.txt
 
-test1:
+test1: program.exe
 	./program.exe < ./entrega_intermedia/sample_intermedia.inp > test.txt
 	kompare test.txt ./entrega_intermedia/sample_intermedia.cor &
 	rm test.txt
 
-test0:
+test0: program.exe
 	./program.exe < ./test.inp > ./test.txt
 	kompare test.txt ./test.cor &
 	rm test.txt
 
-tar:
+tar: program.exe
 	tar -cvf practica.tar [^t]*.cc *.hh Makefile
 
 save: clean
 	git add .
 	git commit
-
-doxygen:
-	doxygen
-	google-chrome ./html/index.html &
 
 clean:
 	rm -f *.o

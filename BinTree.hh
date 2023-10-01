@@ -1,11 +1,8 @@
 #ifndef BINTREE_HH
 #define BINTREE_HH
 
-#ifndef NO_DIAGRAM
 #include <cassert>
 #include <memory>
-#endif
-
 using namespace std;
 
 
@@ -19,8 +16,8 @@ class BinTree {
         shared_ptr<Node> left;
         shared_ptr<Node> right;
 
-        Node (const T& x, shared_ptr<Node> left, shared_ptr<Node> right)
-        :   x(x), left(left), right(right)
+        Node (const T& xx, shared_ptr<Node> l, shared_ptr<Node> r)
+        :   x(xx), left(l), right(r)
         {   }
 
     };
@@ -29,8 +26,8 @@ class BinTree {
     shared_ptr<Node> p;
 
     // Constructs a tree from a node pointer.
-    BinTree (shared_ptr<Node> p)
-    :   p(p)
+    BinTree (shared_ptr<Node> pp)
+    :   p(pp)
     {   }
 
     // Notes:
@@ -46,12 +43,12 @@ public:
     {   }
 
     // Constructs a tree with a value x and no subtrees. Θ(1).
-    explicit BinTree (const T& x) {
+    BinTree (const T& x) {
         p = make_shared<Node>(x, nullptr, nullptr);
     }
 
     // Constructs a tree with a value x and two subtrees left and right. Θ(1).
-    explicit BinTree (const T& x, const BinTree& left, const BinTree& right) {
+    BinTree (const T& x, const BinTree& left, const BinTree& right) {
         p = make_shared<Node>(x, left.p, right.p);
     }
 
@@ -79,4 +76,5 @@ public:
     }
 
 };
+
 #endif

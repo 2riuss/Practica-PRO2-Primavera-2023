@@ -215,6 +215,24 @@ int main() {
             c.compactar_memoria();
         }
 
+        else if (cmd == "pc" or cmd == "podar_cluster") {
+            string p;
+            cin >> p;
+            cout << '#' << cmd << ' ' << p << endl;
+
+            if (c.primer_procesador(p)) {
+                cout << "error: se intenta borrar la raiz" << endl;
+            }
+            else if (not c.existe_procesador(p)) {
+                cout << "error: no existe procesador" << endl;
+            }
+
+            else {
+                pair<int, int> n = c.podar(p);
+                cout << "Poda " << n.first << ' ' << n.second << endl;
+            }
+        }
+
 
         cin >> cmd;
     }

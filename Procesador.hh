@@ -31,7 +31,7 @@ private:
     /** @brief Conjuntos de huecos libres en el procesador
      *
      * Los huecos estan designados por su posicion inicial y estan agrupados y ordenados por su tamaño */
-    map<int, set<int>> huecos;
+    map<int, set<int, greater<int>>> huecos;
 
     /** @brief Procesos pertenecientes al procesador
      *
@@ -196,6 +196,8 @@ public:
      * \coste O(log(n))
      */
     int hueco_proceso(const Proceso& job) const;
+
+    int num_procesos() const;
 
 
     // Lectura y escritura

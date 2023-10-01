@@ -81,6 +81,39 @@ void Cluster::clear() {
     estructura = BinTree<string>();
 }
 
+pair<int, int> Cluster::eliminar_subarbol(map<string, pair<bool, Procesador>>& proc, BinTree<string>& e) {
+    if (e.empty()) return make_pair(0, 0);
+    map<string, pair<bool, Procesador>>::const_iterator it = proc.find(e.value());
+
+    BinTree<string> l = e.left();
+    BinTree<string> r = e.right();
+    pair<int, int> a = eliminar_subarbol(proc, l);
+    pair<int, int> b = eliminar_subarbol(proc, r);
+    int n = it -> second.second.num_procesos();
+
+    e = BinTree<string>();
+    proc.erase(it);
+    return make_pair(1 + a.first + b.first, n + a.second + b.second);
+}
+
+pair<int, int> Cluster::podar_aux(const string& id, map<string, pair<bool, Procesador>>& proc, BinTree<string>& e) {
+    if (e.empty()) return make_pair(0, 0);
+    if (e.value() == id) return eliminar_subarbol(proc, e);
+    if ((not e.left().empty() and e.left().value() == id and e.right().empty()) or (e.left().empty() and not e.right().empty() and e.right().value() == id)) {
+        proc.find(e.value()) -> second.first = false;
+    }
+    BinTree<string> l = e.left();
+    BinTree<string> r = e.right();
+    pair<int, int> a = podar_aux(id, proc, l);
+    pair<int, int> b = podar_aux(id, proc, r);
+    e = BinTree<string>(e.value(), l, r);
+    return make_pair(a.first + b.first, a.second + b.second);
+}
+
+pair<int, int> Cluster::podar(const string& id_procesador) {
+    return podar_aux(id_procesador, cjt_procesadores, estructura);
+}
+
 bool Cluster::existe_procesador(const string& id_procesador) const {
     return cjt_procesadores.find(id_procesador) != cjt_procesadores.end();
 }
@@ -99,6 +132,10 @@ bool Cluster::procesadores_auxiliares(const string& id_procesador) const {
 
 bool Cluster::cabe_proceso(const string& id_procesador, const Proceso& job) const {
     return cjt_procesadores.find(id_procesador) -> second.second.cabe_proceso(job);
+}
+
+bool Cluster::primer_procesador(const string& id_procesador) const {
+    return estructura.value() == id_procesador;
 }
 
 void Cluster::leer_cluster_aux(map<string, pair<bool, Procesador>>& cjt_pro, BinTree<string>& e) {

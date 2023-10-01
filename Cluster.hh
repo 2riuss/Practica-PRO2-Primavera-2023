@@ -72,6 +72,8 @@ private:
      */
     static void escribir_estructura_aux(const BinTree<string>& e);
 
+    static pair<int, int> eliminar_subarbol(map<string, pair<bool, Procesador>>& proc, BinTree<string>& e);
+    static pair<int, int> podar_aux(const string& id_procesador, map<string, pair<bool, Procesador>>& proc, BinTree<string>& e);
 public:
     // Constructoras
 
@@ -167,6 +169,8 @@ public:
      */
     void clear();
 
+    pair<int, int> podar(const string& id_procesador);
+
 
     // Consultoras
 
@@ -214,6 +218,8 @@ public:
      * \coste O(log(n))
      */
     bool cabe_proceso(const string& id_procesador, const Proceso& job) const;
+
+    bool primer_procesador(const string& id_procesador) const;
 
 
     // Lectura i escritura

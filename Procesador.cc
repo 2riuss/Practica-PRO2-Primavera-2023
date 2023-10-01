@@ -13,16 +13,16 @@ Procesador::Procesador(int mem) {
     memory_size = mem;
     free_memory = mem;
 
-    set<int> newset;
+    set<int, greater<int>> newset;
     newset.insert(newset.end(), 0);
     huecos.insert(huecos.end(), make_pair(mem, newset));
 }
 
 void Procesador::agregar_hueco(int mida, int pos) {
-    map<int, set<int>>::iterator it = huecos.lower_bound(mida);
+    map<int, set<int, greater<int>>>::iterator it = huecos.lower_bound(mida);
     if (it != huecos.end() and it -> first == mida) it -> second.insert(pos);
     else {
-        set<int> newset;
+        set<int, greater<int>> newset;
         newset.insert(newset.end(), pos);
         huecos.insert(it, make_pair(mida, newset));
     }
@@ -31,7 +31,7 @@ void Procesador::agregar_hueco(int mida, int pos) {
 }
 
 void Procesador::agregar_proceso(const Proceso& job) {
-    map<int, set<int>>::iterator it = huecos.lower_bound(job.consultar_mem());
+    map<int, set<int, greater<int>>>::iterator it = huecos.lower_bound(job.consultar_mem());
     int job_pos = *(it -> second.begin());
     int newhueco_mida = it -> first - job.consultar_mem();
     int newhueco_pos = job_pos + job.consultar_mem();
@@ -46,7 +46,7 @@ void Procesador::agregar_proceso(const Proceso& job) {
 }
 
 void Procesador::eliminar_hueco(int mida, int pos) {
-    map<int, set<int>>::iterator it = huecos.find(mida);
+    map<int, set<int, greater<int>>>::iterator it = huecos.find(mida);
     it -> second.erase(pos);
     if (it -> second.empty()) huecos.erase(it);
 
@@ -108,7 +108,7 @@ void Procesador::compactar_memoria() {
     }
 
     huecos.clear();
-    set<int> newset;
+    set<int, greater<int>> newset;
     newset.insert(newset.end(), pos);
     huecos.insert(huecos.end(), make_pair(free_memory, newset));
 }
@@ -147,6 +147,10 @@ bool Procesador::cabe_proceso(const Proceso& job) const {
 
 int Procesador::hueco_proceso(const Proceso& job) const {
     return huecos.lower_bound(job.consultar_mem()) -> first;
+}
+
+int Procesador::num_procesos() const {
+    return idProceso_pos.size();
 }
 
 void Procesador::escribir_procesador() const {
