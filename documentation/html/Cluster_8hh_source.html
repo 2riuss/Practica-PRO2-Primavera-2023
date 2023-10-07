@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Simulando una arquitectura multiprocesador: Fichero Fuente code/Cluster.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Simulando una arquitectura multiprocesador
+   &#160;<span id="projectnumber">Bernat Dosrius Lleonart</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Cluster.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Cluster_8hh.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef CLUSTER_HH</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define CLUSTER_HH</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Procesador_8hh.html">Procesador.hh</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Proceso_8hh.html">Proceso.hh</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef NO_DIAGRAM</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="BinTree_8hh.html">BinTree.hh</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;queue&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classCluster.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCluster.html">Cluster</a> {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classCluster.html#a3da8dde9664e84c3007bec9b80430a9b">   35</a></span>&#160;    <a class="code" href="classBinTree.html">BinTree&lt;string&gt;</a> <a class="code" href="classCluster.html#a3da8dde9664e84c3007bec9b80430a9b">estructura</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classCluster.html#a133660526a433cb13b10182e85dfb118">   40</a></span>&#160;    map&lt;string, pair&lt;bool, Procesador&gt;&gt; <a class="code" href="classCluster.html#a133660526a433cb13b10182e85dfb118">cjt_procesadores</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">/* Invariante de la representacion</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">     * - Los strings del map cjt_procesadores y los del BinTree estructura representan los identificadores de los procesadores</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">     * - Todo string de cjt_procesadores también esta en estructura y viceversa</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">     * - cjt_procesadores no contiene procesadores con un mismo identificador</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">     * - estructura no contiene dos identificadores iguales</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">static</span> <a class="code" href="classBinTree.html">BinTree&lt;string&gt;</a> substituir_aux(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id_procesador, <span class="keyword">const</span> <a class="code" href="classBinTree.html">BinTree&lt;string&gt;</a>&amp; e1, <span class="keyword">const</span> <a class="code" href="classBinTree.html">BinTree&lt;string&gt;</a>&amp; e2);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> leer_cluster_aux(map&lt;<span class="keywordtype">string</span>, pair&lt;bool, Procesador&gt;&gt;&amp; cjt_pro, <a class="code" href="classBinTree.html">BinTree&lt;string&gt;</a>&amp; e);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> escribir_estructura_aux(<span class="keyword">const</span> <a class="code" href="classBinTree.html">BinTree&lt;string&gt;</a>&amp; e);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">// Constructoras</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="classCluster.html">Cluster</a>();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">// Modificadoras</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">void</span> agregar_proceso(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id_procesador, <span class="keyword">const</span> <a class="code" href="classProceso.html">Proceso</a>&amp; job);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">void</span> eliminar_proceso(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id_procesador, <span class="keywordtype">int</span> id_proceso);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">bool</span> agregar_proceso(<span class="keyword">const</span> <a class="code" href="classProceso.html">Proceso</a>&amp; job);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">void</span> substituir(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id_procesador, <span class="keyword">const</span> <a class="code" href="classCluster.html">Cluster</a>&amp; c);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordtype">void</span> compactar_memoria_procesador(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id_procesador);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">void</span> compactar_memoria();</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordtype">void</span> avanzar_tiempo(<span class="keywordtype">int</span> t);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">void</span> clear();</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="comment">// Consultoras</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordtype">bool</span> existe_procesador(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id_procesador) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordtype">bool</span> existe_proceso(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id_procesador, <span class="keywordtype">int</span> id_proceso) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordtype">bool</span> procesador_vacio(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id_procesador) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordtype">bool</span> procesadores_auxiliares(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id_procesador) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordtype">bool</span> cabe_proceso(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id_procesador, <span class="keyword">const</span> <a class="code" href="classProceso.html">Proceso</a>&amp; job) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="comment">// Lectura i escritura</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordtype">void</span> leer_cluster();</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keywordtype">void</span> escribir_procesador(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id_procesador) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="keywordtype">void</span> escribir_procesadores() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keywordtype">void</span> escribir_estructura() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;};</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aBinTree_8hh_html"><div class="ttname"><a href="BinTree_8hh.html">BinTree.hh</a></div></div>
+<div class="ttc" id="aProcesador_8hh_html"><div class="ttname"><a href="Procesador_8hh.html">Procesador.hh</a></div><div class="ttdoc">Especificacion de la clase Procesador.</div></div>
+<div class="ttc" id="aProceso_8hh_html"><div class="ttname"><a href="Proceso_8hh.html">Proceso.hh</a></div><div class="ttdoc">Especificacion de la clase Proceso.</div></div>
+<div class="ttc" id="aclassBinTree_html"><div class="ttname"><a href="classBinTree.html">BinTree&lt; string &gt;</a></div></div>
+<div class="ttc" id="aclassCluster_html"><div class="ttname"><a href="classCluster.html">Cluster</a></div><div class="ttdoc">Representa un cluster de procesadores.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8hh_source.html#l00031">Cluster.hh:31</a></div></div>
+<div class="ttc" id="aclassCluster_html_a133660526a433cb13b10182e85dfb118"><div class="ttname"><a href="classCluster.html#a133660526a433cb13b10182e85dfb118">Cluster::cjt_procesadores</a></div><div class="ttdeci">map&lt; string, pair&lt; bool, Procesador &gt; &gt; cjt_procesadores</div><div class="ttdoc">Procesadores pertenecientes al cluster y un bool que indica si tienen procesadores auxiliares.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8hh_source.html#l00040">Cluster.hh:40</a></div></div>
+<div class="ttc" id="aclassCluster_html_a3da8dde9664e84c3007bec9b80430a9b"><div class="ttname"><a href="classCluster.html#a3da8dde9664e84c3007bec9b80430a9b">Cluster::estructura</a></div><div class="ttdeci">BinTree&lt; string &gt; estructura</div><div class="ttdoc">Estructura interna del cluster.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8hh_source.html#l00035">Cluster.hh:35</a></div></div>
+<div class="ttc" id="aclassProceso_html"><div class="ttname"><a href="classProceso.html">Proceso</a></div><div class="ttdoc">Representa un proceso.</div><div class="ttdef"><b>Definition:</b> <a href="Proceso_8hh_source.html#l00021">Proceso.hh:21</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

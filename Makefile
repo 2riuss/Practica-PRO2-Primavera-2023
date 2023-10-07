@@ -1,56 +1,27 @@
 OPCIONS = -D_JUDGE_ -D_GLIBCXX_DEBUG -O2 -Wall -Wextra -Werror -Wno-sign-compare -std=c++11
+SOURCES = $(addprefix ./code/, program.cc Cluster.cc Procesador.cc Proceso.cc Area_Espera.cc Prioridad.cc)
+OBJECTS = $(SOURCES:./code/%.cc=./obj/%.o)
+HEADERS = $(wildcard ./code/*.hh)
 
-#G++ = g++-10
+program.exe: $(OBJECTS)
+	g++ -o program.exe $^
 
-program.exe: program.o Cluster.o Procesador.o Proceso.o Area_Espera.o Prioridad.o
-	g++ -o program.exe program.o Cluster.o Procesador.o Proceso.o Area_Espera.o Prioridad.o
+./obj/%.o: ./code/%.cc $(HEADERS)
+	@mkdir -p ./obj
+	g++ $(OPCIONS) -c $< -I ./code -o $@
 
-program.o: program.cc
-	g++ -c program.cc $(OPCIONS)
-
-Cluster.o: Cluster.hh Cluster.cc
-	g++ -c Cluster.cc $(OPCIONS)
-
-Procesador.o: Procesador.hh Procesador.cc
-	g++ -c Procesador.cc $(OPCIONS)
-
-Proceso.o: Proceso.hh Proceso.cc
-	g++ -c Proceso.cc $(OPCIONS)
-
-Area_Espera.o: Area_Espera.hh Area_Espera.cc
-	g++ -c Area_Espera.cc $(OPCIONS)
-
-Prioridad.o: Prioridad.hh Prioridad.cc
-	g++ -c Prioridad.cc $(OPCIONS)
-
-open:
-	kate program.cc Cluster.hh Cluster.cc Procesador.hh Procesador.cc Area_Espera.hh Area_Espera.cc Prioridad.hh Prioridad.cc Proceso.hh Proceso.cc Makefile &
-
-test2:
-	./program.exe < ./sample.inp > test.txt
-	kompare test.txt ./sample.cor &
-	rm test.txt
-
-test1:
-	./program.exe < ./entrega_intermedia/sample_intermedia.inp > test.txt
-	kompare test.txt ./entrega_intermedia/sample_intermedia.cor &
-	rm test.txt
-
-test0:
-	./program.exe < ./test.inp > ./test.txt
-	kompare test.txt ./test.cor &
+test%: program.exe		# aviable tests are {test1, test2, test3}
+	./program.exe < ./tests/$@.inp > ./test.txt
+	kompare test.txt ./tests/$@.cor
 	rm test.txt
 
 tar:
-	tar -cvf practica.tar [^t]*.cc *.hh Makefile
-
-save: clean
-	git add .
-	git commit
+	tar -cvf practica.tar $(SOURCES) $(HEADERS) Makefile
 
 doxygen:
 	doxygen
-	google-chrome ./html/index.html &
+	google-chrome ./documentation/html/index.html &
 
 clean:
-	rm -f *.o
+	rm -rf obj
+	rm -f practica.tar
